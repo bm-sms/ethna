@@ -8,7 +8,7 @@
  */
 
 /**
- *  {$project_id}¥æ¥Ë¥Ã¥È¥Æ¥¹¥È¥Þ¥Í¡¼¥¸¥ã¥¯¥é¥¹
+ *  {$project_id}ãƒ¦ãƒ‹ãƒƒãƒˆãƒ†ã‚¹ãƒˆãƒžãƒãƒ¼ã‚¸ãƒ£ã‚¯ãƒ©ã‚¹
  *
  *  @author     {$author}
  *  @access     public
@@ -17,13 +17,13 @@
 class {$project_id}_UnitTestManager extends Ethna_UnitTestManager
 {
     /**
-     *  @var    array   °ìÈÌ¥Æ¥¹¥È¥±¡¼¥¹ÄêµÁ
+     *  @var    array   ä¸€èˆ¬ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹å®šç¾©
      */
     var $testcase = array(
         /*
-         *  TODO: ¤³¤³¤Ë°ìÈÌ¥Æ¥¹¥È¥±¡¼¥¹ÄêµÁ¤òµ­½Ò¤·¤Æ¤¯¤À¤µ¤¤
+         *  TODO: ã“ã“ã«ä¸€èˆ¬ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹å®šç¾©ã‚’è¨˜è¿°ã—ã¦ãã ã•ã„
          *
-         *  µ­½ÒÎã¡§
+         *  è¨˜è¿°ä¾‹ï¼š
          *
          *  'util' => 'app/UtilTest.php',
          */

@@ -7,16 +7,16 @@
  *  @version    $Id$
  */
 
-/** ¥¢¥×¥ê¥±¡¼¥·¥ç¥ó¥Ù¡¼¥¹¥Ç¥£¥ì¥¯¥È¥ê */
+/** ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ãƒ™ãƒ¼ã‚¹ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª */
 define('BASE', dirname(dirname(__FILE__)));
 
-/** include_path¤ÎÀßÄê(¥¢¥×¥ê¥±¡¼¥·¥ç¥ó¥Ç¥£¥ì¥¯¥È¥ê¤òÄÉ²Ã) */
+/** include_pathã®è¨­å®š(ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’è¿½åŠ ) */
 $app = BASE . "/app";
 $lib = BASE . "/lib";
 ini_set('include_path', ini_get('include_path') . PATH_SEPARATOR . implode(PATH_SEPARATOR, array($app, $lib)));
 
 
-/** ¥¢¥×¥ê¥±¡¼¥·¥ç¥ó¥é¥¤¥Ö¥é¥ê¤Î¥¤¥ó¥¯¥ë¡¼¥É */
+/** ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰ */
 require_once 'Ethna/Ethna.php';
 require_once '{$project_id}_Error.php';
 require_once '{$project_id}_ActionClass.php';
@@ -24,7 +24,7 @@ require_once '{$project_id}_ActionForm.php';
 require_once '{$project_id}_ViewClass.php';
 
 /**
- *  {$project_id}¥¢¥×¥ê¥±¡¼¥·¥ç¥ó¤Î¥³¥ó¥È¥í¡¼¥éÄêµÁ
+ *  {$project_id}ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã®ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ©å®šç¾©
  *
  *  @author     {$author}
  *  @access     public
@@ -37,18 +37,18 @@ class {$project_id}_Controller extends Ethna_Controller
      */
 
     /**
-     *  @var    string  ¥¢¥×¥ê¥±¡¼¥·¥ç¥óID
+     *  @var    string  ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ID
      */
     var $appid = '{$application_id}';
 
     /**
-     *  @var    array   forwardÄêµÁ
+     *  @var    array   forwardå®šç¾©
      */
     var $forward = array(
         /*
-         *  TODO: ¤³¤³¤ËforwardÀè¤òµ­½Ò¤·¤Æ¤¯¤À¤µ¤¤
+         *  TODO: ã“ã“ã«forwardå…ˆã‚’è¨˜è¿°ã—ã¦ãã ã•ã„
          *
-         *  µ­½ÒÎã¡§
+         *  è¨˜è¿°ä¾‹ï¼š
          *
          *  'index'         => array(
          *      'view_name' => '{$project_id}_View_Index',
@@ -57,33 +57,33 @@ class {$project_id}_Controller extends Ethna_Controller
     );
 
     /**
-     *  @var    array   actionÄêµÁ
+     *  @var    array   actionå®šç¾©
      */
     var $action = array(
         /*
-         *  TODO: ¤³¤³¤ËactionÄêµÁ¤òµ­½Ò¤·¤Æ¤¯¤À¤µ¤¤
+         *  TODO: ã“ã“ã«actionå®šç¾©ã‚’è¨˜è¿°ã—ã¦ãã ã•ã„
          *
-         *  µ­½ÒÎã¡§
+         *  è¨˜è¿°ä¾‹ï¼š
          *
          *  'index'     => array(),
          */
     );
 
     /**
-     *  @var    array   soap actionÄêµÁ
+     *  @var    array   soap actionå®šç¾©
      */
     var $soap_action = array(
         /*
-         *  TODO: ¤³¤³¤ËSOAP¥¢¥×¥ê¥±¡¼¥·¥ç¥óÍÑ¤ÎactionÄêµÁ¤ò
-         *  µ­½Ò¤·¤Æ¤¯¤À¤µ¤¤
-         *  µ­½ÒÎã¡§
+         *  TODO: ã“ã“ã«SOAPã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ç”¨ã®actionå®šç¾©ã‚’
+         *  è¨˜è¿°ã—ã¦ãã ã•ã„
+         *  è¨˜è¿°ä¾‹ï¼š
          *
          *  'sample'            => array(),
          */
     );
 
     /**
-     *  @var    array       ¥¢¥×¥ê¥±¡¼¥·¥ç¥ó¥Ç¥£¥ì¥¯¥È¥ê
+     *  @var    array       ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª
      */
     var $directory = array(
         'action'        => 'app/action',
@@ -105,14 +105,14 @@ class {$project_id}_Controller extends Ethna_Controller
     );
 
     /**
-     *  @var    array       DB¥¢¥¯¥»¥¹ÄêµÁ
+     *  @var    array       DBã‚¢ã‚¯ã‚»ã‚¹å®šç¾©
      */
     var $db = array(
         ''              => DB_TYPE_RW,
     );
 
     /**
-     *  @var    array       ³ÈÄ¥»ÒÀßÄê
+     *  @var    array       æ‹¡å¼µå­è¨­å®š
      */
     var $ext = array(
         'php'           => 'php',
@@ -120,12 +120,12 @@ class {$project_id}_Controller extends Ethna_Controller
     );
 
     /**
-     *  @var    array   ¥¯¥é¥¹ÄêµÁ
+     *  @var    array   ã‚¯ãƒ©ã‚¹å®šç¾©
      */
     var $class = array(
         /*
-         *  TODO: ÀßÄê¥¯¥é¥¹¡¢¥í¥°¥¯¥é¥¹¡¢SQL¥¯¥é¥¹¤ò¥ª¡¼¥Ğ¡¼¥é¥¤¥É
-         *  ¤·¤¿¾ì¹ç¤Ï²¼µ­¤Î¥¯¥é¥¹Ì¾¤òËº¤ì¤º¤ËÊÑ¹¹¤·¤Æ¤¯¤À¤µ¤¤
+         *  TODO: è¨­å®šã‚¯ãƒ©ã‚¹ã€ãƒ­ã‚°ã‚¯ãƒ©ã‚¹ã€SQLã‚¯ãƒ©ã‚¹ã‚’ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰
+         *  ã—ãŸå ´åˆã¯ä¸‹è¨˜ã®ã‚¯ãƒ©ã‚¹åã‚’å¿˜ã‚Œãšã«å¤‰æ›´ã—ã¦ãã ã•ã„
          */
         'class'         => 'Ethna_ClassFactory',
         'backend'       => 'Ethna_Backend',
@@ -144,17 +144,17 @@ class {$project_id}_Controller extends Ethna_Controller
     );
 
     /**
-     *  @var    array       ¸¡º÷ÂĞ¾İ¤È¤Ê¤ë¥×¥é¥°¥¤¥ó¤Î¥¢¥×¥ê¥±¡¼¥·¥ç¥óID¤Î¥ê¥¹¥È
+     *  @var    array       æ¤œç´¢å¯¾è±¡ã¨ãªã‚‹ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã®ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³IDã®ãƒªã‚¹ãƒˆ
      */
     var $plugin_search_appids = array(
         /*
-         *  ¥×¥é¥°¥¤¥ó¸¡º÷»ş¤Ë¸¡º÷ÂĞ¾İ¤È¤Ê¤ë¥¢¥×¥ê¥±¡¼¥·¥ç¥óID¤Î¥ê¥¹¥È¤òµ­½Ò¤·¤Ş¤¹¡£
+         *  ãƒ—ãƒ©ã‚°ã‚¤ãƒ³æ¤œç´¢æ™‚ã«æ¤œç´¢å¯¾è±¡ã¨ãªã‚‹ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³IDã®ãƒªã‚¹ãƒˆã‚’è¨˜è¿°ã—ã¾ã™ã€‚
          *
-         *  µ­½ÒÎã¡§
-         *  Common_Plugin_Foo_Bar ¤Î¤è¤¦¤ÊÌ¿Ì¾¤Î¥×¥é¥°¥¤¥ó¤¬¥¢¥×¥ê¥±¡¼¥·¥ç¥ó¤Î
-         *  ¥×¥é¥°¥¤¥ó¥Ç¥£¥ì¥¯¥È¥ê¤ËÂ¸ºß¤¹¤ë¾ì¹ç¡¢°Ê²¼¤Î¤è¤¦¤Ë»ØÄê¤¹¤ë¤È
+         *  è¨˜è¿°ä¾‹ï¼š
+         *  Common_Plugin_Foo_Bar ã®ã‚ˆã†ãªå‘½åã®ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ãŒã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã®
+         *  ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã«å­˜åœ¨ã™ã‚‹å ´åˆã€ä»¥ä¸‹ã®ã‚ˆã†ã«æŒ‡å®šã™ã‚‹ã¨
          *  Common_Plugin_Foo_Bar, {$project_id}_Plugin_Foo_Bar, Ethna_Plugin_Foo_Bar
-         *  ¤Î½ç¤Ë¥×¥é¥°¥¤¥ó¤¬¸¡º÷¤µ¤ì¤Ş¤¹¡£ 
+         *  ã®é †ã«ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ãŒæ¤œç´¢ã•ã‚Œã¾ã™ã€‚ 
          *
          *  'Common', '{$project_id}', 'Ethna',
          */
@@ -162,94 +162,94 @@ class {$project_id}_Controller extends Ethna_Controller
     );
 
     /**
-     *  @var    array       ¥Õ¥£¥ë¥¿ÀßÄê
+     *  @var    array       ãƒ•ã‚£ãƒ«ã‚¿è¨­å®š
      */
     var $filter = array(
         /*
-         *  TODO: ¥Õ¥£¥ë¥¿¤òÍøÍÑ¤¹¤ë¾ì¹ç¤Ï¤³¤³¤Ë¤½¤Î¥×¥é¥°¥¤¥óÌ¾¤ò
-         *  µ­½Ò¤·¤Æ¤¯¤À¤µ¤¤
-         *  (¥¯¥é¥¹Ì¾¤ò»ØÄê¤¹¤ë¤Èfilter¥Ç¥£¥ì¥¯¥È¥ê¤«¤é¥Õ¥£¥ë¥¿¥¯¥é¥¹
-         *  ¤òÆÉ¤ß¹ş¤ß¤Ş¤¹)
+         *  TODO: ãƒ•ã‚£ãƒ«ã‚¿ã‚’åˆ©ç”¨ã™ã‚‹å ´åˆã¯ã“ã“ã«ãã®ãƒ—ãƒ©ã‚°ã‚¤ãƒ³åã‚’
+         *  è¨˜è¿°ã—ã¦ãã ã•ã„
+         *  (ã‚¯ãƒ©ã‚¹åã‚’æŒ‡å®šã™ã‚‹ã¨filterãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‹ã‚‰ãƒ•ã‚£ãƒ«ã‚¿ã‚¯ãƒ©ã‚¹
+         *  ã‚’èª­ã¿è¾¼ã¿ã¾ã™)
          *
-         *  µ­½ÒÎã¡§
+         *  è¨˜è¿°ä¾‹ï¼š
          *
          *  'ExecutionTime',
          */
     );
 
     /**
-     *  @var    array   smarty modifierÄêµÁ
+     *  @var    array   smarty modifierå®šç¾©
      */
     var $smarty_modifier_plugin = array(
         /*
-         *  TODO: ¤³¤³¤Ë¥æ¡¼¥¶ÄêµÁ¤Îsmarty modifier°ìÍ÷¤òµ­½Ò¤·¤Æ¤¯¤À¤µ¤¤
+         *  TODO: ã“ã“ã«ãƒ¦ãƒ¼ã‚¶å®šç¾©ã®smarty modifierä¸€è¦§ã‚’è¨˜è¿°ã—ã¦ãã ã•ã„
          *
-         *  µ­½ÒÎã¡§
+         *  è¨˜è¿°ä¾‹ï¼š
          *
          *  'smarty_modifier_foo_bar',
          */
     );
 
     /**
-     *  @var    array   smarty functionÄêµÁ
+     *  @var    array   smarty functionå®šç¾©
      */
     var $smarty_function_plugin = array(
         /*
-         *  TODO: ¤³¤³¤Ë¥æ¡¼¥¶ÄêµÁ¤Îsmarty function°ìÍ÷¤òµ­½Ò¤·¤Æ¤¯¤À¤µ¤¤
+         *  TODO: ã“ã“ã«ãƒ¦ãƒ¼ã‚¶å®šç¾©ã®smarty functionä¸€è¦§ã‚’è¨˜è¿°ã—ã¦ãã ã•ã„
          *
-         *  µ­½ÒÎã¡§
+         *  è¨˜è¿°ä¾‹ï¼š
          *
          *  'smarty_function_foo_bar',
          */
     );
 
     /**
-     *  @var    array   smarty blockÄêµÁ
+     *  @var    array   smarty blockå®šç¾©
      */
     var $smarty_block_plugin = array(
         /*
-         *  TODO: ¤³¤³¤Ë¥æ¡¼¥¶ÄêµÁ¤Îsmarty block°ìÍ÷¤òµ­½Ò¤·¤Æ¤¯¤À¤µ¤¤
+         *  TODO: ã“ã“ã«ãƒ¦ãƒ¼ã‚¶å®šç¾©ã®smarty blockä¸€è¦§ã‚’è¨˜è¿°ã—ã¦ãã ã•ã„
          *
-         *  µ­½ÒÎã¡§
+         *  è¨˜è¿°ä¾‹ï¼š
          *
          *  'smarty_block_foo_bar',
          */
     );
 
     /**
-     *  @var    array   smarty prefilterÄêµÁ
+     *  @var    array   smarty prefilterå®šç¾©
      */
     var $smarty_prefilter_plugin = array(
         /*
-         *  TODO: ¤³¤³¤Ë¥æ¡¼¥¶ÄêµÁ¤Îsmarty prefilter°ìÍ÷¤òµ­½Ò¤·¤Æ¤¯¤À¤µ¤¤
+         *  TODO: ã“ã“ã«ãƒ¦ãƒ¼ã‚¶å®šç¾©ã®smarty prefilterä¸€è¦§ã‚’è¨˜è¿°ã—ã¦ãã ã•ã„
          *
-         *  µ­½ÒÎã¡§
+         *  è¨˜è¿°ä¾‹ï¼š
          *
          *  'smarty_prefilter_foo_bar',
          */
     );
 
     /**
-     *  @var    array   smarty postfilterÄêµÁ
+     *  @var    array   smarty postfilterå®šç¾©
      */
     var $smarty_postfilter_plugin = array(
         /*
-         *  TODO: ¤³¤³¤Ë¥æ¡¼¥¶ÄêµÁ¤Îsmarty postfilter°ìÍ÷¤òµ­½Ò¤·¤Æ¤¯¤À¤µ¤¤
+         *  TODO: ã“ã“ã«ãƒ¦ãƒ¼ã‚¶å®šç¾©ã®smarty postfilterä¸€è¦§ã‚’è¨˜è¿°ã—ã¦ãã ã•ã„
          *
-         *  µ­½ÒÎã¡§
+         *  è¨˜è¿°ä¾‹ï¼š
          *
          *  'smarty_postfilter_foo_bar',
          */
     );
 
     /**
-     *  @var    array   smarty outputfilterÄêµÁ
+     *  @var    array   smarty outputfilterå®šç¾©
      */
     var $smarty_outputfilter_plugin = array(
         /*
-         *  TODO: ¤³¤³¤Ë¥æ¡¼¥¶ÄêµÁ¤Îsmarty outputfilter°ìÍ÷¤òµ­½Ò¤·¤Æ¤¯¤À¤µ¤¤
+         *  TODO: ã“ã“ã«ãƒ¦ãƒ¼ã‚¶å®šç¾©ã®smarty outputfilterä¸€è¦§ã‚’è¨˜è¿°ã—ã¦ãã ã•ã„
          *
-         *  µ­½ÒÎã¡§
+         *  è¨˜è¿°ä¾‹ï¼š
          *
          *  'smarty_outputfilter_foo_bar',
          */

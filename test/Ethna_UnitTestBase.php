@@ -7,17 +7,17 @@
  */
 
 /**
- *  Ethna¤Î¥Æ¥¹¥È¥±¡¼¥¹¤Î´ğÄì¥¯¥é¥¹
+ *  Ethnaã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã®åŸºåº•ã‚¯ãƒ©ã‚¹
  */
 class Ethna_UnitTestBase extends UnitTestCase
 {
-    /** @var    object  Ethna_Backend       backend¥ª¥Ö¥¸¥§¥¯¥È */
+    /** @var    object  Ethna_Backend       backendã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ */
     var $backend;
 
-    /** @var    object  Ethna_Controller    ¥³¥ó¥È¥í¡¼¥é¥ª¥Ö¥¸¥§¥¯¥È */
+    /** @var    object  Ethna_Controller    ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ©ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ */
     var $controller;
 
-    /** @var    object  Ethna_Controller    ¥³¥ó¥È¥í¡¼¥é¥ª¥Ö¥¸¥§¥¯¥È($controller¤Î¾ÊÎ¬·Á) */
+    /** @var    object  Ethna_Controller    ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ©ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ($controllerã®çœç•¥å½¢) */
     var $ctl;
 
     function Ethna_UnitTestBase($label = false)

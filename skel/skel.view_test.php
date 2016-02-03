@@ -8,7 +8,7 @@
  */
 
 /**
- *  {$forward_name}¥Ó¥å¡¼¤Î¼ÂÁõ
+ *  {$forward_name}ãƒ“ãƒ¥ãƒ¼ã®å®Ÿè£…
  *
  *  @author     {$author}
  *  @access     public
@@ -18,23 +18,23 @@ class {$view_class}_TestCase extends Ethna_UnitTestCase
 {
     /**
      *  @access private
-     *  @var    string  ¥Ó¥å¡¼Ì¾
+     *  @var    string  ãƒ“ãƒ¥ãƒ¼å
      */
     var $forward_name = '{$forward_name}';
 
     /**
-     *    ¥Æ¥¹¥È¤Î½é´ü²½
+     *    ãƒ†ã‚¹ãƒˆã®åˆæœŸåŒ–
      *
      *    @access public
      */
     function setUp()
     {
-        $this->createPlainActionForm(); // ¥¢¥¯¥·¥ç¥ó¥Õ¥©¡¼¥à¤ÎºîÀ®
-        $this->createViewClass();       // ¥Ó¥å¡¼¤ÎºîÀ®
+        $this->createPlainActionForm(); // ã‚¢ã‚¯ã‚·ãƒ§ãƒ³ãƒ•ã‚©ãƒ¼ãƒ ã®ä½œæˆ
+        $this->createViewClass();       // ãƒ“ãƒ¥ãƒ¼ã®ä½œæˆ
     }
 
     /**
-     *    ¥Æ¥¹¥È¤Î¸å»ÏËö
+     *    ãƒ†ã‚¹ãƒˆã®å¾Œå§‹æœ«
      *
      *    @access public
      */
@@ -43,17 +43,17 @@ class {$view_class}_TestCase extends Ethna_UnitTestCase
     }
 
     /**
-     *  {$forward_name}Á«°ÜÁ°½èÍı¤Î¥µ¥ó¥×¥ë¥Æ¥¹¥È¥±¡¼¥¹
+     *  {$forward_name}é·ç§»å‰å‡¦ç†ã®ã‚µãƒ³ãƒ—ãƒ«ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹
      *
      *  @access public
      */
     /*
     function test_viewSample()
     {
-        // ¥Õ¥©¡¼¥à¤ÎÀßÄê
+        // ãƒ•ã‚©ãƒ¼ãƒ ã®è¨­å®š
         $this->af->set('id', 1);
 
-        // {$forward_name}Á«°ÜÁ°½èÍı
+        // {$forward_name}é·ç§»å‰å‡¦ç†
         $this->vc->preforward();
         $this->assertNull($this->af->get('data'));
     }

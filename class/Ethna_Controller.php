@@ -11,9 +11,9 @@
 
 // {{{ Ethna_Controller
 /**
- *  е│еєе╚еэб╝ещепеще╣
+ *  уВ│уГ│уГИуГнуГ╝уГйуВпуГйуВ╣
  *
- *  @todo       gatewayд╟switchд╖д╞дыд╚д│дэдме└е╡е└е╡
+ *  @todo       gatewayуБзswitchуБЧуБжуВЛуБиуБУуВНуБМуГАуВ╡уГАуВ╡
  *
  *  @author     Masaki Fujimoto <fujimoto@php.net>
  *  @access     public
@@ -25,22 +25,22 @@ class Ethna_Controller
      *  @access private
      */
 
-    /** @var    string      еве╫еъе▒б╝е╖ечеєID */
+    /** @var    string      уВвуГЧуГкуВ▒уГ╝уВ╖уГзуГ│ID */
     var $appid = 'ETHNA';
 
-    /** @var    string      еве╫еъе▒б╝е╖ечеєе┘б╝е╣е╟егеьепе╚еъ */
+    /** @var    string      уВвуГЧуГкуВ▒уГ╝уВ╖уГзуГ│уГЩуГ╝уВ╣уГЗуВгуГмуВпуГИуГк */
     var $base = '';
 
-    /** @var    string      еве╫еъе▒б╝е╖ечеєе┘б╝е╣URL */
+    /** @var    string      уВвуГЧуГкуВ▒уГ╝уВ╖уГзуГ│уГЩуГ╝уВ╣URL */
     var $url = '';
 
-    /** @var    string      еве╫еъе▒б╝е╖ечеєDSN(Data Source Name) */
+    /** @var    string      уВвуГЧуГкуВ▒уГ╝уВ╖уГзуГ│DSN(Data Source Name) */
     var $dsn;
 
-    /** @var    array       еве╫еъе▒б╝е╖ечеєе╟егеьепе╚еъ */
+    /** @var    array       уВвуГЧуГкуВ▒уГ╝уВ╖уГзуГ│уГЗуВгуГмуВпуГИуГк */
     var $directory = array();
 
-    /** @var    array       еве╫еъе▒б╝е╖ечеєе╟егеьепе╚еъ(е╟е╒ейеые╚) */
+    /** @var    array       уВвуГЧуГкуВ▒уГ╝уВ╖уГзуГ│уГЗуВгуГмуВпуГИуГк(уГЗуГХуВйуГлуГИ) */
     var $directory_default = array(
         'action'        => 'app/action',
         'action_cli'    => 'app/action_cli',
@@ -60,21 +60,21 @@ class Ethna_Controller
         'www'           => 'www',
     );
 
-    /** @var    array       DBевепе╗е╣─ъ╡┴ */
+    /** @var    array       DBуВвуВпуВ╗уВ╣хоЪч╛й */
     var $db = array(
         ''              => DB_TYPE_RW,
     );
 
-    /** @var    array       │╚─е╗╥└▀─ъ */
+    /** @var    array       цЛбх╝╡хнРшинхоЪ */
     var $ext = array(
         'php'           => 'php',
         'tpl'           => 'tpl',
     );
 
-    /** @var    array       епеще╣└▀─ъ */
+    /** @var    array       уВпуГйуВ╣шинхоЪ */
     var $class = array();
 
-    /** @var    array       епеще╣└▀─ъ(е╟е╒ейеые╚) */
+    /** @var    array       уВпуГйуВ╣шинхоЪ(уГЗуГХуВйуГлуГИ) */
     var $class_default = array(
         'class'         => 'Ethna_ClassFactory',
         'backend'       => 'Ethna_Backend',
@@ -92,94 +92,94 @@ class Ethna_Controller
         'url_handler'   => 'Ethna_UrlHandler',
     );
 
-    /** @var    array       ╕б║ў┬╨╛▌д╚д╩дые╫еще░едеєд╬еве╫еъе▒б╝е╖ечеєIDд╬еъе╣е╚ */
+    /** @var    array       цдЬч┤вхп╛ш▒буБиуБкуВЛуГЧуГйуВ░уВдуГ│уБоуВвуГЧуГкуВ▒уГ╝уВ╖уГзуГ│IDуБоуГкуВ╣уГИ */
     var $plugin_search_appids;
 
-    /** @var    array       е╒егеые┐└▀─ъ */
+    /** @var    array       уГХуВгуГлуВ┐шинхоЪ */
     var $filter = array(
     );
 
-    /** @var    string      ╗╚═╤╕└╕ь└▀─ъ */
+    /** @var    string      ф╜┐чФишиАшкЮшинхоЪ */
     var $language;
 
-    /** @var    string      е╖е╣е╞ер┬жеиеєе│б╝е╟егеєе░ */
+    /** @var    string      уВ╖уВ╣уГЖуГахБ┤уВиуГ│уВ│уГ╝уГЗуВгуГ│уВ░ */
     var $system_encoding;
 
-    /** @var    string      епещедевеєе╚┬жеиеєе│б╝е╟егеєе░ */
+    /** @var    string      уВпуГйуВдуВвуГ│уГИхБ┤уВиуГ│уВ│уГ╝уГЗуВгуГ│уВ░ */
     var $client_encoding;
 
-    /** @var    string  ╕╜║▀╝┬╣╘├цд╬евепе╖ечеє╠╛ */
+    /** @var    string  чП╛хЬихоЯшбМф╕нуБоуВвуВпуВ╖уГзуГ│хРН */
     var $action_name;
 
-    /** @var    string  ╕╜║▀╝┬╣╘├цд╬XMLRPCесе╜е├е╔╠╛ */
+    /** @var    string  чП╛хЬихоЯшбМф╕нуБоXMLRPCуГбуВ╜уГГуГЙхРН */
     var $xmlrpc_method_name;
 
-    /** @var    array   forward─ъ╡┴ */
+    /** @var    array   forwardхоЪч╛й */
     var $forward = array();
 
-    /** @var    array   action─ъ╡┴ */
+    /** @var    array   actionхоЪч╛й */
     var $action = array();
 
-    /** @var    array   action(CLI)─ъ╡┴ */
+    /** @var    array   action(CLI)хоЪч╛й */
     var $action_cli = array();
 
-    /** @var    array   action(XMLRPC)─ъ╡┴ */
+    /** @var    array   action(XMLRPC)хоЪч╛й */
     var $action_xmlrpc = array();
 
-    /** @var    array   еве╫еъе▒б╝е╖ечеєе▐е═б╝е╕еу─ъ╡┴ */
+    /** @var    array   уВвуГЧуГкуВ▒уГ╝уВ╖уГзуГ│уГЮуГНуГ╝уВ╕уГгхоЪч╛й */
     var $manager = array();
 
-    /** @var    object  еьеєе└ещб╝ */
+    /** @var    object  уГмуГ│уГАуГйуГ╝ */
     var $renderer = null;
 
-    /** @var    array   smarty modifier─ъ╡┴ */
+    /** @var    array   smarty modifierхоЪч╛й */
     var $smarty_modifier_plugin = array();
 
-    /** @var    array   smarty function─ъ╡┴ */
+    /** @var    array   smarty functionхоЪч╛й */
     var $smarty_function_plugin = array();
 
-    /** @var    array   smarty block─ъ╡┴ */
+    /** @var    array   smarty blockхоЪч╛й */
     var $smarty_block_plugin = array();
 
-    /** @var    array   smarty prefilter─ъ╡┴ */
+    /** @var    array   smarty prefilterхоЪч╛й */
     var $smarty_prefilter_plugin = array();
 
-    /** @var    array   smarty postfilter─ъ╡┴ */
+    /** @var    array   smarty postfilterхоЪч╛й */
     var $smarty_postfilter_plugin = array();
 
-    /** @var    array   smarty outputfilter─ъ╡┴ */
+    /** @var    array   smarty outputfilterхоЪч╛й */
     var $smarty_outputfilter_plugin = array();
 
 
-    /** @var    array   е╒егеые┐б╝е┴езедеє(Ethna_Filterеке╓е╕езепе╚д╬╟█╬є) */
+    /** @var    array   уГХуВгуГлуВ┐уГ╝уГБуВзуВдуГ│(Ethna_FilterуВкуГЦуВ╕уВзуВпуГИуБощЕНхИЧ) */
     var $filter_chain = array();
 
-    /** @var    object  Ethna_ClassFactory  епеще╣е╒ебепе╚еъеке╓е╕езепе╚ */
+    /** @var    object  Ethna_ClassFactory  уВпуГйуВ╣уГХуВбуВпуГИуГкуВкуГЦуВ╕уВзуВпуГИ */
     var $class_factory = null;
 
-    /** @var    object  Ethna_ActionForm    е╒ейб╝ереке╓е╕езепе╚ */
+    /** @var    object  Ethna_ActionForm    уГХуВйуГ╝уГауВкуГЦуВ╕уВзуВпуГИ */
     var $action_form = null;
 
-    /** @var    object  Ethna_View          е╙ехб╝еке╓е╕езепе╚ */
+    /** @var    object  Ethna_View          уГУуГеуГ╝уВкуГЦуВ╕уВзуВпуГИ */
     var $view = null;
 
-    /** @var    object  Ethna_Config        └▀─ъеке╓е╕езепе╚ */
+    /** @var    object  Ethna_Config        шинхоЪуВкуГЦуВ╕уВзуВпуГИ */
     var $config = null;
 
-    /** @var    object  Ethna_Logger        еэе░еке╓е╕езепе╚ */
+    /** @var    object  Ethna_Logger        уГнуВ░уВкуГЦуВ╕уВзуВпуГИ */
     var $logger = null;
 
-    /** @var    object  Ethna_Plugin        е╫еще░едеєеке╓е╕езепе╚ */
+    /** @var    object  Ethna_Plugin        уГЧуГйуВ░уВдуГ│уВкуГЦуВ╕уВзуВпуГИ */
     var $plugin = null;
 
-    /** @var    string  еъепеие╣е╚д╬е▓б╝е╚ежезед(www/cli/rest/xmlrpc/soap...) */
+    /** @var    string  уГкуВпуВиуВ╣уГИуБоуВ▓уГ╝уГИуВжуВзуВд(www/cli/rest/xmlrpc/soap...) */
     var $gateway = GATEWAY_WWW;
 
     /**#@-*/
 
 
     /**
-     *  Ethna_Controllerепеще╣д╬е│еєе╣е╚ещепе┐
+     *  Ethna_ControllerуВпуГйуВ╣уБоуВ│уГ│уВ╣уГИуГйуВпуВ┐
      *
      *  @access     public
      */
@@ -187,7 +187,7 @@ class Ethna_Controller
     {
         $GLOBALS['_Ethna_controller'] =& $this;
         if ($this->base === "") {
-            // Ethnaе│е▐еєе╔д╩д╔д╟BASEдм─ъ╡┴д╡дьд╞ддд╩дд╛ь╣чдмдвды
+            // EthnaуВ│уГЮуГ│уГЙуБкуБйуБзBASEуБМхоЪч╛йуБХуВМуБжуБДуБкуБДха┤хРИуБМуБВуВЛ
             if (defined('BASE')) {
                 $this->base = BASE;
             }
@@ -195,31 +195,31 @@ class Ethna_Controller
 
         $this->gateway = $gateway;
 
-        // епеще╣└▀─ъд╬╠д─ъ╡┴├═дЄ╩ф┤░
+        // уВпуГйуВ╣шинхоЪуБоцЬкхоЪч╛йхАдуВТшгЬхоМ
         foreach ($this->class_default as $key => $val) {
             if (isset($this->class[$key]) == false) {
                 $this->class[$key] = $val;
             }
         }
 
-        // е╟егеьепе╚еъ└▀─ъд╬╠д─ъ╡┴├═дЄ╩ф┤░
+        // уГЗуВгуГмуВпуГИуГкшинхоЪуБоцЬкхоЪч╛йхАдуВТшгЬхоМ
         foreach ($this->directory_default as $key => $val) {
             if (isset($this->directory[$key]) == false) {
                 $this->directory[$key] = $val;
             }
         }
 
-        // епеще╣е╒ебепе╚еъеке╓е╕езепе╚д╬└╕└о
+        // уВпуГйуВ╣уГХуВбуВпуГИуГкуВкуГЦуВ╕уВзуВпуГИуБочФЯцИР
         $class_factory = $this->class['class'];
         $this->class_factory =& new $class_factory($this, $this->class);
 
-        // еиещб╝е╧еєе╔ещд╬└▀─ъ
+        // уВиуГйуГ╝уГПуГ│уГЙуГйуБошинхоЪ
         Ethna::setErrorCallback(array(&$this, 'handleError'));
 
-        // е╟егеьепе╚еъ╠╛д╬└▀─ъ(┴ъ┬╨е╤е╣->└ф┬╨е╤е╣)
+        // уГЗуВгуГмуВпуГИуГкхРНуБошинхоЪ(чЫ╕хп╛уГСуВ╣->ч╡╢хп╛уГСуВ╣)
         foreach ($this->directory as $key => $value) {
             if ($key == 'plugins') {
-                // Smartyе╫еще░едеєе╟егеьепе╚еъд╧╟█╬єд╟╗╪─ъд╣ды
+                // SmartyуГЧуГйуВ░уВдуГ│уГЗуВгуГмуВпуГИуГкуБпщЕНхИЧуБзцМЗхоЪуБЩуВЛ
                 $tmp = array();
                 foreach (to_array($value) as $elt) {
                     if (Ethna_Util::isAbsolute($elt) == false) {
@@ -234,14 +234,14 @@ class Ethna_Controller
             }
         }
 
-        // ╜щ┤№└▀─ъ
+        // хИЭцЬЯшинхоЪ
         list($this->language, $this->system_encoding, $this->client_encoding) = $this->_getDefaultLanguage();
 
         $this->config =& $this->getConfig();
         $this->dsn = $this->_prepareDSN();
         $this->url = $this->config->get('url');
 
-        // е╫еще░едеєеке╓е╕езепе╚д╬═╤░╒
+        // уГЧуГйуВ░уВдуГ│уВкуГЦуВ╕уВзуВпуГИуБочФицДП
         $this->plugin =& $this->getPlugin();
 
         //// assert (experimental)
@@ -249,20 +249,20 @@ class Ethna_Controller
         //    ini_set('assert.active', 0);
         //}
 
-        // еэе░╜╨╬╧│л╗╧
+        // уГнуВ░хЗ║хКЫщЦЛхзЛ
         $this->logger =& $this->getLogger();
         $this->plugin->setLogger($this->logger);
         $this->logger->begin();
 
-        // Ethnaе▐е═б╝е╕еу└▀─ъ
+        // EthnaуГЮуГНуГ╝уВ╕уГгшинхоЪ
         $this->_activateEthnaManager();
     }
 
     /**
-     *  (╕╜║▀евепе╞еге╓д╩)е│еєе╚еэб╝ещд╬едеєе╣е┐еєе╣дЄ╩╓д╣
+     *  (чП╛хЬиуВвуВпуГЖуВгуГЦуБк)уВ│уГ│уГИуГнуГ╝уГйуБоуВдуГ│уВ╣уВ┐уГ│уВ╣уВТш┐ФуБЩ
      *
      *  @access public
-     *  @return object  Ethna_Controller    е│еєе╚еэб╝ещд╬едеєе╣е┐еєе╣
+     *  @return object  Ethna_Controller    уВ│уГ│уГИуГнуГ╝уГйуБоуВдуГ│уВ╣уВ┐уГ│уВ╣
      *  @static
      */
     function &getInstance()
@@ -276,10 +276,10 @@ class Ethna_Controller
     }
 
     /**
-     *  еве╫еъе▒б╝е╖ечеєIDдЄ╩╓д╣
+     *  уВвуГЧуГкуВ▒уГ╝уВ╖уГзуГ│IDуВТш┐ФуБЩ
      *
      *  @access public
-     *  @return string  еве╫еъе▒б╝е╖ечеєID
+     *  @return string  уВвуГЧуГкуВ▒уГ╝уВ╖уГзуГ│ID
      */
     function getAppId()
     {
@@ -287,10 +287,10 @@ class Ethna_Controller
     }
 
     /**
-     *  еве╫еъе▒б╝е╖ечеєIDдЄе┴езе├епд╣ды
+     *  уВвуГЧуГкуВ▒уГ╝уВ╖уГзуГ│IDуВТуГБуВзуГГуВпуБЩуВЛ
      *
      *  @access public
-     *  @param  string  $id     еве╫еъе▒б╝е╖ечеєID
+     *  @param  string  $id     уВвуГЧуГкуВ▒уГ╝уВ╖уГзуГ│ID
      *  @return mixed   true:OK Ethna_Error:NG
      *  @static
      */
@@ -310,10 +310,10 @@ class Ethna_Controller
     }
 
     /**
-     *  евепе╖ечеє╠╛дЄе┴езе├епд╣ды
+     *  уВвуВпуВ╖уГзуГ│хРНуВТуГБуВзуГГуВпуБЩуВЛ
      *
      *  @access public
-     *  @param  string  $action_name    евепе╖ечеє╠╛
+     *  @param  string  $action_name    уВвуВпуВ╖уГзуГ│хРН
      *  @return mixed   true:OK Ethna_Error:NG
      *  @static
      */
@@ -328,10 +328,10 @@ class Ethna_Controller
     }
 
     /**
-     *  е╙ехб╝╠╛дЄе┴езе├епд╣ды
+     *  уГУуГеуГ╝хРНуВТуГБуВзуГГуВпуБЩуВЛ
      *
      *  @access public
-     *  @param  string  $view_name    е╙ехб╝╠╛
+     *  @param  string  $view_name    уГУуГеуГ╝хРН
      *  @return mixed   true:OK Ethna_Error:NG
      *  @static
      */
@@ -346,10 +346,10 @@ class Ethna_Controller
     }
 
     /**
-     *  DSNдЄ╩╓д╣
+     *  DSNуВТш┐ФуБЩ
      *
      *  @access public
-     *  @param  string  $db_key DBенб╝
+     *  @param  string  $db_key DBуВнуГ╝
      *  @return string  DSN
      */
     function getDSN($db_key = "")
@@ -361,11 +361,11 @@ class Ethna_Controller
     }
 
     /**
-     *  DSNд╬╗¤┬│└▄┬│└▀─ъдЄ╩╓д╣
+     *  DSNуБоцМБч╢ЪцОеч╢ЪшинхоЪуВТш┐ФуБЩ
      *
      *  @access public
-     *  @param  string  $db_key DBенб╝
-     *  @return bool    true:persistent false:non-persistent(двдыддд╧└▀─ъ╠╡д╖)
+     *  @param  string  $db_key DBуВнуГ╝
+     *  @return bool    true:persistent false:non-persistent(уБВуВЛуБДуБпшинхоЪчДбуБЧ)
      */
     function getDSN_persistent($db_key = "")
     {
@@ -379,16 +379,16 @@ class Ethna_Controller
     }
 
     /**
-     *  DB└▀─ъдЄ╩╓д╣
+     *  DBшинхоЪуВТш┐ФуБЩ
      *
      *  @access public
-     *  @param  string  $db_key DBенб╝("", "r", "rw", "default", "blog_r"...)
-     *  @return string  $db_keyд╦┬╨▒■д╣дыDB╝я╩╠─ъ╡┴(└▀─ъдм╠╡дд╛ь╣чд╧null)
+     *  @param  string  $db_key DBуВнуГ╝("", "r", "rw", "default", "blog_r"...)
+     *  @return string  $db_keyуБлхп╛х┐ЬуБЩуВЛDBчиохИехоЪч╛й(шинхоЪуБМчДбуБДха┤хРИуБпnull)
      */
     function getDBType($db_key = null)
     {
         if (is_null($db_key)) {
-            // ░ь═ўдЄ╩╓д╣
+            // ф╕АшжзуВТш┐ФуБЩ
             return $this->db;
         }
 
@@ -399,10 +399,10 @@ class Ethna_Controller
     }
 
     /**
-     *  еве╫еъе▒б╝е╖ечеєе┘б╝е╣URLдЄ╩╓д╣
+     *  уВвуГЧуГкуВ▒уГ╝уВ╖уГзуГ│уГЩуГ╝уВ╣URLуВТш┐ФуБЩ
      *
      *  @access public
-     *  @return string  еве╫еъе▒б╝е╖ечеєе┘б╝е╣URL
+     *  @return string  уВвуГЧуГкуВ▒уГ╝уВ╖уГзуГ│уГЩуГ╝уВ╣URL
      */
     function getURL()
     {
@@ -410,10 +410,10 @@ class Ethna_Controller
     }
 
     /**
-     *  еве╫еъе▒б╝е╖ечеєе┘б╝е╣е╟егеьепе╚еъдЄ╩╓д╣
+     *  уВвуГЧуГкуВ▒уГ╝уВ╖уГзуГ│уГЩуГ╝уВ╣уГЗуВгуГмуВпуГИуГкуВТш┐ФуБЩ
      *
      *  @access public
-     *  @return string  еве╫еъе▒б╝е╖ечеєе┘б╝е╣е╟егеьепе╚еъ
+     *  @return string  уВвуГЧуГкуВ▒уГ╝уВ╖уГзуГ│уГЩуГ╝уВ╣уГЗуВгуГмуВпуГИуГк
      */
     function getBasedir()
     {
@@ -421,16 +421,16 @@ class Ethna_Controller
     }
 
     /**
-     *  епещедевеєе╚е┐еде╫/╕└╕ьдлдще╞еєе╫еьб╝е╚е╟егеьепе╚еъ╠╛дЄ╖ш─ъд╣ды
+     *  уВпуГйуВдуВвуГ│уГИуВ┐уВдуГЧ/шиАшкЮуБЛуВЙуГЖуГ│уГЧуГмуГ╝уГИуГЗуВгуГмуВпуГИуГкхРНуВТц▒║хоЪуБЩуВЛ
      *
      *  @access public
-     *  @return string  е╞еєе╫еьб╝е╚е╟егеьепе╚еъ
+     *  @return string  уГЖуГ│уГЧуГмуГ╝уГИуГЗуВгуГмуВпуГИуГк
      */
     function getTemplatedir()
     {
         $template = $this->getDirectory('template');
 
-        // ╕└╕ь╩╠е╟егеьепе╚еъ
+        // шиАшкЮхИеуГЗуВгуГмуВпуГИуГк
         if (file_exists($template . '/' . $this->language)) {
             $template .= '/' . $this->language;
         }
@@ -439,10 +439,10 @@ class Ethna_Controller
     }
 
     /**
-     *  евепе╖ечеєе╟егеьепе╚еъ╠╛дЄ╖ш─ъд╣ды
+     *  уВвуВпуВ╖уГзуГ│уГЗуВгуГмуВпуГИуГкхРНуВТц▒║хоЪуБЩуВЛ
      *
      *  @access public
-     *  @return string  евепе╖ечеєе╟егеьепе╚еъ
+     *  @return string  уВвуВпуВ╖уГзуГ│уГЗуВгуГмуВпуГИуГк
      */
     function getActiondir($gateway = null)
     {
@@ -464,10 +464,10 @@ class Ethna_Controller
     }
 
     /**
-     *  е╙ехб╝е╟егеьепе╚еъ╠╛дЄ╖ш─ъд╣ды
+     *  уГУуГеуГ╝уГЗуВгуГмуВпуГИуГкхРНуВТц▒║хоЪуБЩуВЛ
      *
      *  @access public
-     *  @return string  евепе╖ечеєе╟егеьепе╚еъ
+     *  @return string  уВвуВпуВ╖уГзуГ│уГЗуВгуГмуВпуГИуГк
      */
     function getViewdir()
     {
@@ -475,11 +475,11 @@ class Ethna_Controller
     }
 
     /**
-     *  еве╫еъе▒б╝е╖ечеєе╟егеьепе╚еъ└▀─ъдЄ╩╓д╣
+     *  уВвуГЧуГкуВ▒уГ╝уВ╖уГзуГ│уГЗуВгуГмуВпуГИуГкшинхоЪуВТш┐ФуБЩ
      *
      *  @access public
-     *  @param  string  $key    е╟егеьепе╚еъе┐еде╫("tmp", "template"...)
-     *  @return string  $keyд╦┬╨▒■д╖д┐еве╫еъе▒б╝е╖ечеєе╟егеьепе╚еъ(└▀─ъдм╠╡дд╛ь╣чд╧null)
+     *  @param  string  $key    уГЗуВгуГмуВпуГИуГкуВ┐уВдуГЧ("tmp", "template"...)
+     *  @return string  $keyуБлхп╛х┐ЬуБЧуБЯуВвуГЧуГкуВ▒уГ╝уВ╖уГзуГ│уГЗуВгуГмуВпуГИуГк(шинхоЪуБМчДбуБДха┤хРИуБпnull)
      */
     function getDirectory($key)
     {
@@ -495,11 +495,11 @@ class Ethna_Controller
     }
 
     /**
-     *  еве╫еъе▒б╝е╖ечеє│╚─е╗╥└▀─ъдЄ╩╓д╣
+     *  уВвуГЧуГкуВ▒уГ╝уВ╖уГзуГ│цЛбх╝╡хнРшинхоЪуВТш┐ФуБЩ
      *
      *  @access public
-     *  @param  string  $key    │╚─е╗╥е┐еде╫("php", "tpl"...)
-     *  @return string  $keyд╦┬╨▒■д╖д┐│╚─е╗╥(└▀─ъдм╠╡дд╛ь╣чд╧null)
+     *  @param  string  $key    цЛбх╝╡хнРуВ┐уВдуГЧ("php", "tpl"...)
+     *  @return string  $keyуБлхп╛х┐ЬуБЧуБЯцЛбх╝╡хнР(шинхоЪуБМчДбуБДха┤хРИуБпnull)
      */
     function getExt($key)
     {
@@ -510,10 +510,10 @@ class Ethna_Controller
     }
 
     /**
-     *  епеще╣е╒ебепе╚еъеке╓е╕езепе╚д╬евепе╗е╡(R)
+     *  уВпуГйуВ╣уГХуВбуВпуГИуГкуВкуГЦуВ╕уВзуВпуГИуБоуВвуВпуВ╗уВ╡(R)
      *
      *  @access public
-     *  @return object  Ethna_ClassFactory  епеще╣е╒ебепе╚еъеке╓е╕езепе╚
+     *  @return object  Ethna_ClassFactory  уВпуГйуВ╣уГХуВбуВпуГИуГкуВкуГЦуВ╕уВзуВпуГИ
      */
     function &getClassFactory()
     {
@@ -521,10 +521,10 @@ class Ethna_Controller
     }
 
     /**
-     *  евепе╖ечеєеиещб╝еке╓е╕езепе╚д╬евепе╗е╡
+     *  уВвуВпуВ╖уГзуГ│уВиуГйуГ╝уВкуГЦуВ╕уВзуВпуГИуБоуВвуВпуВ╗уВ╡
      *
      *  @access public
-     *  @return object  Ethna_ActionError   евепе╖ечеєеиещб╝еке╓е╕езепе╚
+     *  @return object  Ethna_ActionError   уВвуВпуВ╖уГзуГ│уВиуГйуГ╝уВкуГЦуВ╕уВзуВпуГИ
      */
     function &getActionError()
     {
@@ -532,34 +532,34 @@ class Ethna_Controller
     }
 
     /**
-     *  евепе╖ечеєе╒ейб╝ереке╓е╕езепе╚д╬евепе╗е╡
+     *  уВвуВпуВ╖уГзуГ│уГХуВйуГ╝уГауВкуГЦуВ╕уВзуВпуГИуБоуВвуВпуВ╗уВ╡
      *
      *  @access public
-     *  @return object  Ethna_ActionForm    евепе╖ечеєе╒ейб╝ереке╓е╕езепе╚
+     *  @return object  Ethna_ActionForm    уВвуВпуВ╖уГзуГ│уГХуВйуГ╝уГауВкуГЦуВ╕уВзуВпуГИ
      */
     function &getActionForm()
     {
-        // ╠└╝и┼кд╦епеще╣е╒ебепе╚еъдЄ═°═╤д╖д╞ддд╩дд
+        // цШОчд║чЪДуБлуВпуГйуВ╣уГХуВбуВпуГИуГкуВТхИйчФиуБЧуБжуБДуБкуБД
         return $this->action_form;
     }
 
     /**
-     *  е╙ехб╝еке╓е╕езепе╚д╬евепе╗е╡
+     *  уГУуГеуГ╝уВкуГЦуВ╕уВзуВпуГИуБоуВвуВпуВ╗уВ╡
      *
      *  @access public
-     *  @return object  Ethna_View          е╙ехб╝еке╓е╕езепе╚
+     *  @return object  Ethna_View          уГУуГеуГ╝уВкуГЦуВ╕уВзуВпуГИ
      */
     function &getView()
     {
-        // ╠└╝и┼кд╦епеще╣е╒ебепе╚еъдЄ═°═╤д╖д╞ддд╩дд
+        // цШОчд║чЪДуБлуВпуГйуВ╣уГХуВбуВпуГИуГкуВТхИйчФиуБЧуБжуБДуБкуБД
         return $this->view;
     }
 
     /**
-     *  backendеке╓е╕езепе╚д╬евепе╗е╡
+     *  backendуВкуГЦуВ╕уВзуВпуГИуБоуВвуВпуВ╗уВ╡
      *
      *  @access public
-     *  @return object  Ethna_Backend   backendеке╓е╕езепе╚
+     *  @return object  Ethna_Backend   backendуВкуГЦуВ╕уВзуВпуГИ
      */
     function &getBackend()
     {
@@ -567,10 +567,10 @@ class Ethna_Controller
     }
 
     /**
-     *  └▀─ъеке╓е╕езепе╚д╬евепе╗е╡
+     *  шинхоЪуВкуГЦуВ╕уВзуВпуГИуБоуВвуВпуВ╗уВ╡
      *
      *  @access public
-     *  @return object  Ethna_Config    └▀─ъеке╓е╕езепе╚
+     *  @return object  Ethna_Config    шинхоЪуВкуГЦуВ╕уВзуВпуГИ
      */
     function &getConfig()
     {
@@ -578,10 +578,10 @@ class Ethna_Controller
     }
 
     /**
-     *  i18nеке╓е╕езепе╚д╬евепе╗е╡(R)
+     *  i18nуВкуГЦуВ╕уВзуВпуГИуБоуВвуВпуВ╗уВ╡(R)
      *
      *  @access public
-     *  @return object  Ethna_I18N  i18nеке╓е╕езепе╚
+     *  @return object  Ethna_I18N  i18nуВкуГЦуВ╕уВзуВпуГИ
      */
     function &getI18N()
     {
@@ -589,10 +589,10 @@ class Ethna_Controller
     }
 
     /**
-     *  еэе░еке╓е╕езепе╚д╬евепе╗е╡
+     *  уГнуВ░уВкуГЦуВ╕уВзуВпуГИуБоуВвуВпуВ╗уВ╡
      *
      *  @access public
-     *  @return object  Ethna_Logger        еэе░еке╓е╕езепе╚
+     *  @return object  Ethna_Logger        уГнуВ░уВкуГЦуВ╕уВзуВпуГИ
      */
     function &getLogger()
     {
@@ -600,10 +600,10 @@ class Ethna_Controller
     }
 
     /**
-     *  е╗е├е╖ечеєеке╓е╕езепе╚д╬евепе╗е╡
+     *  уВ╗уГГуВ╖уГзуГ│уВкуГЦуВ╕уВзуВпуГИуБоуВвуВпуВ╗уВ╡
      *
      *  @access public
-     *  @return object  Ethna_Session       е╗е├е╖ечеєеке╓е╕езепе╚
+     *  @return object  Ethna_Session       уВ╗уГГуВ╖уГзуГ│уВкуГЦуВ╕уВзуВпуГИ
      */
     function &getSession()
     {
@@ -611,10 +611,10 @@ class Ethna_Controller
     }
 
     /**
-     *  SQLеке╓е╕езепе╚д╬евепе╗е╡
+     *  SQLуВкуГЦуВ╕уВзуВпуГИуБоуВвуВпуВ╗уВ╡
      *
      *  @access public
-     *  @return object  Ethna_AppSQL    SQLеке╓е╕езепе╚
+     *  @return object  Ethna_AppSQL    SQLуВкуГЦуВ╕уВзуВпуГИ
      */
     function &getSQL()
     {
@@ -622,10 +622,10 @@ class Ethna_Controller
     }
 
     /**
-     *  е╫еще░едеєеке╓е╕езепе╚д╬евепе╗е╡
+     *  уГЧуГйуВ░уВдуГ│уВкуГЦуВ╕уВзуВпуГИуБоуВвуВпуВ╗уВ╡
      *
      *  @access public
-     *  @return object  Ethna_Plugin    е╫еще░едеєеке╓е╕езепе╚
+     *  @return object  Ethna_Plugin    уГЧуГйуВ░уВдуГ│уВкуГЦуВ╕уВзуВпуГИ
      */
     function &getPlugin()
     {
@@ -633,10 +633,10 @@ class Ethna_Controller
     }
 
     /**
-     *  URLе╧еєе╔ещеке╓е╕езепе╚д╬евепе╗е╡
+     *  URLуГПуГ│уГЙуГйуВкуГЦуВ╕уВзуВпуГИуБоуВвуВпуВ╗уВ╡
      *
      *  @access public
-     *  @return object  Ethna_UrlHandler    URLе╧еєе╔ещеке╓е╕езепе╚
+     *  @return object  Ethna_UrlHandler    URLуГПуГ│уГЙуГйуВкуГЦуВ╕уВзуВпуГИ
      */
     function &getUrlHandler()
     {
@@ -644,10 +644,10 @@ class Ethna_Controller
     }
 
     /**
-     *  е▐е═б╝е╕еу░ь═ўдЄ╩╓д╣
+     *  уГЮуГНуГ╝уВ╕уГгф╕АшжзуВТш┐ФуБЩ
      *
      *  @access public
-     *  @return array   е▐е═б╝е╕еу░ь═ў
+     *  @return array   уГЮуГНуГ╝уВ╕уГгф╕Ашжз
      *  @obsolete
      */
     function getManagerList()
@@ -656,10 +656,10 @@ class Ethna_Controller
     }
 
     /**
-     *  ╝┬╣╘├цд╬евепе╖ечеє╠╛дЄ╩╓д╣
+     *  хоЯшбМф╕нуБоуВвуВпуВ╖уГзуГ│хРНуВТш┐ФуБЩ
      *
      *  @access public
-     *  @return string  ╝┬╣╘├цд╬евепе╖ечеє╠╛
+     *  @return string  хоЯшбМф╕нуБоуВвуВпуВ╖уГзуГ│хРН
      */
     function getCurrentActionName()
     {
@@ -667,10 +667,10 @@ class Ethna_Controller
     }
 
     /**
-     *  ╝┬╣╘├цд╬XMLRPCесе╜е├е╔╠╛дЄ╩╓д╣
+     *  хоЯшбМф╕нуБоXMLRPCуГбуВ╜уГГуГЙхРНуВТш┐ФуБЩ
      *
      *  @access public
-     *  @return string  ╝┬╣╘├цд╬XMLRPCесе╜е├е╔╠╛
+     *  @return string  хоЯшбМф╕нуБоXMLRPCуГбуВ╜уГГуГЙхРН
      */
     function getXmlrpcMethodName()
     {
@@ -678,10 +678,10 @@ class Ethna_Controller
     }
 
     /**
-     *  ╗╚═╤╕└╕ьдЄ╝ш╞└д╣ды
+     *  ф╜┐чФишиАшкЮуВТхПЦх╛ЧуБЩуВЛ
      *
      *  @access public
-     *  @return array   ╗╚═╤╕└╕ь,е╖е╣е╞ереиеєе│б╝е╟егеєе░╠╛,епещедевеєе╚еиеєе│б╝е╟егеєе░╠╛
+     *  @return array   ф╜┐чФишиАшкЮ,уВ╖уВ╣уГЖуГауВиуГ│уВ│уГ╝уГЗуВгуГ│уВ░хРН,уВпуГйуВдуВвуГ│уГИуВиуГ│уВ│уГ╝уГЗуВгуГ│уВ░хРН
      */
     function getLanguage()
     {
@@ -689,7 +689,7 @@ class Ethna_Controller
     }
 
     /**
-     *  е▓б╝е╚ежезеддЄ╝ш╞└д╣ды
+     *  уВ▓уГ╝уГИуВжуВзуВдуВТхПЦх╛ЧуБЩуВЛ
      *
      *  @access public
      */
@@ -699,7 +699,7 @@ class Ethna_Controller
     }
 
     /**
-     *  е▓б╝е╚ежезедетб╝е╔дЄ└▀─ъд╣ды
+     *  уВ▓уГ╝уГИуВжуВзуВдуГвуГ╝уГЙуВТшинхоЪуБЩуВЛ
      *
      *  @access public
      */
@@ -709,12 +709,12 @@ class Ethna_Controller
     }
 
     /**
-     *  еве╫еъе▒б╝е╖ечеєд╬еиеєе╚еъе▌едеєе╚
+     *  уВвуГЧуГкуВ▒уГ╝уВ╖уГзуГ│уБоуВиуГ│уГИуГкуГЭуВдуГ│уГИ
      *
      *  @access public
-     *  @param  string  $class_name     еве╫еъе▒б╝е╖ечеєе│еєе╚еэб╝ещд╬епеще╣╠╛
-     *  @param  mixed   $action_name    ╗╪─ъд╬евепе╖ечеє╠╛(╛╩╬м▓─)
-     *  @param  mixed   $fallback_action_name   евепе╖ечеєдм╖ш─ъд╟днд╩длд├д┐╛ь╣чд╦╝┬╣╘д╡дьдыевепе╖ечеє╠╛(╛╩╬м▓─)
+     *  @param  string  $class_name     уВвуГЧуГкуВ▒уГ╝уВ╖уГзуГ│уВ│уГ│уГИуГнуГ╝уГйуБоуВпуГйуВ╣хРН
+     *  @param  mixed   $action_name    цМЗхоЪуБоуВвуВпуВ╖уГзуГ│хРН(чЬБчХехПп)
+     *  @param  mixed   $fallback_action_name   уВвуВпуВ╖уГзуГ│уБМц▒║хоЪуБзуБНуБкуБЛуБгуБЯха┤хРИуБлхоЯшбМуБХуВМуВЛуВвуВпуВ╖уГзуГ│хРН(чЬБчХехПп)
      *  @static
      */
     function main($class_name, $action_name = "", $fallback_action_name = "")
@@ -724,12 +724,12 @@ class Ethna_Controller
     }
 
     /**
-     *  CLIеве╫еъе▒б╝е╖ечеєд╬еиеєе╚еъе▌едеєе╚
+     *  CLIуВвуГЧуГкуВ▒уГ╝уВ╖уГзуГ│уБоуВиуГ│уГИуГкуГЭуВдуГ│уГИ
      *
      *  @access public
-     *  @param  string  $class_name     еве╫еъе▒б╝е╖ечеєе│еєе╚еэб╝ещд╬епеще╣╠╛
-     *  @param  string  $action_name    ╝┬╣╘д╣дыевепе╖ечеє╠╛
-     *  @param  bool    $enable_filter  е╒егеые┐е┴езедеєдЄ═н╕·д╦д╣дыдлд╔дждл
+     *  @param  string  $class_name     уВвуГЧуГкуВ▒уГ╝уВ╖уГзуГ│уВ│уГ│уГИуГнуГ╝уГйуБоуВпуГйуВ╣хРН
+     *  @param  string  $action_name    хоЯшбМуБЩуВЛуВвуВпуВ╖уГзуГ│хРН
+     *  @param  bool    $enable_filter  уГХуВгуГлуВ┐уГБуВзуВдуГ│уВТцЬЙхК╣уБлуБЩуВЛуБЛуБйуБЖуБЛ
      *  @static
      */
     function main_CLI($class_name, $action_name, $enable_filter = true)
@@ -740,7 +740,7 @@ class Ethna_Controller
     }
 
     /**
-     *  XMLRPCеве╫еъе▒б╝е╖ечеєд╬еиеєе╚еъе▌едеєе╚
+     *  XMLRPCуВвуГЧуГкуВ▒уГ╝уВ╖уГзуГ│уБоуВиуГ│уГИуГкуГЭуВдуГ│уГИ
      *
      *  @access public
      *  @static
@@ -756,12 +756,12 @@ class Ethna_Controller
     }
 
     /**
-     *  SOAPеве╫еъе▒б╝е╖ечеєд╬еиеєе╚еъе▌едеєе╚
+     *  SOAPуВвуГЧуГкуВ▒уГ╝уВ╖уГзуГ│уБоуВиуГ│уГИуГкуГЭуВдуГ│уГИ
      *
      *  @access public
-     *  @param  string  $class_name     еве╫еъе▒б╝е╖ечеєе│еєе╚еэб╝ещд╬епеще╣╠╛
-     *  @param  mixed   $action_name    ╗╪─ъд╬евепе╖ечеє╠╛(╛╩╬м▓─)
-     *  @param  mixed   $fallback_action_name   евепе╖ечеєдм╖ш─ъд╟днд╩длд├д┐╛ь╣чд╦╝┬╣╘д╡дьдыевепе╖ечеє╠╛(╛╩╬м▓─)
+     *  @param  string  $class_name     уВвуГЧуГкуВ▒уГ╝уВ╖уГзуГ│уВ│уГ│уГИуГнуГ╝уГйуБоуВпуГйуВ╣хРН
+     *  @param  mixed   $action_name    цМЗхоЪуБоуВвуВпуВ╖уГзуГ│хРН(чЬБчХехПп)
+     *  @param  mixed   $fallback_action_name   уВвуВпуВ╖уГзуГ│уБМц▒║хоЪуБзуБНуБкуБЛуБгуБЯха┤хРИуБлхоЯшбМуБХуВМуВЛуВвуВпуВ╖уГзуГ│хРН(чЬБчХехПп)
      *  @static
      */
     function main_SOAP($class_name, $action_name = "", $fallback_action_name = "")
@@ -771,22 +771,22 @@ class Ethna_Controller
     }
 
     /**
-     *  е╒еьб╝ереяб╝епд╬╜ш═¤дЄ│л╗╧д╣ды
+     *  уГХуГмуГ╝уГауГпуГ╝уВпуБохЗжчРЖуВТщЦЛхзЛуБЩуВЛ
      *
      *  @access public
-     *  @param  mixed   $default_action_name    ╗╪─ъд╬евепе╖ечеє╠╛
-     *  @param  mixed   $fallback_action_name   евепе╖ечеє╠╛дм╖ш─ъд╟днд╩длд├д┐╛ь╣чд╦╝┬╣╘д╡дьдыевепе╖ечеє╠╛
-     *  @param  bool    $enable_filter  е╒егеые┐е┴езедеєдЄ═н╕·д╦д╣дыдлд╔дждл
-     *  @return mixed   0:└╡╛я╜к╬╗ Ethna_Error:еиещб╝
+     *  @param  mixed   $default_action_name    цМЗхоЪуБоуВвуВпуВ╖уГзуГ│хРН
+     *  @param  mixed   $fallback_action_name   уВвуВпуВ╖уГзуГ│хРНуБМц▒║хоЪуБзуБНуБкуБЛуБгуБЯха┤хРИуБлхоЯшбМуБХуВМуВЛуВвуВпуВ╖уГзуГ│хРН
+     *  @param  bool    $enable_filter  уГХуВгуГлуВ┐уГБуВзуВдуГ│уВТцЬЙхК╣уБлуБЩуВЛуБЛуБйуБЖуБЛ
+     *  @return mixed   0:цнгх╕╕ч╡Вф║Ж Ethna_Error:уВиуГйуГ╝
      */
     function trigger($default_action_name = "", $fallback_action_name = "", $enable_filter = true)
     {
-        // е╒егеые┐б╝д╬└╕└о
+        // уГХуВгуГлуВ┐уГ╝уБочФЯцИР
         if ($enable_filter) {
             $this->_createFilterChain();
         }
 
-        // ╝┬╣╘┴░е╒егеые┐
+        // хоЯшбМхЙНуГХуВгуГлуВ┐
         for ($i = 0; $i < count($this->filter_chain); $i++) {
             $r = $this->filter_chain[$i]->preFilter();
             if (Ethna::isError($r)) {
@@ -810,7 +810,7 @@ class Ethna_Controller
             break;
         }
 
-        // ╝┬╣╘╕хе╒егеые┐
+        // хоЯшбМх╛МуГХуВгуГлуВ┐
         for ($i = count($this->filter_chain) - 1; $i >= 0; $i--) {
             $r = $this->filter_chain[$i]->postFilter();
             if (Ethna::isError($r)) {
@@ -820,23 +820,23 @@ class Ethna_Controller
     }
 
     /**
-     *  е╒еьб╝ереяб╝епд╬╜ш═¤дЄ╝┬╣╘д╣ды(WWW)
+     *  уГХуГмуГ╝уГауГпуГ╝уВпуБохЗжчРЖуВТхоЯшбМуБЩуВЛ(WWW)
      *
-     *  ░·┐Ї$default_action_nameд╦╟█╬єдм╗╪─ъд╡дьд┐╛ь╣чбвд╜д╬╟█╬єд╟╗╪─ъд╡дьд┐
-     *  евепе╖ечеє░╩│░д╧╝їд▒╔╒д▒д╩дд(╗╪─ъд╡дьд╞ддд╩ддевепе╖ечеєдм╗╪─ъд╡дьд┐
-     *  ╛ь╣чбв╟█╬єд╬└ш╞мд╟╗╪─ъд╡дьд┐евепе╖ечеєдм╝┬╣╘д╡дьды)
+     *  х╝ХцХ░$default_action_nameуБлщЕНхИЧуБМцМЗхоЪуБХуВМуБЯха┤хРИуАБуБЭуБощЕНхИЧуБзцМЗхоЪуБХуВМуБЯ
+     *  уВвуВпуВ╖уГзуГ│ф╗ехдЦуБпхПЧуБСф╗ШуБСуБкуБД(цМЗхоЪуБХуВМуБжуБДуБкуБДуВвуВпуВ╖уГзуГ│уБМцМЗхоЪуБХуВМуБЯ
+     *  ха┤хРИуАБщЕНхИЧуБохЕИщануБзцМЗхоЪуБХуВМуБЯуВвуВпуВ╖уГзуГ│уБМхоЯшбМуБХуВМуВЛ)
      *
      *  @access private
-     *  @param  mixed   $default_action_name    ╗╪─ъд╬евепе╖ечеє╠╛
-     *  @param  mixed   $fallback_action_name   евепе╖ечеє╠╛дм╖ш─ъд╟днд╩длд├д┐╛ь╣чд╦╝┬╣╘д╡дьдыевепе╖ечеє╠╛
-     *  @return mixed   0:└╡╛я╜к╬╗ Ethna_Error:еиещб╝
+     *  @param  mixed   $default_action_name    цМЗхоЪуБоуВвуВпуВ╖уГзуГ│хРН
+     *  @param  mixed   $fallback_action_name   уВвуВпуВ╖уГзуГ│хРНуБМц▒║хоЪуБзуБНуБкуБЛуБгуБЯха┤хРИуБлхоЯшбМуБХуВМуВЛуВвуВпуВ╖уГзуГ│хРН
+     *  @return mixed   0:цнгх╕╕ч╡Вф║Ж Ethna_Error:уВиуГйуГ╝
      */
     function _trigger_WWW($default_action_name = "", $fallback_action_name = "")
     {
-        // евепе╖ечеє╠╛д╬╝ш╞└
+        // уВвуВпуВ╖уГзуГ│хРНуБохПЦх╛Ч
         $action_name = $this->_getActionName($default_action_name, $fallback_action_name);
 
-        // евепе╖ечеє─ъ╡┴д╬╝ш╞└
+        // уВвуВпуВ╖уГзуГ│хоЪч╛йуБохПЦх╛Ч
         $action_obj =& $this->_getAction($action_name);
         if (is_null($action_obj)) {
             if ($fallback_action_name != "") {
@@ -850,7 +850,7 @@ class Ethna_Controller
             }
         }
 
-        // евепе╖ечеє╝┬╣╘┴░е╒егеые┐
+        // уВвуВпуВ╖уГзуГ│хоЯшбМхЙНуГХуВгуГлуВ┐
         for ($i = 0; $i < count($this->filter_chain); $i++) {
             $r = $this->filter_chain[$i]->preActionFilter($action_name);
             if ($r != null) {
@@ -860,24 +860,24 @@ class Ethna_Controller
         }
         $this->action_name = $action_name;
 
-        // ╕└╕ь└▀─ъ
+        // шиАшкЮшинхоЪ
         $this->_setLanguage($this->language, $this->system_encoding, $this->client_encoding);
 
-        // еке╓е╕езепе╚└╕└о
+        // уВкуГЦуВ╕уВзуВпуГИчФЯцИР
         $backend =& $this->getBackend();
 
         $form_name = $this->getActionFormName($action_name);
         $this->action_form =& new $form_name($this);
         $this->action_form->setFormVars();
 
-        // е╨е├епеиеєе╔╜ш═¤╝┬╣╘
+        // уГРуГГуВпуВиуГ│уГЙхЗжчРЖхоЯшбМ
         $backend->setActionForm($this->action_form);
 
         $session =& $this->getSession();
         $session->restore();
         $forward_name = $backend->perform($action_name);
 
-        // евепе╖ечеє╝┬╣╘╕хе╒егеые┐
+        // уВвуВпуВ╖уГзуГ│хоЯшбМх╛МуГХуВгуГлуВ┐
         for ($i = count($this->filter_chain) - 1; $i >= 0; $i--) {
             $r = $this->filter_chain[$i]->postActionFilter($action_name, $forward_name);
             if ($r != null) {
@@ -886,7 +886,7 @@ class Ethna_Controller
             }
         }
 
-        // е│еєе╚еэб╝ещд╟┴л░▄└шдЄ╖ш─ъд╣ды(еке╫е╖ечеє)
+        // уВ│уГ│уГИуГнуГ╝уГйуБзщБ╖чз╗хЕИуВТц▒║хоЪуБЩуВЛ(уВкуГЧуВ╖уГзуГ│)
         $forward_name = $this->_sortForward($action_name, $forward_name);
 
         if ($forward_name != null) {
@@ -900,11 +900,11 @@ class Ethna_Controller
     }
 
     /**
-     *  е╒еьб╝ереяб╝епд╬╜ш═¤дЄ╝┬╣╘д╣ды(CLI)
+     *  уГХуГмуГ╝уГауГпуГ╝уВпуБохЗжчРЖуВТхоЯшбМуБЩуВЛ(CLI)
      *
      *  @access private
-     *  @param  mixed   $default_action_name    ╗╪─ъд╬евепе╖ечеє╠╛
-     *  @return mixed   0:└╡╛я╜к╬╗ Ethna_Error:еиещб╝
+     *  @param  mixed   $default_action_name    цМЗхоЪуБоуВвуВпуВ╖уГзуГ│хРН
+     *  @return mixed   0:цнгх╕╕ч╡Вф║Ж Ethna_Error:уВиуГйуГ╝
      */
     function _trigger_CLI($default_action_name = "")
     {
@@ -912,11 +912,11 @@ class Ethna_Controller
     }
 
     /**
-     *  е╒еьб╝ереяб╝епд╬╜ш═¤дЄ╝┬╣╘д╣ды(XMLRPC)
+     *  уГХуГмуГ╝уГауГпуГ╝уВпуБохЗжчРЖуВТхоЯшбМуБЩуВЛ(XMLRPC)
      *
      *  @access private
-     *  @param  mixed   $action_name    ╗╪─ъд╬евепе╖ечеє╠╛
-     *  @return mixed   0:└╡╛я╜к╬╗ Ethna_Error:еиещб╝
+     *  @param  mixed   $action_name    цМЗхоЪуБоуВвуВпуВ╖уГзуГ│хРН
+     *  @return mixed   0:цнгх╕╕ч╡Вф║Ж Ethna_Error:уВиуГйуГ╝
      */
     function _trigger_XMLRPC($action_name = "")
     {
@@ -966,19 +966,19 @@ class Ethna_Controller
     }
 
     /**
-     *  _trigger_XMLRPCд╬е│б╝еые╨е├епесе╜е├е╔
+     *  _trigger_XMLRPCуБоуВ│уГ╝уГлуГРуГГуВпуГбуВ╜уГГуГЙ
      *
      *  @access public
      */
     function trigger_XMLRPC($method, $param)
     {
-        // евепе╖ечеє─ъ╡┴д╬╝ш╞└
+        // уВвуВпуВ╖уГзуГ│хоЪч╛йуБохПЦх╛Ч
         $action_obj =& $this->_getAction($method);
         if (is_null($action_obj)) {
             return Ethna::raiseError("undefined xmlrpc method [%s]", E_APP_UNDEFINED_ACTION, $method);
         }
 
-        // еке╓е╕езепе╚└╕└о
+        // уВкуГЦуВ╕уВзуВпуГИчФЯцИР
         $backend =& $this->getBackend();
 
         $form_name = $this->getActionFormName($method);
@@ -994,7 +994,7 @@ class Ethna_Controller
             $n++;
         }
 
-        // е╨е├епеиеєе╔╜ш═¤╝┬╣╘
+        // уГРуГГуВпуВиуГ│уГЙхЗжчРЖхоЯшбМ
         $backend->setActionForm($this->action_form);
 
         $session =& $this->getSession();
@@ -1005,48 +1005,48 @@ class Ethna_Controller
     }
 
     /**
-     *  SOAPе╒еьб╝ереяб╝епд╬╜ш═¤дЄ╝┬╣╘д╣ды
+     *  SOAPуГХуГмуГ╝уГауГпуГ╝уВпуБохЗжчРЖуВТхоЯшбМуБЩуВЛ
      *
      *  @access private
      */
     function _trigger_SOAP()
     {
-        // SOAPеиеєе╚еъепеще╣
+        // SOAPуВиуГ│уГИуГкуВпуГйуВ╣
         $gg =& new Ethna_SOAP_GatewayGenerator();
         $script = $gg->generate();
         eval($script);
 
-        // SOAPеъепеие╣е╚╜ш═¤
+        // SOAPуГкуВпуВиуВ╣уГИхЗжчРЖ
         $server =& new SoapServer(null, array('uri' => $this->config->get('url')));
         $server->setClass($gg->getClassName());
         $server->handle();
     }
 
     /**
-     *  еиещб╝е╧еєе╔ещ
+     *  уВиуГйуГ╝уГПуГ│уГЙуГй
      *
-     *  еиещб╝╚п└╕╗■д╬─╔▓├╜ш═¤дЄ╣╘ддд┐дд╛ь╣чд╧д│д╬есе╜е├е╔дЄекб╝е╨б╝ещеде╔д╣ды
-     *  (евещб╝е╚есб╝еы┴ў┐о┼∙б▌е╟е╒ейеые╚д╟д╧еэе░╜╨╬╧╗■д╦евещб╝е╚есб╝еы
-     *  дм┴ў┐од╡дьдыдмбвеиещб╝╚п└╕╗■д╦╩╠д╦евещб╝е╚есб╝еыдЄд│д│д╟┴ў┐о
-     *  д╡д╗дыд│д╚дт▓─╟╜)
+     *  уВиуГйуГ╝чЩ║чФЯцЩВуБош┐╜хКахЗжчРЖуВТшбМуБДуБЯуБДха┤хРИуБпуБУуБоуГбуВ╜уГГуГЙуВТуВкуГ╝уГРуГ╝уГйуВдуГЙуБЩуВЛ
+     *  (уВвуГйуГ╝уГИуГбуГ╝уГлщАБф┐бчнЙтИТуГЗуГХуВйуГлуГИуБзуБпуГнуВ░хЗ║хКЫцЩВуБлуВвуГйуГ╝уГИуГбуГ╝уГл
+     *  уБМщАБф┐буБХуВМуВЛуБМуАБуВиуГйуГ╝чЩ║чФЯцЩВуБлхИеуБлуВвуГйуГ╝уГИуГбуГ╝уГлуВТуБУуБУуБзщАБф┐б
+     *  уБХуБЫуВЛуБУуБиуВВхПпшГ╜)
      *
      *  @access public
-     *  @param  object  Ethna_Error     еиещб╝еке╓е╕езепе╚
+     *  @param  object  Ethna_Error     уВиуГйуГ╝уВкуГЦуВ╕уВзуВпуГИ
      */
     function handleError(&$error)
     {
-        // еэе░╜╨╬╧
+        // уГнуВ░хЗ║хКЫ
         list ($log_level, $dummy) = $this->logger->errorLevelToLogLevel($error->getLevel());
         $message = $error->getMessage();
         $this->logger->log($log_level, sprintf("%s [ERROR CODE(%d)]", $message, $error->getCode()));
     }
 
     /**
-     *  еиещб╝есе├е╗б╝е╕дЄ╝ш╞└д╣ды
+     *  уВиуГйуГ╝уГбуГГуВ╗уГ╝уВ╕уВТхПЦх╛ЧуБЩуВЛ
      *
      *  @access public
-     *  @param  int     $code       еиещб╝е│б╝е╔
-     *  @return string  еиещб╝есе├е╗б╝е╕
+     *  @param  int     $code       уВиуГйуГ╝уВ│уГ╝уГЙ
+     *  @return string  уВиуГйуГ╝уГбуГГуВ╗уГ╝уВ╕
      */
     function getErrorMessage($code)
     {
@@ -1060,26 +1060,26 @@ class Ethna_Controller
     }
 
     /**
-     *  ╝┬╣╘д╣дыевепе╖ечеє╠╛дЄ╩╓д╣
+     *  хоЯшбМуБЩуВЛуВвуВпуВ╖уГзуГ│хРНуВТш┐ФуБЩ
      *
      *  @access private
-     *  @param  mixed   $default_action_name    ╗╪─ъд╬евепе╖ечеє╠╛
-     *  @return string  ╝┬╣╘д╣дыевепе╖ечеє╠╛
+     *  @param  mixed   $default_action_name    цМЗхоЪуБоуВвуВпуВ╖уГзуГ│хРН
+     *  @return string  хоЯшбМуБЩуВЛуВвуВпуВ╖уГзуГ│хРН
      */
     function _getActionName($default_action_name, $fallback_action_name)
     {
-        // е╒ейб╝ердлдщ═╫╡сд╡дьд┐евепе╖ечеє╠╛дЄ╝ш╞└д╣ды
+        // уГХуВйуГ╝уГауБЛуВЙшжБц▒ВуБХуВМуБЯуВвуВпуВ╖уГзуГ│хРНуВТхПЦх╛ЧуБЩуВЛ
         $form_action_name = $this->_getActionName_Form();
         $form_action_name = preg_replace('/[^a-z0-9\-_]+/i', '', $form_action_name);
         $this->logger->log(LOG_DEBUG, 'form_action_name[%s]', $form_action_name);
 
-        // Ethnaе▐е═б╝е╕еуд╪д╬е╒ейб╝ердлдщд╬еъепеие╣е╚д╧╡ё╚▌
+        // EthnaуГЮуГНуГ╝уВ╕уГгуБ╕уБоуГХуВйуГ╝уГауБЛуВЙуБоуГкуВпуВиуВ╣уГИуБпцЛТхРж
         if ($form_action_name == "__ethna_info__" ||
             $form_action_name == "__ethna_unittest__") {
             $form_action_name = "";
         }
 
-        // е╒ейб╝ердлдщд╬╗╪─ъдм╠╡дд╛ь╣чд╧еиеєе╚еъе▌едеєе╚д╦╗╪─ъд╡дьд┐е╟е╒ейеые╚├═дЄ═°═╤д╣ды
+        // уГХуВйуГ╝уГауБЛуВЙуБоцМЗхоЪуБМчДбуБДха┤хРИуБпуВиуГ│уГИуГкуГЭуВдуГ│уГИуБлцМЗхоЪуБХуВМуБЯуГЗуГХуВйуГлуГИхАдуВТхИйчФиуБЩуВЛ
         if ($form_action_name == "" && count($default_action_name) > 0) {
             $tmp = is_array($default_action_name) ? $default_action_name[0] : $default_action_name;
             if ($tmp{strlen($tmp)-1} == '*') {
@@ -1091,10 +1091,10 @@ class Ethna_Controller
             $action_name = $form_action_name;
         }
 
-        // еиеєе╚еъе▌едеєе╚д╦╟█╬єдм╗╪─ъд╡дьд╞ддды╛ь╣чд╧╗╪─ъ░╩│░д╬евепе╖ечеє╠╛д╧╡ё╚▌д╣ды
+        // уВиуГ│уГИуГкуГЭуВдуГ│уГИуБлщЕНхИЧуБМцМЗхоЪуБХуВМуБжуБДуВЛха┤хРИуБпцМЗхоЪф╗ехдЦуБоуВвуВпуВ╖уГзуГ│хРНуБпцЛТхРжуБЩуВЛ
         if (is_array($default_action_name)) {
             if ($this->_isAcceptableActionName($action_name, $default_action_name) == false) {
-                // ╗╪─ъ░╩│░д╬евепе╖ечеє╠╛д╟╣чд├д┐╛ь╣чд╧$fallback_action_name(or е╟е╒ейеые╚)
+                // цМЗхоЪф╗ехдЦуБоуВвуВпуВ╖уГзуГ│хРНуБзхРИуБгуБЯха┤хРИуБп$fallback_action_name(or уГЗуГХуВйуГлуГИ)
                 $tmp = $fallback_action_name != "" ? $fallback_action_name : $default_action_name[0];
                 if ($tmp{strlen($tmp)-1} == '*') {
                     $tmp = substr($tmp, 0, -1);
@@ -1110,14 +1110,14 @@ class Ethna_Controller
     }
 
     /**
-     *  е╒ейб╝ерд╦дшдъ═╫╡сд╡дьд┐евепе╖ечеє╠╛дЄ╩╓д╣
+     *  уГХуВйуГ╝уГауБлуВИуВКшжБц▒ВуБХуВМуБЯуВвуВпуВ╖уГзуГ│хРНуВТш┐ФуБЩ
      *
-     *  еве╫еъе▒б╝е╖ечеєд╬└н╝┴д╦▒■д╕д╞д│д╬есе╜е├е╔дЄекб╝е╨б╝ещеде╔д╖д╞▓╝д╡ддбг
-     *  е╟е╒ейеые╚д╟д╧"action_"д╟╗╧д▐дые╒ейб╝ер├═д╬"action_"д╬╔Ї╩мдЄ╜№ддд┐дтд╬
-     *  ("action_sample"д╩дщ"sample")дмевепе╖ечеє╠╛д╚д╖д╞░╖дядьд▐д╣
+     *  уВвуГЧуГкуВ▒уГ╝уВ╖уГзуГ│уБоцАзш│куБлх┐ЬуБШуБжуБУуБоуГбуВ╜уГГуГЙуВТуВкуГ╝уГРуГ╝уГйуВдуГЙуБЧуБжф╕ЛуБХуБДуАВ
+     *  уГЗуГХуВйуГлуГИуБзуБп"action_"уБзхзЛуБ╛уВЛуГХуВйуГ╝уГахАдуБо"action_"уБощГихИЖуВТщЩдуБДуБЯуВВуБо
+     *  ("action_sample"уБкуВЙ"sample")уБМуВвуВпуВ╖уГзуГ│хРНуБиуБЧуБжцЙ▒уВПуВМуБ╛уБЩ
      *
      *  @access protected
-     *  @return string  е╒ейб╝ерд╦дшдъ═╫╡сд╡дьд┐евепе╖ечеє╠╛
+     *  @return string  уГХуВйуГ╝уГауБлуВИуВКшжБц▒ВуБХуВМуБЯуВвуВпуВ╖уГзуГ│хРН
      */
     function _getActionName_Form()
     {
@@ -1151,7 +1151,7 @@ class Ethna_Controller
             $http_vars =& $_GET;
         }
 
-        // е╒ейб╝ер├═длдщеъепеие╣е╚д╡дьд┐евепе╖ечеє╠╛дЄ╝ш╞└д╣ды
+        // уГХуВйуГ╝уГахАдуБЛуВЙуГкуВпуВиуВ╣уГИуБХуВМуБЯуВвуВпуВ╖уГзуГ│хРНуВТхПЦх╛ЧуБЩуВЛ
         $action_name = $sub_action_name = null;
         foreach ($http_vars as $name => $value) {
             if ($value == "" || strncmp($name, 'action_', 7) != 0) {
@@ -1160,12 +1160,12 @@ class Ethna_Controller
 
             $tmp = substr($name, 7);
 
-            // type="image"┬╨▒■
+            // type="image"хп╛х┐Ь
             if (preg_match('/_x$/', $name) || preg_match('/_y$/', $name)) {
                 $tmp = substr($tmp, 0, strlen($tmp)-2);
             }
 
-            // value="dummy"д╚д╩д├д╞дддыдтд╬д╧═е└ш┼┘дЄ▓╝д▓ды
+            // value="dummy"уБиуБкуБгуБжуБДуВЛуВВуБоуБпхДкхЕИх║жуВТф╕ЛуБТуВЛ
             if ($value == "dummy") {
                 $sub_action_name = $tmp;
             } else {
@@ -1180,7 +1180,7 @@ class Ethna_Controller
     }
 
     /**
-     *  евепе╖ечеє╠╛дЄ╗╪─ъд╣дыепеиеъ/HTMLдЄ└╕└од╣ды
+     *  уВвуВпуВ╖уГзуГ│хРНуВТцМЗхоЪуБЩуВЛуВпуВиуГк/HTMLуВТчФЯцИРуБЩуВЛ
      *
      *  @access public
      *  @param  string  $action action to request
@@ -1199,11 +1199,11 @@ class Ethna_Controller
     }
 
     /**
-     *  е╒ейб╝ерд╦дшдъ═╫╡сд╡дьд┐евепе╖ечеє╠╛д╦┬╨▒■д╣ды─ъ╡┴дЄ╩╓д╣
+     *  уГХуВйуГ╝уГауБлуВИуВКшжБц▒ВуБХуВМуБЯуВвуВпуВ╖уГзуГ│хРНуБлхп╛х┐ЬуБЩуВЛхоЪч╛йуВТш┐ФуБЩ
      *
      *  @access private
-     *  @param  string  $action_name    евепе╖ечеє╠╛
-     *  @return array   евепе╖ечеє─ъ╡┴
+     *  @param  string  $action_name    уВвуВпуВ╖уГзуГ│хРН
+     *  @return array   уВвуВпуВ╖уГзуГ│хоЪч╛й
      */
     function &_getAction($action_name, $gateway = null)
     {
@@ -1231,10 +1231,10 @@ class Ethna_Controller
             $this->logger->log(LOG_DEBUG, "action [%s] is not defined -> try default", $action_name);
         }
 
-        // евепе╖ечеєе╣епеъе╫е╚д╬едеєепеыб╝е╔
+        // уВвуВпуВ╖уГзуГ│уВ╣уВпуГкуГЧуГИуБоуВдуГ│уВпуГлуГ╝уГЙ
         $this->_includeActionScript($action_obj, $action_name);
 
-        // ╛╩╬м├═д╬╩ф└╡
+        // чЬБчХехАдуБошгЬцнг
         if (isset($action_obj['class_name']) == false) {
             $action_obj['class_name'] = $this->getDefaultActionClass($action_name);
         }
@@ -1242,18 +1242,18 @@ class Ethna_Controller
         if (isset($action_obj['form_name']) == false) {
             $action_obj['form_name'] = $this->getDefaultFormClass($action_name);
         } else if (class_exists($action_obj['form_name']) == false) {
-            // ╠└╝и╗╪─ъд╡дьд┐е╒ейб╝ерепеще╣дм─ъ╡┴д╡дьд╞ддд╩дд╛ь╣чд╧╖┘╣Ё
+            // цШОчд║цМЗхоЪуБХуВМуБЯуГХуВйуГ╝уГауВпуГйуВ╣уБМхоЪч╛йуБХуВМуБжуБДуБкуБДха┤хРИуБпшнжхСК
             $this->logger->log(LOG_WARNING, 'stated form class is not defined [%s]', $action_obj['form_name']);
         }
 
-        // ╔м═╫╛Є╖яд╬│╬╟з
+        // х┐ЕшжБцЭбф╗╢уБочв║шкН
         if (class_exists($action_obj['class_name']) == false) {
             $this->logger->log(LOG_NOTICE, 'action class is not defined [%s]', $action_obj['class_name']);
             $_ret_object = null;
             return $_ret_object;
         }
         if (class_exists($action_obj['form_name']) == false) {
-            // е╒ейб╝ерепеще╣д╧╠д─ъ╡┴д╟дт╬╔дд
+            // уГХуВйуГ╝уГауВпуГйуВ╣уБпцЬкхоЪч╛йуБзуВВшЙпуБД
             $class_name = $this->class_factory->getObjectName('form');
             $this->logger->log(LOG_DEBUG, 'form class is not defined [%s] -> falling back to default [%s]', $action_obj['form_name'], $class_name);
             $action_obj['form_name'] = $class_name;
@@ -1265,12 +1265,12 @@ class Ethna_Controller
     }
 
     /**
-     *  евепе╖ечеє╠╛д╚евепе╖ечеєепеще╣длдщд╬╠сдъ├═д╦┤Ёд┼ддд╞┴л░▄└шдЄ╖ш─ъд╣ды
+     *  уВвуВпуВ╖уГзуГ│хРНуБиуВвуВпуВ╖уГзуГ│уВпуГйуВ╣уБЛуВЙуБоцИ╗уВКхАдуБлхЯ║уБеуБДуБжщБ╖чз╗хЕИуВТц▒║хоЪуБЩуВЛ
      *
      *  @access protected
-     *  @param  string  $action_name    евепе╖ечеє╠╛
-     *  @param  string  $retval         евепе╖ечеєепеще╣длдщд╬╠сдъ├═
-     *  @return string  ┴л░▄└ш
+     *  @param  string  $action_name    уВвуВпуВ╖уГзуГ│хРН
+     *  @param  string  $retval         уВвуВпуВ╖уГзуГ│уВпуГйуВ╣уБЛуВЙуБоцИ╗уВКхАд
+     *  @return string  щБ╖чз╗хЕИ
      */
     function _sortForward($action_name, $retval)
     {
@@ -1278,7 +1278,7 @@ class Ethna_Controller
     }
 
     /**
-     *  е╒егеые┐е┴езедеєдЄ└╕└од╣ды
+     *  уГХуВгуГлуВ┐уГБуВзуВдуГ│уВТчФЯцИРуБЩуВЛ
      *
      *  @access private
      */
@@ -1286,14 +1286,14 @@ class Ethna_Controller
     {
         $this->filter_chain = array();
         foreach ($this->filter as $filter) {
-            //е╨б╝е╕ечеє0.2.0░╩┴░д╬е╒егеые┐╖▓длдщ├╡д╣
+            //уГРуГ╝уВ╕уГзуГ│0.2.0ф╗ехЙНуБоуГХуВгуГлуВ┐ч╛дуБЛуВЙцОвуБЩ
             $file = sprintf("%s/%s.%s", $this->getDirectory('filter'), $filter,$this->getExt('php'));
             if (file_exists($file)) {
                 include_once $file;
                 if (class_exists($filter)) {
                     $this->filter_chain[] =& new $filter($this);
                 }
-            } else {  //е╫еще░едеєдлдщ├╡д╣бе
+            } else {  //уГЧуГйуВ░уВдуГ│уБЛуВЙцОвуБЩя╝О
                 $filter_plugin =& $this->plugin->getPlugin('Filter', $filter);
                 if (Ethna::isError($filter_plugin)) {
                     continue;
@@ -1305,12 +1305,12 @@ class Ethna_Controller
     }
 
     /**
-     *  евепе╖ечеє╠╛дм╝┬╣╘╡Ў▓─д╡дьд╞дддыдтд╬длд╔дждлдЄ╩╓д╣
+     *  уВвуВпуВ╖уГзуГ│хРНуБМхоЯшбМши▒хПпуБХуВМуБжуБДуВЛуВВуБоуБЛуБйуБЖуБЛуВТш┐ФуБЩ
      *
      *  @access private
-     *  @param  string  $action_name            еъепеие╣е╚д╡дьд┐евепе╖ечеє╠╛
-     *  @param  array   $default_action_name    ╡Ў▓─д╡дьд╞дддыевепе╖ечеє╠╛
-     *  @return bool    true:╡Ў▓─ false:╔╘╡Ў▓─
+     *  @param  string  $action_name            уГкуВпуВиуВ╣уГИуБХуВМуБЯуВвуВпуВ╖уГзуГ│хРН
+     *  @param  array   $default_action_name    ши▒хПпуБХуВМуБжуБДуВЛуВвуВпуВ╖уГзуГ│хРН
+     *  @return bool    true:ши▒хПп false:ф╕Нши▒хПп
      */
     function _isAcceptableActionName($action_name, $default_action_name)
     {
@@ -1327,11 +1327,11 @@ class Ethna_Controller
     }
 
     /**
-     *  ╗╪─ъд╡дьд┐евепе╖ечеєд╬е╒ейб╝ерепеще╣╠╛дЄ╩╓д╣(еке╓е╕езепе╚д╬└╕└од╧╣╘дяд╩дд)
+     *  цМЗхоЪуБХуВМуБЯуВвуВпуВ╖уГзуГ│уБоуГХуВйуГ╝уГауВпуГйуВ╣хРНуВТш┐ФуБЩ(уВкуГЦуВ╕уВзуВпуГИуБочФЯцИРуБпшбМуВПуБкуБД)
      *
      *  @access public
-     *  @param  string  $action_name    евепе╖ечеє╠╛
-     *  @return string  евепе╖ечеєд╬е╒ейб╝ерепеще╣╠╛
+     *  @param  string  $action_name    уВвуВпуВ╖уГзуГ│хРН
+     *  @return string  уВвуВпуВ╖уГзуГ│уБоуГХуВйуГ╝уГауВпуГйуВ╣хРН
      */
     function getActionFormName($action_name)
     {
@@ -1344,13 +1344,13 @@ class Ethna_Controller
     }
 
     /**
-     *  евепе╖ечеєд╦┬╨▒■д╣дые╒ейб╝ерепеще╣╠╛дм╛╩╬мд╡дьд┐╛ь╣чд╬е╟е╒ейеые╚епеще╣╠╛дЄ╩╓д╣
+     *  уВвуВпуВ╖уГзуГ│уБлхп╛х┐ЬуБЩуВЛуГХуВйуГ╝уГауВпуГйуВ╣хРНуБМчЬБчХеуБХуВМуБЯха┤хРИуБоуГЗуГХуВйуГлуГИуВпуГйуВ╣хРНуВТш┐ФуБЩ
      *
-     *  е╟е╒ейеые╚д╟д╧[е╫еэе╕езепе╚ID]_Form_[евепе╖ечеє╠╛]д╚д╩дыд╬д╟╣ед▀▒■д╕д╞екб╝е╨ещеде╔д╣ды
+     *  уГЗуГХуВйуГлуГИуБзуБп[уГЧуГнуВ╕уВзуВпуГИID]_Form_[уВвуВпуВ╖уГзуГ│хРН]уБиуБкуВЛуБоуБзхе╜уБ┐х┐ЬуБШуБжуВкуГ╝уГРуГйуВдуГЙуБЩуВЛ
      *
      *  @access public
-     *  @param  string  $action_name    евепе╖ечеє╠╛
-     *  @return string  евепе╖ечеєе╒ейб╝ер╠╛
+     *  @param  string  $action_name    уВвуВпуВ╖уГзуГ│хРН
+     *  @return string  уВвуВпуВ╖уГзуГ│уГХуВйуГ╝уГахРН
      */
     function getDefaultFormClass($action_name, $gateway = null)
     {
@@ -1364,20 +1364,20 @@ class Ethna_Controller
     }
 
     /**
-     *  getDefaultFormClass()д╟╝ш╞└д╖д┐епеще╣╠╛длдщевепе╖ечеє╠╛дЄ╝ш╞└д╣ды
+     *  getDefaultFormClass()уБзхПЦх╛ЧуБЧуБЯуВпуГйуВ╣хРНуБЛуВЙуВвуВпуВ╖уГзуГ│хРНуВТхПЦх╛ЧуБЩуВЛ
      *
-     *  getDefaultFormClass()дЄекб╝е╨б╝ещеде╔д╖д┐╛ь╣чбвд│д┴дщдт╣чдяд╗д╞екб╝е╨б╝ещеде╔
-     *  д╣дыд│д╚дЄ┐ф╛й(╔м┐▄д╟д╧д╩дд)
+     *  getDefaultFormClass()уВТуВкуГ╝уГРуГ╝уГйуВдуГЙуБЧуБЯха┤хРИуАБуБУуБбуВЙуВВхРИуВПуБЫуБжуВкуГ╝уГРуГ╝уГйуВдуГЙ
+     *  уБЩуВЛуБУуБиуВТцОихеи(х┐ЕщаИуБзуБпуБкуБД)
      *
      *  @access public
-     *  @param  string  $class_name     е╒ейб╝ерепеще╣╠╛
-     *  @return string  евепе╖ечеє╠╛
+     *  @param  string  $class_name     уГХуВйуГ╝уГауВпуГйуВ╣хРН
+     *  @return string  уВвуВпуВ╖уГзуГ│хРН
      */
     function actionFormToName($class_name)
     {
         $prefix = sprintf("%s_Form_", $this->getAppId());
         if (preg_match("/$prefix(.*)/", $class_name, $match) == 0) {
-            // ╔╘╠└д╩епеще╣╠╛
+            // ф╕НцШОуБкуВпуГйуВ╣хРН
             return null;
         }
         $target = $match[1];
@@ -1388,15 +1388,15 @@ class Ethna_Controller
     }
 
     /**
-     *  евепе╖ечеєд╦┬╨▒■д╣дые╒ейб╝ере╤е╣╠╛дм╛╩╬мд╡дьд┐╛ь╣чд╬е╟е╒ейеые╚е╤е╣╠╛дЄ╩╓д╣
+     *  уВвуВпуВ╖уГзуГ│уБлхп╛х┐ЬуБЩуВЛуГХуВйуГ╝уГауГСуВ╣хРНуБМчЬБчХеуБХуВМуБЯха┤хРИуБоуГЗуГХуВйуГлуГИуГСуВ╣хРНуВТш┐ФуБЩ
      *
-     *  е╟е╒ейеые╚д╟д╧_getDefaultActionPath()д╚╞▒д╕╖ы▓╠дЄ╩╓д╣(1е╒ебедеыд╦
-     *  евепе╖ечеєепеще╣д╚е╒ейб╝ерепеще╣дм╡н╜╥д╡дьды)д╬д╟бв╣ед▀д╦▒■д╕д╞
-     *  екб╝е╨б╝ещеде╔д╣ды
+     *  уГЗуГХуВйуГлуГИуБзуБп_getDefaultActionPath()уБихРМуБШч╡РцЮЬуВТш┐ФуБЩ(1уГХуВбуВдуГлуБл
+     *  уВвуВпуВ╖уГзуГ│уВпуГйуВ╣уБиуГХуВйуГ╝уГауВпуГйуВ╣уБМшиШш┐░уБХуВМуВЛ)уБоуБзуАБхе╜уБ┐уБлх┐ЬуБШуБж
+     *  уВкуГ╝уГРуГ╝уГйуВдуГЙуБЩуВЛ
      *
      *  @access public
-     *  @param  string  $action_name    евепе╖ечеє╠╛
-     *  @return string  form classдм─ъ╡┴д╡дьдые╣епеъе╫е╚д╬е╤е╣╠╛
+     *  @param  string  $action_name    уВвуВпуВ╖уГзуГ│хРН
+     *  @return string  form classуБМхоЪч╛йуБХуВМуВЛуВ╣уВпуГкуГЧуГИуБоуГСуВ╣хРН
      */
     function getDefaultFormPath($action_name)
     {
@@ -1404,11 +1404,11 @@ class Ethna_Controller
     }
 
     /**
-     *  ╗╪─ъд╡дьд┐евепе╖ечеєд╬епеще╣╠╛дЄ╩╓д╣(еке╓е╕езепе╚д╬└╕└од╧╣╘дяд╩дд)
+     *  цМЗхоЪуБХуВМуБЯуВвуВпуВ╖уГзуГ│уБоуВпуГйуВ╣хРНуВТш┐ФуБЩ(уВкуГЦуВ╕уВзуВпуГИуБочФЯцИРуБпшбМуВПуБкуБД)
      *
      *  @access public
-     *  @param  string  $action_name    евепе╖ечеєд╬╠╛╛╬
-     *  @return string  евепе╖ечеєд╬епеще╣╠╛
+     *  @param  string  $action_name    уВвуВпуВ╖уГзуГ│уБохРНчз░
+     *  @return string  уВвуВпуВ╖уГзуГ│уБоуВпуГйуВ╣хРН
      */
     function getActionClassName($action_name)
     {
@@ -1421,13 +1421,13 @@ class Ethna_Controller
     }
 
     /**
-     *  евепе╖ечеєд╦┬╨▒■д╣дыевепе╖ечеєепеще╣╠╛дм╛╩╬мд╡дьд┐╛ь╣чд╬е╟е╒ейеые╚епеще╣╠╛дЄ╩╓д╣
+     *  уВвуВпуВ╖уГзуГ│уБлхп╛х┐ЬуБЩуВЛуВвуВпуВ╖уГзуГ│уВпуГйуВ╣хРНуБМчЬБчХеуБХуВМуБЯха┤хРИуБоуГЗуГХуВйуГлуГИуВпуГйуВ╣хРНуВТш┐ФуБЩ
      *
-     *  е╟е╒ейеые╚д╟д╧[е╫еэе╕езепе╚ID]_Action_[евепе╖ечеє╠╛]д╚д╩дыд╬д╟╣ед▀▒■д╕д╞екб╝е╨ещеде╔д╣ды
+     *  уГЗуГХуВйуГлуГИуБзуБп[уГЧуГнуВ╕уВзуВпуГИID]_Action_[уВвуВпуВ╖уГзуГ│хРН]уБиуБкуВЛуБоуБзхе╜уБ┐х┐ЬуБШуБжуВкуГ╝уГРуГйуВдуГЙуБЩуВЛ
      *
      *  @access public
-     *  @param  string  $action_name    евепе╖ечеє╠╛
-     *  @return string  евепе╖ечеєепеще╣╠╛
+     *  @param  string  $action_name    уВвуВпуВ╖уГзуГ│хРН
+     *  @return string  уВвуВпуВ╖уГзуГ│уВпуГйуВ╣хРН
      */
     function getDefaultActionClass($action_name, $gateway = null)
     {
@@ -1441,20 +1441,20 @@ class Ethna_Controller
     }
 
     /**
-     *  getDefaultActionClass()д╟╝ш╞└д╖д┐епеще╣╠╛длдщевепе╖ечеє╠╛дЄ╝ш╞└д╣ды
+     *  getDefaultActionClass()уБзхПЦх╛ЧуБЧуБЯуВпуГйуВ╣хРНуБЛуВЙуВвуВпуВ╖уГзуГ│хРНуВТхПЦх╛ЧуБЩуВЛ
      *
-     *  getDefaultActionClass()дЄекб╝е╨б╝ещеде╔д╖д┐╛ь╣чбвд│д┴дщдт╣чдяд╗д╞екб╝е╨б╝ещеде╔
-     *  д╣дыд│д╚дЄ┐ф╛й(╔м┐▄д╟д╧д╩дд)
+     *  getDefaultActionClass()уВТуВкуГ╝уГРуГ╝уГйуВдуГЙуБЧуБЯха┤хРИуАБуБУуБбуВЙуВВхРИуВПуБЫуБжуВкуГ╝уГРуГ╝уГйуВдуГЙ
+     *  уБЩуВЛуБУуБиуВТцОихеи(х┐ЕщаИуБзуБпуБкуБД)
      *
      *  @access public
-     *  @param  string  $class_name     евепе╖ечеєепеще╣╠╛
-     *  @return string  евепе╖ечеє╠╛
+     *  @param  string  $class_name     уВвуВпуВ╖уГзуГ│уВпуГйуВ╣хРН
+     *  @return string  уВвуВпуВ╖уГзуГ│хРН
      */
     function actionClassToName($class_name)
     {
         $prefix = sprintf("%s_Action_", $this->getAppId());
         if (preg_match("/$prefix(.*)/", $class_name, $match) == 0) {
-            // ╔╘╠└д╩епеще╣╠╛
+            // ф╕НцШОуБкуВпуГйуВ╣хРН
             return null;
         }
         $target = $match[1];
@@ -1465,13 +1465,13 @@ class Ethna_Controller
     }
 
     /**
-     *  евепе╖ечеєд╦┬╨▒■д╣дыевепе╖ечеєе╤е╣╠╛дм╛╩╬мд╡дьд┐╛ь╣чд╬е╟е╒ейеые╚е╤е╣╠╛дЄ╩╓д╣
+     *  уВвуВпуВ╖уГзуГ│уБлхп╛х┐ЬуБЩуВЛуВвуВпуВ╖уГзуГ│уГСуВ╣хРНуБМчЬБчХеуБХуВМуБЯха┤хРИуБоуГЗуГХуВйуГлуГИуГСуВ╣хРНуВТш┐ФуБЩ
      *
-     *  е╟е╒ейеые╚д╟д╧"foo_bar" -> "/Foo/Bar.php"д╚д╩дыд╬д╟╣ед▀▒■д╕д╞екб╝е╨б╝ещеде╔д╣ды
+     *  уГЗуГХуВйуГлуГИуБзуБп"foo_bar" -> "/Foo/Bar.php"уБиуБкуВЛуБоуБзхе╜уБ┐х┐ЬуБШуБжуВкуГ╝уГРуГ╝уГйуВдуГЙуБЩуВЛ
      *
      *  @access public
-     *  @param  string  $action_name    евепе╖ечеє╠╛
-     *  @return string  евепе╖ечеєепеще╣дм─ъ╡┴д╡дьдые╣епеъе╫е╚д╬е╤е╣╠╛
+     *  @param  string  $action_name    уВвуВпуВ╖уГзуГ│хРН
+     *  @return string  уВвуВпуВ╖уГзуГ│уВпуГйуВ╣уБМхоЪч╛йуБХуВМуВЛуВ╣уВпуГкуГЧуГИуБоуГСуВ╣хРН
      */
     function getDefaultActionPath($action_name)
     {
@@ -1482,11 +1482,11 @@ class Ethna_Controller
     }
 
     /**
-     *  ╗╪─ъд╡дьд┐┴л░▄╠╛д╦┬╨▒■д╣дые╙ехб╝епеще╣╠╛дЄ╩╓д╣(еке╓е╕езепе╚д╬└╕└од╧╣╘дяд╩дд)
+     *  цМЗхоЪуБХуВМуБЯщБ╖чз╗хРНуБлхп╛х┐ЬуБЩуВЛуГУуГеуГ╝уВпуГйуВ╣хРНуВТш┐ФуБЩ(уВкуГЦуВ╕уВзуВпуГИуБочФЯцИРуБпшбМуВПуБкуБД)
      *
      *  @access public
-     *  @param  string  $forward_name   ┴л░▄└шд╬╠╛╛╬
-     *  @return string  view classд╬епеще╣╠╛
+     *  @param  string  $forward_name   щБ╖чз╗хЕИуБохРНчз░
+     *  @return string  view classуБоуВпуГйуВ╣хРН
      */
     function getViewClassName($forward_name)
     {
@@ -1509,7 +1509,7 @@ class Ethna_Controller
             $class_name = null;
         }
 
-        // viewд╬едеєепеыб╝е╔
+        // viewуБоуВдуГ│уВпуГлуГ╝уГЙ
         $this->_includeViewScript($forward_obj, $forward_name);
 
         if (is_null($class_name) == false && class_exists($class_name)) {
@@ -1529,13 +1529,13 @@ class Ethna_Controller
     }
 
     /**
-     *  ┴л░▄╠╛д╦┬╨▒■д╣дые╙ехб╝епеще╣╠╛дм╛╩╬мд╡дьд┐╛ь╣чд╬е╟е╒ейеые╚епеще╣╠╛дЄ╩╓д╣
+     *  щБ╖чз╗хРНуБлхп╛х┐ЬуБЩуВЛуГУуГеуГ╝уВпуГйуВ╣хРНуБМчЬБчХеуБХуВМуБЯха┤хРИуБоуГЗуГХуВйуГлуГИуВпуГйуВ╣хРНуВТш┐ФуБЩ
      *
-     *  е╟е╒ейеые╚д╟д╧[е╫еэе╕езепе╚ID]_View_[┴л░▄╠╛]д╚д╩дыд╬д╟╣ед▀▒■д╕д╞екб╝е╨ещеде╔д╣ды
+     *  уГЗуГХуВйуГлуГИуБзуБп[уГЧуГнуВ╕уВзуВпуГИID]_View_[щБ╖чз╗хРН]уБиуБкуВЛуБоуБзхе╜уБ┐х┐ЬуБШуБжуВкуГ╝уГРуГйуВдуГЙуБЩуВЛ
      *
      *  @access public
-     *  @param  string  $forward_name   forward╠╛
-     *  @return string  view classепеще╣╠╛
+     *  @param  string  $forward_name   forwardхРН
+     *  @return string  view classуВпуГйуВ╣хРН
      */
     function getDefaultViewClass($forward_name, $gateway = null)
     {
@@ -1549,13 +1549,13 @@ class Ethna_Controller
     }
 
     /**
-     *  ┴л░▄╠╛д╦┬╨▒■д╣дые╙ехб╝е╤е╣╠╛дм╛╩╬мд╡дьд┐╛ь╣чд╬е╟е╒ейеые╚е╤е╣╠╛дЄ╩╓д╣
+     *  щБ╖чз╗хРНуБлхп╛х┐ЬуБЩуВЛуГУуГеуГ╝уГСуВ╣хРНуБМчЬБчХеуБХуВМуБЯха┤хРИуБоуГЗуГХуВйуГлуГИуГСуВ╣хРНуВТш┐ФуБЩ
      *
-     *  е╟е╒ейеые╚д╟д╧"foo_bar" -> "/Foo/Bar.php"д╚д╩дыд╬д╟╣ед▀▒■д╕д╞екб╝е╨б╝ещеде╔д╣ды
+     *  уГЗуГХуВйуГлуГИуБзуБп"foo_bar" -> "/Foo/Bar.php"уБиуБкуВЛуБоуБзхе╜уБ┐х┐ЬуБШуБжуВкуГ╝уГРуГ╝уГйуВдуГЙуБЩуВЛ
      *
      *  @access public
-     *  @param  string  $forward_name   forward╠╛
-     *  @return string  view classдм─ъ╡┴д╡дьдые╣епеъе╫е╚д╬е╤е╣╠╛
+     *  @param  string  $forward_name   forwardхРН
+     *  @return string  view classуБМхоЪч╛йуБХуВМуВЛуВ╣уВпуГкуГЧуГИуБоуГСуВ╣хРН
      */
     function getDefaultViewPath($forward_name)
     {
@@ -1566,14 +1566,14 @@ class Ethna_Controller
     }
 
     /**
-     *  ┴л░▄╠╛д╦┬╨▒■д╣дые╞еєе╫еьб╝е╚е╤е╣╠╛дм╛╩╬мд╡дьд┐╛ь╣чд╬е╟е╒ейеые╚е╤е╣╠╛дЄ╩╓д╣
+     *  щБ╖чз╗хРНуБлхп╛х┐ЬуБЩуВЛуГЖуГ│уГЧуГмуГ╝уГИуГСуВ╣хРНуБМчЬБчХеуБХуВМуБЯха┤хРИуБоуГЗуГХуВйуГлуГИуГСуВ╣хРНуВТш┐ФуБЩ
      *
-     *  е╟е╒ейеые╚д╟д╧"foo_bar"д╚ддджforward╠╛дм"foo/bar" + е╞еєе╫еьб╝е╚│╚─е╗╥д╚д╩ды
-     *  д╬д╟╣ед▀▒■д╕д╞екб╝е╨ещеде╔д╣ды
+     *  уГЗуГХуВйуГлуГИуБзуБп"foo_bar"уБиуБДуБЖforwardхРНуБМ"foo/bar" + уГЖуГ│уГЧуГмуГ╝уГИцЛбх╝╡хнРуБиуБкуВЛ
+     *  уБоуБзхе╜уБ┐х┐ЬуБШуБжуВкуГ╝уГРуГйуВдуГЙуБЩуВЛ
      *
      *  @access public
-     *  @param  string  $forward_name   forward╠╛
-     *  @return string  forwardе╤е╣╠╛
+     *  @param  string  $forward_name   forwardхРН
+     *  @return string  forwardуГСуВ╣хРН
      */
     function getDefaultForwardPath($forward_name)
     {
@@ -1581,14 +1581,14 @@ class Ethna_Controller
     }
     
     /**
-     *  е╞еєе╫еьб╝е╚е╤е╣╠╛длдщ┴л░▄╠╛дЄ╝ш╞└д╣ды
+     *  уГЖуГ│уГЧуГмуГ╝уГИуГСуВ╣хРНуБЛуВЙщБ╖чз╗хРНуВТхПЦх╛ЧуБЩуВЛ
      *
-     *  getDefaultForwardPath()дЄекб╝е╨б╝ещеде╔д╖д┐╛ь╣чбвд│д┴дщдт╣чдяд╗д╞екб╝е╨б╝ещеде╔
-     *  д╣дыд│д╚дЄ┐ф╛й(╔м┐▄д╟д╧д╩дд)
+     *  getDefaultForwardPath()уВТуВкуГ╝уГРуГ╝уГйуВдуГЙуБЧуБЯха┤хРИуАБуБУуБбуВЙуВВхРИуВПуБЫуБжуВкуГ╝уГРуГ╝уГйуВдуГЙ
+     *  уБЩуВЛуБУуБиуВТцОихеи(х┐ЕщаИуБзуБпуБкуБД)
      *
      *  @access public
-     *  @param  string  $forward_path   е╞еєе╫еьб╝е╚е╤е╣╠╛
-     *  @return string  ┴л░▄╠╛
+     *  @param  string  $forward_path   уГЖуГ│уГЧуГмуГ╝уГИуГСуВ╣хРН
+     *  @return string  щБ╖чз╗хРН
      */
     function forwardPathToName($forward_path)
     {
@@ -1599,11 +1599,11 @@ class Ethna_Controller
     }
 
     /**
-     *  ┴л░▄╠╛длдще╞еєе╫еьб╝е╚е╒ебедеыд╬е╤е╣╠╛дЄ╝ш╞└д╣ды
+     *  щБ╖чз╗хРНуБЛуВЙуГЖуГ│уГЧуГмуГ╝уГИуГХуВбуВдуГлуБоуГСуВ╣хРНуВТхПЦх╛ЧуБЩуВЛ
      *
      *  @access private
-     *  @param  string  $forward_name   forward╠╛
-     *  @return string  е╞еєе╫еьб╝е╚е╒ебедеыд╬е╤е╣╠╛
+     *  @param  string  $forward_name   forwardхРН
+     *  @return string  уГЖуГ│уГЧуГмуГ╝уГИуГХуВбуВдуГлуБоуГСуВ╣хРН
      */
     function _getForwardPath($forward_name)
     {
@@ -1615,7 +1615,7 @@ class Ethna_Controller
         }
         $forward_obj =& $this->forward[$forward_name];
         if (isset($forward_obj['forward_path']) == false) {
-            // ╛╩╬м├═╩ф└╡
+            // чЬБчХехАдшгЬцнг
             $forward_obj['forward_path'] = $this->getDefaultForwardPath($forward_name);
         }
 
@@ -1623,10 +1623,10 @@ class Ethna_Controller
     }
 
     /**
-     *  еьеєе└ещдЄ╝ш╞└д╣ды(getTemplateEngine()д╧д╜д╬джд┴╟╤╗▀д╡дьgetRenderer()д╦┼¤╣чд╡дьды═╜─ъ)
+     *  уГмуГ│уГАуГйуВТхПЦх╛ЧуБЩуВЛ(getTemplateEngine()уБпуБЭуБоуБЖуБбх╗ГцнвуБХуВМgetRenderer()уБлч╡▒хРИуБХуВМуВЛф║ИхоЪ)
      *
      *  @access public
-     *  @return object  Ethna_Renderer  еьеєе└ещеке╓е╕езепе╚
+     *  @return object  Ethna_Renderer  уГмуГ│уГАуГйуВкуГЦуВ╕уВзуВпуГИ
      */
     function &getRenderer()
     {
@@ -1635,10 +1635,10 @@ class Ethna_Controller
     }
 
     /**
-     *  е╞еєе╫еьб╝е╚еиеєе╕еє╝ш╞└д╣ды
+     *  уГЖуГ│уГЧуГмуГ╝уГИуВиуГ│уВ╕уГ│хПЦх╛ЧуБЩуВЛ
      *
      *  @access public
-     *  @return object  Ethna_Renderer  еьеєе└ещеке╓е╕езепе╚
+     *  @return object  Ethna_Renderer  уГмуГ│уГАуГйуВкуГЦуВ╕уВзуВпуГИ
      *  @obsolete
      */
     function &getTemplateEngine()
@@ -1708,7 +1708,7 @@ class Ethna_Controller
             }
         }
 
-        //е╞еєе╫еьб╝е╚еиеєе╕еєд╬е╟е╒ейеые╚д╬└▀─ъ
+        //уГЖуГ│уГЧуГмуГ╝уГИуВиуГ│уВ╕уГ│уБоуГЗуГХуВйуГлуГИуБошинхоЪ
         $this->_setDefaultTemplateEngine($this->renderer);
         // }}}
 
@@ -1716,10 +1716,10 @@ class Ethna_Controller
     }
 
     /**
-     *  е╞еєе╫еьб╝е╚еиеєе╕еєд╬е╟е╒ейеые╚╛ї┬╓дЄ└▀─ъд╣ды
+     *  уГЖуГ│уГЧуГмуГ╝уГИуВиуГ│уВ╕уГ│уБоуГЗуГХуВйуГлуГИчК╢цЕЛуВТшинхоЪуБЩуВЛ
      *
      *  @access protected
-     *  @param  object  Ethna_Renderer  еьеєе└ещеке╓е╕езепе╚
+     *  @param  object  Ethna_Renderer  уГмуГ│уГАуГйуВкуГЦуВ╕уВзуВпуГИ
      *  @obsolete
      */
     function _setDefaultTemplateEngine(&$renderer)
@@ -1727,14 +1727,14 @@ class Ethna_Controller
     }
 
     /**
-     *  ╗╚═╤╕└╕ьдЄ└▀─ъд╣ды
+     *  ф╜┐чФишиАшкЮуВТшинхоЪуБЩуВЛ
      *
-     *  ╛н═шд╪д╬│╚─ед╬д┐дсд╬д▀д╦┬╕║▀д╖д╞ддд▐д╣бг╕╜║▀д╧╞├д╦екб╝е╨б╝ещеде╔д╬╔м═╫д╧двдъд▐д╗дєбг
+     *  х░ЖцЭеуБ╕уБоцЛбх╝╡уБоуБЯуВБуБоуБ┐уБлхнШхЬиуБЧуБжуБДуБ╛уБЩуАВчП╛хЬиуБпчЙ╣уБлуВкуГ╝уГРуГ╝уГйуВдуГЙуБох┐ЕшжБуБпуБВуВКуБ╛уБЫуВУуАВ
      *
      *  @access protected
-     *  @param  string  $language           ╕└╕ь─ъ╡┴(LANG_JA, LANG_EN...)
-     *  @param  string  $system_encoding    е╖е╣е╞ереиеєе│б╝е╟егеєе░╠╛
-     *  @param  string  $client_encoding    епещедевеєе╚еиеєе│б╝е╟егеєе░
+     *  @param  string  $language           шиАшкЮхоЪч╛й(LANG_JA, LANG_EN...)
+     *  @param  string  $system_encoding    уВ╖уВ╣уГЖуГауВиуГ│уВ│уГ╝уГЗуВгуГ│уВ░хРН
+     *  @param  string  $client_encoding    уВпуГйуВдуВвуГ│уГИуВиуГ│уВ│уГ╝уГЗуВгуГ│уВ░
      */
     function _setLanguage($language, $system_encoding = null, $client_encoding = null)
     {
@@ -1747,10 +1747,10 @@ class Ethna_Controller
     }
 
     /**
-     *  е╟е╒ейеые╚╛ї┬╓д╟д╬╗╚═╤╕└╕ьдЄ╝ш╞└д╣ды
+     *  уГЗуГХуВйуГлуГИчК╢цЕЛуБзуБоф╜┐чФишиАшкЮуВТхПЦх╛ЧуБЩуВЛ
      *
      *  @access protected
-     *  @return array   ╗╚═╤╕└╕ь,е╖е╣е╞ереиеєе│б╝е╟егеєе░╠╛,епещедевеєе╚еиеєе│б╝е╟егеєе░╠╛
+     *  @return array   ф╜┐чФишиАшкЮ,уВ╖уВ╣уГЖуГауВиуГ│уВ│уГ╝уГЗуВгуГ│уВ░хРН,уВпуГйуВдуВвуГ│уГИуВиуГ│уВ│уГ╝уГЗуВгуГ│уВ░хРН
      */
     function _getDefaultLanguage()
     {
@@ -1758,10 +1758,10 @@ class Ethna_Controller
     }
 
     /**
-     *  е╟е╒ейеые╚╛ї┬╓д╟д╬е▓б╝е╚ежезеддЄ╝ш╞└д╣ды
+     *  уГЗуГХуВйуГлуГИчК╢цЕЛуБзуБоуВ▓уГ╝уГИуВжуВзуВдуВТхПЦх╛ЧуБЩуВЛ
      *
      *  @access protected
-     *  @return int     е▓б╝е╚ежезед─ъ╡┴(GATEWAY_WWW, GATEWAY_CLI...)
+     *  @return int     уВ▓уГ╝уГИуВжуВзуВдхоЪч╛й(GATEWAY_WWW, GATEWAY_CLI...)
      */
     function _getDefaultGateway($gateway)
     {
@@ -1772,11 +1772,11 @@ class Ethna_Controller
     }
 
     /**
-     *  е▓б╝е╚ежезедд╦┬╨▒■д╖д┐епеще╣╠╛д╬е╫еье╒егепе╣дЄ╝ш╞└д╣ды
+     *  уВ▓уГ╝уГИуВжуВзуВдуБлхп╛х┐ЬуБЧуБЯуВпуГйуВ╣хРНуБоуГЧуГмуГХуВгуВпуВ╣уВТхПЦх╛ЧуБЩуВЛ
      *
      *  @access public
-     *  @param  string  $gateway    е▓б╝е╚ежезед
-     *  @return string  е▓б╝е╚ежезедепеще╣е╫еье╒егепе╣
+     *  @param  string  $gateway    уВ▓уГ╝уГИуВжуВзуВд
+     *  @return string  уВ▓уГ╝уГИуВжуВзуВдуВпуГйуВ╣уГЧуГмуГХуВгуВпуВ╣
      */
     function _getGatewayPrefix($gateway = null)
     {
@@ -1800,11 +1800,11 @@ class Ethna_Controller
     }
 
     /**
-     *  е▐е═б╝е╕еуепеще╣╠╛дЄ╝ш╞└д╣ды
+     *  уГЮуГНуГ╝уВ╕уГгуВпуГйуВ╣хРНуВТхПЦх╛ЧуБЩуВЛ
      *
      *  @access public
-     *  @param  string  $name   е▐е═б╝е╕еуенб╝
-     *  @return string  е▐е═б╝е╕еуепеще╣╠╛
+     *  @param  string  $name   уГЮуГНуГ╝уВ╕уГгуВнуГ╝
+     *  @return string  уГЮуГНуГ╝уВ╕уГгуВпуГйуВ╣хРН
      */
     function getManagerClassName($name)
     {
@@ -1812,11 +1812,11 @@ class Ethna_Controller
     }
 
     /**
-     *  еве╫еъе▒б╝е╖ечеєеке╓е╕езепе╚епеще╣╠╛дЄ╝ш╞└д╣ды
+     *  уВвуГЧуГкуВ▒уГ╝уВ╖уГзуГ│уВкуГЦуВ╕уВзуВпуГИуВпуГйуВ╣хРНуВТхПЦх╛ЧуБЩуВЛ
      *
      *  @access public
-     *  @param  string  $name   еве╫еъе▒б╝е╖ечеєеке╓е╕езепе╚енб╝
-     *  @return string  е▐е═б╝е╕еуепеще╣╠╛
+     *  @param  string  $name   уВвуГЧуГкуВ▒уГ╝уВ╖уГзуГ│уВкуГЦуВ╕уВзуВпуГИуВнуГ╝
+     *  @return string  уГЮуГНуГ╝уВ╕уГгуВпуГйуВ╣хРН
      */
     function getObjectClassName($name)
     {
@@ -1825,13 +1825,13 @@ class Ethna_Controller
     }
 
     /**
-     *  евепе╖ечеєе╣епеъе╫е╚дЄедеєепеыб╝е╔д╣ды
+     *  уВвуВпуВ╖уГзуГ│уВ╣уВпуГкуГЧуГИуВТуВдуГ│уВпуГлуГ╝уГЙуБЩуВЛ
      *
-     *  д┐д└д╖бведеєепеыб╝е╔д╖д┐е╒ебедеыд╦епеще╣дм└╡д╖дп─ъ╡┴д╡дьд╞дддыдлд╔дждлд╧╩▌╛┌д╖д╩дд
+     *  уБЯуБауБЧуАБуВдуГ│уВпуГлуГ╝уГЙуБЧуБЯуГХуВбуВдуГлуБлуВпуГйуВ╣уБМцнгуБЧуБПхоЪч╛йуБХуВМуБжуБДуВЛуБЛуБйуБЖуБЛуБпф┐Эши╝уБЧуБкуБД
      *
      *  @access private
-     *  @param  array   $action_obj     евепе╖ечеє─ъ╡┴
-     *  @param  string  $action_name    евепе╖ечеє╠╛
+     *  @param  array   $action_obj     уВвуВпуВ╖уГзуГ│хоЪч╛й
+     *  @param  string  $action_name    уВвуВпуВ╖уГзуГ│хРН
      */
     function _includeActionScript($action_obj, $action_name)
     {
@@ -1839,9 +1839,9 @@ class Ethna_Controller
 
         $action_dir = $this->getActiondir();
 
-        // class_path┬░└не┴езе├еп
+        // class_pathх▒ЮцАзуГБуВзуГГуВп
         if (isset($action_obj['class_path'])) {
-            // е╒еые╤е╣╗╪─ъе╡е▌б╝е╚
+            // уГХуГлуГСуВ╣цМЗхоЪуВ╡уГЭуГ╝уГИ
             $tmp_path = $action_obj['class_path'];
             if (Ethna_Util::isAbsolute($tmp_path) == false) {
                 $tmp_path = $action_dir . $tmp_path;
@@ -1855,7 +1855,7 @@ class Ethna_Controller
             }
         }
 
-        // е╟е╒ейеые╚е┴езе├еп
+        // уГЗуГХуВйуГлуГИуГБуВзуГГуВп
         if (is_null($class_path)) {
             $class_path = $this->getDefaultActionPath($action_name);
             if (file_exists($action_dir . $class_path)) {
@@ -1866,15 +1866,15 @@ class Ethna_Controller
             }
         }
         
-        // ┴┤е╒ебедеыедеєепеыб╝е╔
+        // хЕиуГХуВбуВдуГлуВдуГ│уВпуГлуГ╝уГЙ
         if (is_null($class_path)) {
             $this->_includeDirectory($this->getActiondir());
             return;
         }
 
-        // form_path┬░└не┴езе├еп
+        // form_pathх▒ЮцАзуГБуВзуГГуВп
         if (isset($action_obj['form_path'])) {
-            // е╒еые╤е╣╗╪─ъе╡е▌б╝е╚
+            // уГХуГлуГСуВ╣цМЗхоЪуВ╡уГЭуГ╝уГИ
             $tmp_path = $action_obj['form_path'];
             if (Ethna_Util::isAbsolute($tmp_path) == false) {
                 $tmp_path = $action_dir . $tmp_path;
@@ -1891,7 +1891,7 @@ class Ethna_Controller
             }
         }
 
-        // е╟е╒ейеые╚е┴езе├еп
+        // уГЗуГХуВйуГлуГИуГБуВзуГГуВп
         if (is_null($form_path)) {
             $form_path = $this->getDefaultFormPath($action_name);
             if ($form_path == $class_path) {
@@ -1906,21 +1906,21 @@ class Ethna_Controller
     }
 
     /**
-     *  е╙ехб╝е╣епеъе╫е╚дЄедеєепеыб╝е╔д╣ды
+     *  уГУуГеуГ╝уВ╣уВпуГкуГЧуГИуВТуВдуГ│уВпуГлуГ╝уГЙуБЩуВЛ
      *
-     *  д┐д└д╖бведеєепеыб╝е╔д╖д┐е╒ебедеыд╦епеще╣дм└╡д╖дп─ъ╡┴д╡дьд╞дддыдлд╔дждлд╧╩▌╛┌д╖д╩дд
+     *  уБЯуБауБЧуАБуВдуГ│уВпуГлуГ╝уГЙуБЧуБЯуГХуВбуВдуГлуБлуВпуГйуВ╣уБМцнгуБЧуБПхоЪч╛йуБХуВМуБжуБДуВЛуБЛуБйуБЖуБЛуБпф┐Эши╝уБЧуБкуБД
      *
      *  @access private
-     *  @param  array   $forward_obj    ┴л░▄─ъ╡┴
-     *  @param  string  $forward_name   ┴л░▄╠╛
+     *  @param  array   $forward_obj    щБ╖чз╗хоЪч╛й
+     *  @param  string  $forward_name   щБ╖чз╗хРН
      */
     function _includeViewScript($forward_obj, $forward_name)
     {
         $view_dir = $this->getViewdir();
 
-        // view_path┬░└не┴езе├еп
+        // view_pathх▒ЮцАзуГБуВзуГГуВп
         if (isset($forward_obj['view_path'])) {
-            // е╒еые╤е╣╗╪─ъе╡е▌б╝е╚
+            // уГХуГлуГСуВ╣цМЗхоЪуВ╡уГЭуГ╝уГИ
             $tmp_path = $forward_obj['view_path'];
             if (Ethna_Util::isAbsolute($tmp_path) == false) {
                 $tmp_path = $view_dir . $tmp_path;
@@ -1934,7 +1934,7 @@ class Ethna_Controller
             }
         }
 
-        // е╟е╒ейеые╚е┴езе├еп
+        // уГЗуГХуВйуГлуГИуГБуВзуГГуВп
         $view_path = $this->getDefaultViewPath($forward_name);
         if (file_exists($view_dir . $view_path)) {
             include_once $view_dir . $view_path;
@@ -1946,7 +1946,7 @@ class Ethna_Controller
     }
 
     /**
-     *  е╟егеьепе╚еъ░╩▓╝д╬┴┤д╞д╬е╣епеъе╫е╚дЄедеєепеыб╝е╔д╣ды
+     *  уГЗуВгуГмуВпуГИуГкф╗еф╕ЛуБохЕиуБжуБоуВ╣уВпуГкуГЧуГИуВТуВдуГ│уВпуГлуГ╝уГЙуБЩуВЛ
      *
      *  @access private
      */
@@ -1975,12 +1975,12 @@ class Ethna_Controller
     }
 
     /**
-     *  └▀─ъе╒ебедеыд╬DSN─ъ╡┴длдщ╗╚═╤д╣дые╟б╝е┐дЄ║╞╣╜├█д╣ды(е╣еьб╝е╓евепе╗е╣╩м┤Ї┼∙)
+     *  шинхоЪуГХуВбуВдуГлуБоDSNхоЪч╛йуБЛуВЙф╜┐чФиуБЩуВЛуГЗуГ╝уВ┐уВТхЖНцзЛчпЙуБЩуВЛ(уВ╣уГмуГ╝уГЦуВвуВпуВ╗уВ╣хИЖх▓РчнЙ)
      *
-     *  DSNд╬─ъ╡┴╩¤╦б(е╟е╒ейеые╚:└▀─ъе╒ебедеы)дЄ╩╤дид┐дд╛ь╣чд╧д│д│дЄекб╝е╨б╝ещеде╔д╣ды
+     *  DSNуБохоЪч╛йцЦ╣ц│Х(уГЗуГХуВйуГлуГИ:шинхоЪуГХуВбуВдуГл)уВТхдЙуБИуБЯуБДха┤хРИуБпуБУуБУуВТуВкуГ╝уГРуГ╝уГйуВдуГЙуБЩуВЛ
      *
      *  @access protected
-     *  @return array   DSN─ъ╡┴(array('DBенб╝1' => 'dsn1', 'DBенб╝2' => 'dsn2', ...))
+     *  @return array   DSNхоЪч╛й(array('DBуВнуГ╝1' => 'dsn1', 'DBуВнуГ╝2' => 'dsn2', ...))
      */
     function _prepareDSN()
     {
@@ -1993,7 +1993,7 @@ class Ethna_Controller
             }
             $dsn = $this->config->get($config_key);
             if (is_array($dsn)) {
-                // ╝я╩╠1д─д╦д─дн╩г┐ЇDSNдм─ъ╡┴д╡дьд╞ддды╛ь╣чд╧евепе╗е╣╩м┤Ї
+                // чиохИе1уБдуБлуБдуБНшдЗцХ░DSNуБМхоЪч╛йуБХуВМуБжуБДуВЛха┤хРИуБпуВвуВпуВ╗уВ╣хИЖх▓Р
                 $dsn = $this->_selectDSN($key, $dsn);
             }
             $r[$key] = $dsn;
@@ -2002,14 +2002,14 @@ class Ethna_Controller
     }
 
     /**
-     *  DSNд╬евепе╗е╣╩м┤ЇдЄ╣╘дж
+     *  DSNуБоуВвуВпуВ╗уВ╣хИЖх▓РуВТшбМуБЖ
      *  
-     *  е╣еьб╝е╓е╡б╝е╨д╪д╬┐╢╩мд▒╜ш═¤(е╟е╒ейеые╚:ещеєе└ер)дЄ╩╤╣╣д╖д┐дд╛ь╣чд╧д│д╬есе╜е├е╔дЄекб╝е╨б╝ещеде╔д╣ды
+     *  уВ╣уГмуГ╝уГЦуВ╡уГ╝уГРуБ╕уБоцМпхИЖуБСхЗжчРЖ(уГЗуГХуВйуГлуГИ:уГйуГ│уГАуГа)уВТхдЙцЫ┤уБЧуБЯуБДха┤хРИуБпуБУуБоуГбуВ╜уГГуГЙуВТуВкуГ╝уГРуГ╝уГйуВдуГЙуБЩуВЛ
      *
      *  @access protected
-     *  @param  string  $type       DB╝я╩╠
-     *  @param  array   $dsn_list   DSN░ь═ў
-     *  @return string  ┴к┬Єд╡дьд┐DSN
+     *  @param  string  $type       DBчиохИе
+     *  @param  array   $dsn_list   DSNф╕Ашжз
+     *  @return string  щБ╕цКЮуБХуВМуБЯDSN
      */
     function _selectDSN($type, $dsn_list)
     {
@@ -2017,7 +2017,7 @@ class Ethna_Controller
             return $dsn_list;
         }
 
-        // е╟е╒ейеые╚:ещеєе└ер
+        // уГЗуГХуВйуГлуГИ:уГйуГ│уГАуГа
         list($usec, $sec) = explode(' ', microtime());
         mt_srand($sec + ((float) $usec * 100000));
         $n = mt_rand(0, count($dsn_list)-1);
@@ -2026,9 +2026,9 @@ class Ethna_Controller
     }
 
     /**
-     *  Ethnaе▐е═б╝е╕еудЄ└▀─ъд╣ды
+     *  EthnaуГЮуГНуГ╝уВ╕уГгуВТшинхоЪуБЩуВЛ
      *
-     *  ╔╘═╫д╩╛ь╣чд╧╢їд╬есе╜е├е╔д╚д╖д╞екб╝е╨б╝ещеде╔д╖д╞дтдшдд
+     *  ф╕НшжБуБкха┤хРИуБпчй║уБоуГбуВ╜уГГуГЙуБиуБЧуБжуВкуГ╝уГРуГ╝уГйуВдуГЙуБЧуБжуВВуВИуБД
      *
      *  @access protected
      */
@@ -2045,7 +2045,7 @@ class Ethna_Controller
             require_once ETHNA_BASE . '/class/Ethna_UnitTestManager.php';
         }
 
-        // action└▀─ъ
+        // actionшинхоЪ
         $this->action['__ethna_info__'] = array(
             'form_name' =>  'Ethna_Form_Info',
             'form_path' =>  sprintf('%s/class/Action/Ethna_Action_Info.php', ETHNA_BASE),
@@ -2053,7 +2053,7 @@ class Ethna_Controller
             'class_path' => sprintf('%s/class/Action/Ethna_Action_Info.php', ETHNA_BASE),
         );
 
-        // forward└▀─ъ
+        // forwardшинхоЪ
         $this->forward['__ethna_info__'] = array(
             'forward_path'  => sprintf('%s/tpl/info.tpl', ETHNA_BASE),
             'view_name'     => 'Ethna_View_Info',
@@ -2061,7 +2061,7 @@ class Ethna_Controller
         );
         
         
-        // action└▀─ъ
+        // actionшинхоЪ
         $this->action['__ethna_unittest__'] = array(
             'form_name' =>  'Ethna_Form_UnitTest',
             'form_path' =>  sprintf('%s/class/Action/Ethna_Action_UnitTest.php', ETHNA_BASE),
@@ -2069,7 +2069,7 @@ class Ethna_Controller
             'class_path' => sprintf('%s/class/Action/Ethna_Action_UnitTest.php', ETHNA_BASE),
         );
 
-        // forward└▀─ъ
+        // forwardшинхоЪ
         $this->forward['__ethna_unittest__'] = array(
             'forward_path'  => sprintf('%s/tpl/unittest.tpl', ETHNA_BASE),
             'view_name'     => 'Ethna_View_UnitTest',
@@ -2079,10 +2079,10 @@ class Ethna_Controller
     }
 
     /**
-     *  CLI╝┬╣╘├це╒еще░дЄ╝ш╞└д╣ды
+     *  CLIхоЯшбМф╕нуГХуГйуВ░уВТхПЦх╛ЧуБЩуВЛ
      *
      *  @access public
-     *  @return bool    CLI╝┬╣╘├це╒еще░
+     *  @return bool    CLIхоЯшбМф╕нуГХуГйуВ░
      *  @obsolete
      */
     function getCLI()
@@ -2091,10 +2091,10 @@ class Ethna_Controller
     }
 
     /**
-     *  CLI╝┬╣╘├це╒еще░дЄ└▀─ъд╣ды
+     *  CLIхоЯшбМф╕нуГХуГйуВ░уВТшинхоЪуБЩуВЛ
      *
      *  @access public
-     *  @param  bool    CLI╝┬╣╘├це╒еще░
+     *  @param  bool    CLIхоЯшбМф╕нуГХуГйуВ░
      *  @obsolete
      */
     function setCLI($cli)
@@ -2105,7 +2105,7 @@ class Ethna_Controller
 // }}}
 
 /**
- *  XMLRPCе▓б╝е╚ежезедд╬е╣е┐е╓епеще╣
+ *  XMLRPCуВ▓уГ╝уГИуВжуВзуВдуБоуВ╣уВ┐уГЦуВпуГйуВ╣
  *
  *  @access     public
  */

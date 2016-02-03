@@ -8,7 +8,7 @@
  */
 
 /**
- *  URL¥Ï¥ó¥É¥é¥¯¥é¥¹
+ *  URLãƒãƒ³ãƒ‰ãƒ©ã‚¯ãƒ©ã‚¹
  *
  *  @author     {$author}
  *  @access     public
@@ -16,7 +16,7 @@
  */
 class {$project_id}_UrlHandler extends Ethna_UrlHandler
 {
-    /** @var    array   ¥¢¥¯¥·¥ç¥ó¥Ş¥Ã¥Ô¥ó¥° */
+    /** @var    array   ã‚¢ã‚¯ã‚·ãƒ§ãƒ³ãƒãƒƒãƒ”ãƒ³ã‚° */
     var $action_map = array(
         /*
         'user'  => array(
@@ -31,7 +31,7 @@ class {$project_id}_UrlHandler extends Ethna_UrlHandler
     );
 
     /**
-     *  {$project_id}_UrlHandler¥¯¥é¥¹¤Î¥¤¥ó¥¹¥¿¥ó¥¹¤ò¼èÆÀ¤¹¤ë
+     *  {$project_id}_UrlHandlerã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’å–å¾—ã™ã‚‹
      *
      *  @access public
      */
@@ -41,9 +41,9 @@ class {$project_id}_UrlHandler extends Ethna_UrlHandler
         return $instance;
     }
 
-    // {{{ ¥²¡¼¥È¥¦¥§¥¤¥ê¥¯¥¨¥¹¥ÈÀµµ¬²½
+    // {{{ ã‚²ãƒ¼ãƒˆã‚¦ã‚§ã‚¤ãƒªã‚¯ã‚¨ã‚¹ãƒˆæ­£è¦åŒ–
     /**
-     *  ¥ê¥¯¥¨¥¹¥ÈÀµµ¬²½(user¥²¡¼¥È¥¦¥§¥¤)
+     *  ãƒªã‚¯ã‚¨ã‚¹ãƒˆæ­£è¦åŒ–(userã‚²ãƒ¼ãƒˆã‚¦ã‚§ã‚¤)
      *
      *  @access private
      */
@@ -55,9 +55,9 @@ class {$project_id}_UrlHandler extends Ethna_UrlHandler
      */
     // }}}
 
-    // {{{ ¥²¡¼¥È¥¦¥§¥¤¥Ñ¥¹À¸À®
+    // {{{ ã‚²ãƒ¼ãƒˆã‚¦ã‚§ã‚¤ãƒ‘ã‚¹ç”Ÿæˆ
     /**
-     *  ¥Ñ¥¹À¸À®(user¥²¡¼¥È¥¦¥§¥¤)
+     *  ãƒ‘ã‚¹ç”Ÿæˆ(userã‚²ãƒ¼ãƒˆã‚¦ã‚§ã‚¤)
      *
      *  @access private
      */
@@ -69,7 +69,7 @@ class {$project_id}_UrlHandler extends Ethna_UrlHandler
      */
     // }}}
 
-    // {{{ ¥Õ¥£¥ë¥¿
+    // {{{ ãƒ•ã‚£ãƒ«ã‚¿
     // }}}
 }
 

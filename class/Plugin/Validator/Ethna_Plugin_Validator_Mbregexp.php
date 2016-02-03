@@ -1,7 +1,7 @@
 <?php
 // {{{ Ethna_Plugin_Validator_Mbegexp
 /**
- *  ¥Ş¥ë¥Á¥Ğ¥¤¥ÈÂĞ±şÀµµ¬É½¸½¤Ë¤è¤ë¥Ğ¥ê¥Ç¡¼¥¿¥×¥é¥°¥¤¥ó
+ *  ãƒãƒ«ãƒãƒã‚¤ãƒˆå¯¾å¿œæ­£è¦è¡¨ç¾ã«ã‚ˆã‚‹ãƒãƒªãƒ‡ãƒ¼ã‚¿ãƒ—ãƒ©ã‚°ã‚¤ãƒ³
  *
  *  @author     Yoshinari Takaoka <takaoka@beatcraft.com>
  *  @access     public
@@ -9,16 +9,16 @@
  */
 class Ethna_Plugin_Validator_Mbregexp extends Ethna_Plugin_Validator
 {
-    /** @var    bool    ÇÛÎó¤ò¼õ¤±¼è¤ë¤«¥Õ¥é¥° */
+    /** @var    bool    é…åˆ—ã‚’å—ã‘å–ã‚‹ã‹ãƒ•ãƒ©ã‚° */
     var $accept_array = false;
 
     /**
-     *  Àµµ¬É½¸½¤Ë¤è¤ë¥Õ¥©¡¼¥àÃÍ¤Î¥Á¥§¥Ã¥¯¤ò¹Ô¤¦(¥Ş¥ë¥Á¥Ğ¥¤¥ÈÂĞ±ş¡Ë
+     *  æ­£è¦è¡¨ç¾ã«ã‚ˆã‚‹ãƒ•ã‚©ãƒ¼ãƒ å€¤ã®ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã†(ãƒãƒ«ãƒãƒã‚¤ãƒˆå¯¾å¿œï¼‰
      *
      *  @access public
-     *  @param  string  $name       ¥Õ¥©¡¼¥à¤ÎÌ¾Á°
-     *  @param  mixed   $var        ¥Õ¥©¡¼¥à¤ÎÃÍ
-     *  @param  array   $params     ¥×¥é¥°¥¤¥ó¤Î¥Ñ¥é¥á¡¼¥¿
+     *  @param  string  $name       ãƒ•ã‚©ãƒ¼ãƒ ã®åå‰
+     *  @param  mixed   $var        ãƒ•ã‚©ãƒ¼ãƒ ã®å€¤
+     *  @param  array   $params     ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     function &validate($name, $var, $params)
     {
@@ -38,7 +38,7 @@ class Ethna_Plugin_Validator_Mbregexp extends Ethna_Plugin_Validator
             if (isset($params['error'])) {
                 $msg = $params['error'];
             } else {
-                $msg = "{form}¤òÀµ¤·¤¯ÆşÎÏ¤·¤Æ¤¯¤À¤µ¤¤";
+                $msg = "{form}ã‚’æ­£ã—ãå…¥åŠ›ã—ã¦ãã ã•ã„";
             }
             return Ethna::raiseNotice($msg, E_FORM_REGEXP);
         }

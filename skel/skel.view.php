@@ -8,7 +8,7 @@
  */
 
 /**
- *  {$forward_name}¥Ó¥å¡¼¤Î¼ÂÁõ
+ *  {$forward_name}ãƒ“ãƒ¥ãƒ¼ã®å®Ÿè£…
  *
  *  @author     {$author}
  *  @access     public
@@ -17,7 +17,7 @@
 class {$view_class} extends {$project_id}_ViewClass
 {
     /**
-     *  Á«°ÜÁ°½èÍı
+     *  é·ç§»å‰å‡¦ç†
      *
      *  @access public
      */

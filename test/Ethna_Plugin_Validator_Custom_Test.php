@@ -4,7 +4,7 @@
  */
 
 /**
- *  Ethna_Plugin_Validator_Custom¥¯¥é¥¹¤Î¥Æ¥¹¥È¥±¡¼¥¹
+ *  Ethna_Plugin_Validator_Customã‚¯ãƒ©ã‚¹ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹
  *
  *  @access public
  */
@@ -17,7 +17,7 @@ class Ethna_Plugin_Validator_Custom_Test extends Ethna_UnitTestBase
         $vld = $plugin->getPlugin('Validator', 'Custom');
 
 
-        // mailaddress¥«¥¹¥¿¥à¥Á¥§¥Ã¥¯¤Î¥Æ¥¹¥È
+        // mailaddressã‚«ã‚¹ã‚¿ãƒ ãƒã‚§ãƒƒã‚¯ã®ãƒ†ã‚¹ãƒˆ
         $form_string = array(
                              'type'          => VAR_TYPE_STRING,
                              'required'      => true,
@@ -35,23 +35,23 @@ class Ethna_Plugin_Validator_Custom_Test extends Ethna_UnitTestBase
         $vld->af->form_vars['namae_string'] = '+hoge@fuga.net';
         $this->assertTrue($vld->validate('namae_string', '', $form_string));
 
-        // @¤¬¤Ê¤¤
+        // @ãŒãªã„
         $vld->af->form_vars['namae_string'] = 'hogefuga.net';
         $this->assertFalse($vld->validate('namae_string', '', $form_string));
 
-        // @¤ÎÁ°¤ËÊ¸»ú¤¬¤Ê¤¤
+        // @ã®å‰ã«æ–‡å­—ãŒãªã„
         $vld->af->form_vars['namae_string'] = '@hogefuga.net';
         $this->assertFalse($vld->validate('namae_string', '', $form_string));
 
-        // @¤Î¸å¤ËÊ¸»ú¤¬¤Ê¤¤
+        // @ã®å¾Œã«æ–‡å­—ãŒãªã„
         $vld->af->form_vars['namae_string'] = 'hogefuga.net@';
         $this->assertFalse($vld->validate('namae_string', '', $form_string));
 
-        // ÀèÆ¬Ê¸»ú¤¬µö¤µ¤ì¤Æ¤¤¤Ê¤¤
+        // å…ˆé ­æ–‡å­—ãŒè¨±ã•ã‚Œã¦ã„ãªã„
         $vld->af->form_vars['namae_string'] = '%hoge@fuga.net';
         $this->assertFalse($vld->validate('namae_string', '', $form_string));
 
-        // ËöÈøÊ¸»ú¤¬µö¤µ¤ì¤Æ¤¤¤Ê¤¤
+        // æœ«å°¾æ–‡å­—ãŒè¨±ã•ã‚Œã¦ã„ãªã„
         $vld->af->form_vars['namae_string'] = 'hoge@fuga.net.';
         $this->assertFalse($vld->validate('namae_string', '', $form_string));
 
@@ -77,7 +77,7 @@ class Ethna_Plugin_Validator_Custom_Test extends Ethna_UnitTestBase
         $vld->af->form_vars['namae_boolean'] = array(true);
         $this->assertTrue($vld->validate('namae_boolean', '', $form_boolean));
 
-        // 0,1°Ê³°¤ÎÃÍ
+        // 0,1ä»¥å¤–ã®å€¤
         $vld->af->form_vars['namae_boolean'] = 3;
         $this->assertFalse($vld->validate('namae_boolean', '', $form_boolean));
 
@@ -104,11 +104,11 @@ class Ethna_Plugin_Validator_Custom_Test extends Ethna_UnitTestBase
         $vld->af->form_vars['namae_url'] = '';
         $this->assertTrue($vld->validate('namae_url', '', $form_url));
 
-        // '/'¤¬Â­¤ê¤Ê¤¤
+        // '/'ãŒè¶³ã‚Šãªã„
         $vld->af->form_vars['namae_url'] = 'http:/';
         $this->assertFalse($vld->validate('namae_url', '', $form_url));
 
-        // ÀÜÆ¬¼­¤¬¤Ê¤¤
+        // æŽ¥é ­è¾žãŒãªã„
         $vld->af->form_vars['namae_url'] = 'hoge@fuga.net';
         $this->assertFalse($vld->validate('namae_url', '', $form_url));
 
@@ -147,7 +147,7 @@ class Ethna_Plugin_Validator_Custom_Test extends Ethna_UnitTestBase
         $vld->af->form_vars['namae_string'] = chr(0xfd);
         $this->assertTrue($vld->validate('namae_string', '', $form_string));
 
-        /* IBM³ÈÄ¥Ê¸»ú / NECÁªÄêIBM³ÈÄ¥Ê¸»ú */
+        /* IBMæ‹¡å¼µæ–‡å­— / NECé¸å®šIBMæ‹¡å¼µæ–‡å­— */
         //$c == 0xad || ($c >= 0xf9 && $c <= 0xfc)
         $vld->af->form_vars['namae_string'] = chr(0xad);
         $this->assertFalse($vld->validate('namae_string', '', $form_string));

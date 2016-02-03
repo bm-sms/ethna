@@ -4,7 +4,7 @@
  */
 
 /**
- *  Ethna_Plugin_Validator_Max¥¯¥é¥¹¤Î¥Æ¥¹¥È¥±¡¼¥¹
+ *  Ethna_Plugin_Validator_Maxã‚¯ãƒ©ã‚¹ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹
  *
  *  @access public
  */
@@ -21,7 +21,7 @@ class Ethna_Plugin_Validator_Max_Test extends Ethna_UnitTestBase
                           'type'          => VAR_TYPE_INT,
                           'required'      => true,
                           'max'           => '10',
-                          'error'         => '{form}¤Ë¤Ï10°Ê²¼¤Î¿ô»ú(À°¿ô)¤òÆþÎÏ¤·¤Æ²¼¤µ¤¤'
+                          'error'         => '{form}ã«ã¯10ä»¥ä¸‹ã®æ•°å­—(æ•´æ•°)ã‚’å…¥åŠ›ã—ã¦ä¸‹ã•ã„'
                           );
         $vld->af->setDef('namae_int', $form_int);
 
@@ -37,7 +37,7 @@ class Ethna_Plugin_Validator_Max_Test extends Ethna_UnitTestBase
         $pear_error = $vld->validate('namae_int', 9.5, $form_int);
         $this->assertFalse(is_a($pear_error, 'PEAR_Error'));
 
-        // max¤òÄ¶¤¨¤¿ÃÍ
+        // maxã‚’è¶…ãˆãŸå€¤
         $pear_error = $vld->validate('namae_int', 11, $form_int);
         $this->assertTrue(is_a($pear_error, 'PEAR_Error'));
         $this->assertEqual(E_FORM_MAX_INT,$pear_error->getCode());
@@ -49,7 +49,7 @@ class Ethna_Plugin_Validator_Max_Test extends Ethna_UnitTestBase
                             'type'          => VAR_TYPE_FLOAT,
                             'required'      => true,
                             'max'           => '10.000000',
-                            'error'         => '{form}¤Ë¤Ï10.000000°Ê²¼¤Î¿ô»ú(¾®¿ô)¤òÆþÎÏ¤·¤Æ²¼¤µ¤¤'
+                            'error'         => '{form}ã«ã¯10.000000ä»¥ä¸‹ã®æ•°å­—(å°æ•°)ã‚’å…¥åŠ›ã—ã¦ä¸‹ã•ã„'
                             );
         $vld->af->setDef('namae_float', $form_float);
 
@@ -59,13 +59,13 @@ class Ethna_Plugin_Validator_Max_Test extends Ethna_UnitTestBase
         $pear_error = $vld->validate('namae_float', '', $form_float);
         $this->assertFalse(is_a($pear_error, 'PEAR_Error'));
 
-        // max¤òÄ¶¤¨¤¿ÃÍ
+        // maxã‚’è¶…ãˆãŸå€¤
         $pear_error = $vld->validate('namae_float', 10.11, $form_float);
         $this->assertTrue(is_a($pear_error, 'PEAR_Error'));
         $this->assertEqual(E_FORM_MAX_FLOAT, $pear_error->getCode());
         $this->assertEqual($form_float['error'], $pear_error->getMessage());
 
-        // max¤òÄ¶¤¨¤¿ÃÍ
+        // maxã‚’è¶…ãˆãŸå€¤
         $pear_error = $vld->validate('namae_float', 11, $form_float);
         $this->assertTrue(is_a($pear_error, 'PEAR_Error'));
         $this->assertEqual(E_FORM_MAX_FLOAT, $pear_error->getCode());
@@ -77,7 +77,7 @@ class Ethna_Plugin_Validator_Max_Test extends Ethna_UnitTestBase
                              'type'          => VAR_TYPE_STRING,
                              'required'      => true,
                              'max'           => '2',
-                             'error'         => '{form}¤ÏÁ´³Ñ2Ê¸»ú°Ê²¼(È¾³Ñ1Ê¸»ú°Ê²¼)¤ÇÆþÎÏ¤·¤Æ²¼¤µ¤¤'
+                             'error'         => '{form}ã¯å…¨è§’2æ–‡å­—ä»¥ä¸‹(åŠè§’1æ–‡å­—ä»¥ä¸‹)ã§å…¥åŠ›ã—ã¦ä¸‹ã•ã„'
                              );
         $vld->af->setDef('namae_string', $form_string);
 
@@ -87,13 +87,13 @@ class Ethna_Plugin_Validator_Max_Test extends Ethna_UnitTestBase
         $pear_error = $vld->validate('namae_string', 'as', $form_string);
         $this->assertFalse(is_a($pear_error, 'PEAR_Error'));
 
-        // max¤òÄ¶¤¨¤¿Ê¸»úÎóÄ¹
+        // maxã‚’è¶…ãˆãŸæ–‡å­—åˆ—é•·
         $pear_error = $vld->validate('namae_string', 'ddd', $form_string);
         $this->assertTrue(is_a($pear_error, 'PEAR_Error'));
         $this->assertEqual(E_FORM_MAX_STRING, $pear_error->getCode());
         $this->assertEqual($form_string['error'], $pear_error->getMessage());
 
-        // max¤òÄ¶¤¨¤¿Ê¸»úÎóÄ¹
+        // maxã‚’è¶…ãˆãŸæ–‡å­—åˆ—é•·
         $pear_error = $vld->validate('namae_string', 118888, $form_string);
         $this->assertTrue(is_a($pear_error, 'PEAR_Error'));
         $this->assertEqual(E_FORM_MAX_STRING, $pear_error->getCode());
@@ -105,7 +105,7 @@ class Ethna_Plugin_Validator_Max_Test extends Ethna_UnitTestBase
                                'type'          => VAR_TYPE_DATETIME,
                                'required'      => true,
                                'max'           => '-1 day',
-                               'error'         => '{form}¤Ë¤Ï-1 day°ÊÁ°¤ÎÆüÉÕ¤òÆþÎÏ¤·¤Æ²¼¤µ¤¤'
+                               'error'         => '{form}ã«ã¯-1 dayä»¥å‰ã®æ—¥ä»˜ã‚’å…¥åŠ›ã—ã¦ä¸‹ã•ã„'
                                );
         $vld->af->setDef('namae_datetime', $form_datetime);
 
@@ -118,7 +118,7 @@ class Ethna_Plugin_Validator_Max_Test extends Ethna_UnitTestBase
         $pear_error = $vld->validate('namae_datetime', '', $form_datetime);
         $this->assertFalse(is_a($pear_error, 'PEAR_Error'));
 
-        // max¤òÄ¶¤¨¤¿ÆüÉÕ
+        // maxã‚’è¶…ãˆãŸæ—¥ä»˜
         $pear_error = $vld->validate('namae_datetime', '+3 day', $form_datetime);
         $this->assertTrue(is_a($pear_error, 'PEAR_Error'));
         $this->assertEqual(E_FORM_MAX_DATETIME, $pear_error->getCode());

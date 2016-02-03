@@ -28,7 +28,7 @@ class {$app_object}Manager extends Ethna_AppManager
 class {$app_object} extends Ethna_AppObject
 {
     /**
-     *  ¥×¥í¥Ñ¥Æ¥£¤ÎÉ½¼¨Ì¾¤ò¼èÆÀ¤¹¤ë
+     *  ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã®è¡¨ç¤ºåã‚’å–å¾—ã™ã‚‹
      *
      *  @access public
      */

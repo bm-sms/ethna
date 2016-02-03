@@ -8,7 +8,7 @@
  */
 
 /**
- *  ¼Â¹Ô»ş´Ö·×Â¬¥Õ¥£¥ë¥¿¥×¥é¥°¥¤¥ó¤Î¼ÂÁõ
+ *  å®Ÿè¡Œæ™‚é–“è¨ˆæ¸¬ãƒ•ã‚£ãƒ«ã‚¿ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã®å®Ÿè£…
  *
  *  @author     {$author}
  *  @access     public
@@ -21,7 +21,7 @@ class {$project_id}_Plugin_Filter_ExecutionTime extends Ethna_Plugin_Filter
      */
 
     /**
-     *  @var    int     ³«»Ï»ş´Ö
+     *  @var    int     é–‹å§‹æ™‚é–“
      */
     var $stime;
 
@@ -29,7 +29,7 @@ class {$project_id}_Plugin_Filter_ExecutionTime extends Ethna_Plugin_Filter
 
 
     /**
-     *  ¼Â¹ÔÁ°¥Õ¥£¥ë¥¿
+     *  å®Ÿè¡Œå‰ãƒ•ã‚£ãƒ«ã‚¿
      *
      *  @access public
      */
@@ -41,11 +41,11 @@ class {$project_id}_Plugin_Filter_ExecutionTime extends Ethna_Plugin_Filter
     }
 
     /**
-     *  ¥¢¥¯¥·¥ç¥ó¼Â¹ÔÁ°¥Õ¥£¥ë¥¿
+     *  ã‚¢ã‚¯ã‚·ãƒ§ãƒ³å®Ÿè¡Œå‰ãƒ•ã‚£ãƒ«ã‚¿
      *
      *  @access public
-     *  @param  string  $action_name    ¼Â¹Ô¤µ¤ì¤ë¥¢¥¯¥·¥ç¥óÌ¾
-     *  @return string  null:Àµ¾ï½ªÎ» (string):¼Â¹Ô¤¹¤ë¥¢¥¯¥·¥ç¥óÌ¾¤òÊÑ¹¹
+     *  @param  string  $action_name    å®Ÿè¡Œã•ã‚Œã‚‹ã‚¢ã‚¯ã‚·ãƒ§ãƒ³å
+     *  @return string  null:æ­£å¸¸çµ‚äº† (string):å®Ÿè¡Œã™ã‚‹ã‚¢ã‚¯ã‚·ãƒ§ãƒ³åã‚’å¤‰æ›´
      */
     function preActionFilter($action_name)
     {
@@ -53,12 +53,12 @@ class {$project_id}_Plugin_Filter_ExecutionTime extends Ethna_Plugin_Filter
     }
 
     /**
-     *  ¥¢¥¯¥·¥ç¥ó¼Â¹Ô¸å¥Õ¥£¥ë¥¿
+     *  ã‚¢ã‚¯ã‚·ãƒ§ãƒ³å®Ÿè¡Œå¾Œãƒ•ã‚£ãƒ«ã‚¿
      *
      *  @access public
-     *  @param  string  $action_name    ¼Â¹Ô¤µ¤ì¤¿¥¢¥¯¥·¥ç¥óÌ¾
-     *  @param  string  $forward_name   ¼Â¹Ô¤µ¤ì¤¿¥¢¥¯¥·¥ç¥ó¤«¤é¤ÎÌá¤êÃÍ
-     *  @return string  null:Àµ¾ï½ªÎ» (string):Á«°ÜÌ¾¤òÊÑ¹¹
+     *  @param  string  $action_name    å®Ÿè¡Œã•ã‚ŒãŸã‚¢ã‚¯ã‚·ãƒ§ãƒ³å
+     *  @param  string  $forward_name   å®Ÿè¡Œã•ã‚ŒãŸã‚¢ã‚¯ã‚·ãƒ§ãƒ³ã‹ã‚‰ã®æˆ»ã‚Šå€¤
+     *  @return string  null:æ­£å¸¸çµ‚äº† (string):é·ç§»åã‚’å¤‰æ›´
      */
     function postActionFilter($action_name, $forward_name)
     {
@@ -66,7 +66,7 @@ class {$project_id}_Plugin_Filter_ExecutionTime extends Ethna_Plugin_Filter
     }
 
     /**
-     *  ¼Â¹Ô¸å¥Õ¥£¥ë¥¿
+     *  å®Ÿè¡Œå¾Œãƒ•ã‚£ãƒ«ã‚¿
      *
      *  @access public
      */

@@ -8,7 +8,7 @@
  */
 
 /**
- *  index¥Ó¥å¡¼¤Î¼ÂÁõ
+ *  indexãƒ“ãƒ¥ãƒ¼ã®å®Ÿè£…
  *
  *  @author     {$author}
  *  @access     public
@@ -17,7 +17,7 @@
 class {$project_id}_View_Index extends {$project_id}_ViewClass
 {
     /**
-     *  Á«°ÜÁ°½èÍı
+     *  é·ç§»å‰å‡¦ç†
      *
      *  @access public
      */

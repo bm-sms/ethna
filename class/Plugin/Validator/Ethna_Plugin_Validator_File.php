@@ -9,7 +9,7 @@
  *  @version    $Id$
  */
 
-// UPLOAD_ERR_* ¤¬Ì¤ÄêµÁ¤Î¾ì¹ç
+// UPLOAD_ERR_* ãŒæœªå®šç¾©ã®å ´åˆ
 if (defined('UPLOAD_ERR_OK') == false) { // PHP 4.3.0
     define('UPLOAD_ERR_OK', 0);
 }
@@ -34,7 +34,7 @@ if (defined('UPLOAD_ERR_CANT_WRITE') == false) { // PHP 5.1.0
 
 // {{{ Ethna_Plugin_Validator_File
 /**
- *  ¥Õ¥¡¥¤¥ë¥Á¥§¥Ã¥¯¥×¥é¥°¥¤¥ó
+ *  ãƒ•ã‚¡ã‚¤ãƒ«ãƒã‚§ãƒƒã‚¯ãƒ—ãƒ©ã‚°ã‚¤ãƒ³
  *
  *  @author     ICHII Takashi <ichii386@schweetheart.jp>
  *  @access     public
@@ -42,17 +42,17 @@ if (defined('UPLOAD_ERR_CANT_WRITE') == false) { // PHP 5.1.0
  */
 class Ethna_Plugin_Validator_File extends Ethna_Plugin_Validator
 {
-    /** @var    bool    ÇÛÎó¤ò¼õ¤±¼è¤ë¤«¥Õ¥é¥° */
+    /** @var    bool    é…åˆ—ã‚’å—ã‘å–ã‚‹ã‹ãƒ•ãƒ©ã‚° */
     var $accept_array = false;
 
     /**
-     *  ¥¢¥Ã¥×¥í¡¼¥É¤µ¤ì¤¿¥Õ¥¡¥¤¥ë¤Î¥Á¥§¥Ã¥¯¤ò¹Ô¤¦
-     *  XXX: ¥×¥é¥°¥¤¥ó¤Î¥¨¥é¡¼¥³¡¼¥É¤ò½¤Àµ¤¹¤ë
+     *  ã‚¢ãƒƒãƒ—ãƒ­ãƒ¼ãƒ‰ã•ã‚ŒãŸãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã†
+     *  XXX: ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã®ã‚¨ãƒ©ãƒ¼ã‚³ãƒ¼ãƒ‰ã‚’ä¿®æ­£ã™ã‚‹
      *
      *  @access public
-     *  @param  string  $name       ¥Õ¥©¡¼¥à¤ÎÌ¾Á°
-     *  @param  mixed   $var        ¥Õ¥©¡¼¥à¤ÎÃÍ
-     *  @param  array   $params     ¥×¥é¥°¥¤¥ó¤Î¥Ñ¥é¥á¡¼¥¿
+     *  @param  string  $name       ãƒ•ã‚©ãƒ¼ãƒ ã®åå‰
+     *  @param  mixed   $var        ãƒ•ã‚©ãƒ¼ãƒ ã®å€¤
+     *  @param  array   $params     ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     function &validate($name, $var, $params)
     {
@@ -61,32 +61,32 @@ class Ethna_Plugin_Validator_File extends Ethna_Plugin_Validator
             return $true;
         }
 
-        // ¤½¤â¤½¤â¥¢¥Ã¥×¥í¡¼¥É¤µ¤ì¤Æ¤¤¤Ê¤¤¾ì¹ç¤Ï¥¹¥­¥Ã¥×
+        // ãã‚‚ãã‚‚ã‚¢ãƒƒãƒ—ãƒ­ãƒ¼ãƒ‰ã•ã‚Œã¦ã„ãªã„å ´åˆã¯ã‚¹ã‚­ãƒƒãƒ—
         if ($var['error'] == UPLOAD_ERR_NO_FILE) {
             return $true;
         }
 
 
-        // ¥¨¥é¡¼¥³¡¼¥É¤Î¸¡ºº
+        // ã‚¨ãƒ©ãƒ¼ã‚³ãƒ¼ãƒ‰ã®æ¤œæŸ»
         $msg = '';
         switch ($var['error']) {
         case UPLOAD_ERR_INI_SIZE: 
-            $msg = '¥¢¥Ã¥×¥í¡¼¥É¤µ¤ì¤¿¥Õ¥¡¥¤¥ë¤Ï¡¢php.ini ¤Î upload_max_filesize ¥Ç¥£¥ì¥¯¥Æ¥£¥Ö¤ÎÃÍ¤òÄ¶¤¨¤Æ¤¤¤Ş¤¹¡£';
+            $msg = 'ã‚¢ãƒƒãƒ—ãƒ­ãƒ¼ãƒ‰ã•ã‚ŒãŸãƒ•ã‚¡ã‚¤ãƒ«ã¯ã€php.ini ã® upload_max_filesize ãƒ‡ã‚£ãƒ¬ã‚¯ãƒ†ã‚£ãƒ–ã®å€¤ã‚’è¶…ãˆã¦ã„ã¾ã™ã€‚';
             break;
         case UPLOAD_ERR_FORM_SIZE:
-            $msg = '¥¢¥Ã¥×¥í¡¼¥É¤µ¤ì¤¿¥Õ¥¡¥¤¥ë¤Ï¡¢HTML ¥Õ¥©¡¼¥à¤Ç»ØÄê¤µ¤ì¤¿ MAX_FILE_SIZE ¤òÄ¶¤¨¤Æ¤¤¤Ş¤¹¡£';
+            $msg = 'ã‚¢ãƒƒãƒ—ãƒ­ãƒ¼ãƒ‰ã•ã‚ŒãŸãƒ•ã‚¡ã‚¤ãƒ«ã¯ã€HTML ãƒ•ã‚©ãƒ¼ãƒ ã§æŒ‡å®šã•ã‚ŒãŸ MAX_FILE_SIZE ã‚’è¶…ãˆã¦ã„ã¾ã™ã€‚';
             break;
         case UPLOAD_ERR_PARTIAL:
-            $msg= '¥¢¥Ã¥×¥í¡¼¥É¤µ¤ì¤¿¥Õ¥¡¥¤¥ë¤Ï°ìÉô¤Î¤ß¤·¤«¥¢¥Ã¥×¥í¡¼¥É¤µ¤ì¤Æ¤¤¤Ş¤»¤ó¡£';
+            $msg= 'ã‚¢ãƒƒãƒ—ãƒ­ãƒ¼ãƒ‰ã•ã‚ŒãŸãƒ•ã‚¡ã‚¤ãƒ«ã¯ä¸€éƒ¨ã®ã¿ã—ã‹ã‚¢ãƒƒãƒ—ãƒ­ãƒ¼ãƒ‰ã•ã‚Œã¦ã„ã¾ã›ã‚“ã€‚';
             break;
         case UPLOAD_ERR_NO_FILE:
-            $msg = '¥Õ¥¡¥¤¥ë¤Ï¥¢¥Ã¥×¥í¡¼¥É¤µ¤ì¤Ş¤»¤ó¤Ç¤·¤¿¡£';
+            $msg = 'ãƒ•ã‚¡ã‚¤ãƒ«ã¯ã‚¢ãƒƒãƒ—ãƒ­ãƒ¼ãƒ‰ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚';
             break;
         case UPLOAD_ERR_NO_TMP_DIR:
-            $msg = '¥Æ¥ó¥İ¥é¥ê¥Õ¥©¥ë¥À¤¬¤¢¤ê¤Ş¤»¤ó¡£';
+            $msg = 'ãƒ†ãƒ³ãƒãƒ©ãƒªãƒ•ã‚©ãƒ«ãƒ€ãŒã‚ã‚Šã¾ã›ã‚“ã€‚';
             break;
         case UPLOAD_ERR_CANT_WRITE:
-            $msg= '¥Ç¥£¥¹¥¯¤Ø¤Î½ñ¤­¹ş¤ß¤Ë¼ºÇÔ¤·¤Ş¤·¤¿¡£';
+            $msg= 'ãƒ‡ã‚£ã‚¹ã‚¯ã¸ã®æ›¸ãè¾¼ã¿ã«å¤±æ•—ã—ã¾ã—ãŸã€‚';
             break;
         }
         if ($msg != '') {
@@ -97,25 +97,25 @@ class Ethna_Plugin_Validator_File extends Ethna_Plugin_Validator
         }
 
 
-        // tmp_name ¤Î¸¡ºº
+        // tmp_name ã®æ¤œæŸ»
         if (isset($var['tmp_name']) == false || is_uploaded_file($var['tmp_name']) == false) {
             if (isset($params['error'])) {
                 $msg = $params['error'];
             } else {
-                $msg = 'tmp_name ¤¬ÉÔÀµ¤Ç¤¹¡£';
+                $msg = 'tmp_name ãŒä¸æ­£ã§ã™ã€‚';
             }
             return Ethna::raiseNotice($msg, E_FORM_WRONGTYPE_FILE);
         }
 
 
-        // size ¤Î¸¡ºº
+        // size ã®æ¤œæŸ»
         if (isset($params['size_max'])) {
             $st = stat($var['tmp_name']);
             if ($st[7] > $this->_getSizeAsBytes($params['size_max'])) {
                 if (isset($params['error'])) {
                     $msg = $params['error'];
                 } else {
-                    $msg = '¥Õ¥¡¥¤¥ë¥µ¥¤¥º¤Ï%s°Ê²¼¤Ë¤·¤Æ¤¯¤À¤µ¤¤¡£';
+                    $msg = 'ãƒ•ã‚¡ã‚¤ãƒ«ã‚µã‚¤ã‚ºã¯%sä»¥ä¸‹ã«ã—ã¦ãã ã•ã„ã€‚';
                 }
                 return Ethna::raiseNotice($msg, E_FORM_WRONGTYPE_FILE, array($params['size_max']));
             }
@@ -126,14 +126,14 @@ class Ethna_Plugin_Validator_File extends Ethna_Plugin_Validator
                 if (isset($params['error'])) {
                     $msg = $params['error'];
                 } else {
-                    $msg = '¥Õ¥¡¥¤¥ë¥µ¥¤¥º¤Ï%s°Ê¾å¤Ë¤·¤Æ¤¯¤À¤µ¤¤¡£';
+                    $msg = 'ãƒ•ã‚¡ã‚¤ãƒ«ã‚µã‚¤ã‚ºã¯%sä»¥ä¸Šã«ã—ã¦ãã ã•ã„ã€‚';
                 }
                 return Ethna::raiseNotice($msg, E_FORM_WRONGTYPE_FILE, array($params['size_min']));
             }
         }
 
 
-        // type ¤Î¸¡ºº
+        // type ã®æ¤œæŸ»
         if (isset($params['type'])) {
             $type_list = to_array($params['type']);
             $posted_mime = explode('/', $var['type'], 2);
@@ -150,13 +150,13 @@ class Ethna_Plugin_Validator_File extends Ethna_Plugin_Validator
                 if (isset($params['error'])) {
                     $msg = $params['error'];
                 } else {
-                    $msg = '¥Õ¥¡¥¤¥ë¥¿¥¤¥×¤¬Àµ¤·¤¯¤¢¤ê¤Ş¤»¤ó¡£';
+                    $msg = 'ãƒ•ã‚¡ã‚¤ãƒ«ã‚¿ã‚¤ãƒ—ãŒæ­£ã—ãã‚ã‚Šã¾ã›ã‚“ã€‚';
                 }
                 return Ethna::raiseNotice($msg, E_FORM_WRONGTYPE_FILE);
             }
         }
 
-        // name(¥Õ¥¡¥¤¥ëÌ¾)¤Î¸¡ºº
+        // name(ãƒ•ã‚¡ã‚¤ãƒ«å)ã®æ¤œæŸ»
         if (isset($params['name'])) {
             $test = ($params['name']{0} == '/')
                 ? preg_match($params['name'], $var['name'])
@@ -165,7 +165,7 @@ class Ethna_Plugin_Validator_File extends Ethna_Plugin_Validator
                 if (isset($params['error'])) {
                     $msg = $params['error'];
                 } else {
-                    $msg = '¥Õ¥¡¥¤¥ëÌ¾¤¬Àµ¤·¤¯¤¢¤ê¤Ş¤»¤ó¡£';
+                    $msg = 'ãƒ•ã‚¡ã‚¤ãƒ«åãŒæ­£ã—ãã‚ã‚Šã¾ã›ã‚“ã€‚';
                 }
                 return Ethna::raiseNotice($msg, E_FORM_WRONGTYPE_FILE);
             }

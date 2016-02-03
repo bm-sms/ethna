@@ -11,7 +11,7 @@
 
 // {{{ Ethna_Plugin_Validator_Max
 /**
- *  ºÇÂçÃÍ¥Á¥§¥Ã¥¯¥×¥é¥°¥¤¥ó
+ *  æœ€å¤§å€¤ãƒã‚§ãƒƒã‚¯ãƒ—ãƒ©ã‚°ã‚¤ãƒ³
  *
  *  @author     ICHII Takashi <ichii386@schweetheart.jp>
  *  @access     public
@@ -19,16 +19,16 @@
  */
 class Ethna_Plugin_Validator_Max extends Ethna_Plugin_Validator
 {
-    /** @var    bool    ÇÛÎó¤ò¼õ¤±¼è¤ë¤«¥Õ¥é¥° */
+    /** @var    bool    é…åˆ—ã‚’å—ã‘å–ã‚‹ã‹ãƒ•ãƒ©ã‚° */
     var $accept_array = false;
 
     /**
-     *  ºÇÂçÃÍ¤Î¥Á¥§¥Ã¥¯¤ò¹Ô¤¦
+     *  æœ€å¤§å€¤ã®ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã†
      *
      *  @access public
-     *  @param  string  $name       ¥Õ¥©¡¼¥à¤ÎÌ¾Á°
-     *  @param  mixed   $var        ¥Õ¥©¡¼¥à¤ÎÃÍ
-     *  @param  array   $params     ¥×¥é¥°¥¤¥ó¤Î¥Ñ¥é¥á¡¼¥¿
+     *  @param  string  $name       ãƒ•ã‚©ãƒ¼ãƒ ã®åå‰
+     *  @param  mixed   $var        ãƒ•ã‚©ãƒ¼ãƒ ã®å€¤
+     *  @param  array   $params     ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     function &validate($name, $var, $params)
     {
@@ -44,7 +44,7 @@ class Ethna_Plugin_Validator_Max extends Ethna_Plugin_Validator
                     if (isset($params['error'])) {
                         $msg = $params['error'];
                     } else {
-                        $msg = "{form}¤Ë¤Ï%d°Ê²¼¤Î¿ô»ú(À°¿ô)¤òÆşÎÏ¤·¤Æ²¼¤µ¤¤";
+                        $msg = "{form}ã«ã¯%dä»¥ä¸‹ã®æ•°å­—(æ•´æ•°)ã‚’å…¥åŠ›ã—ã¦ä¸‹ã•ã„";
                     }
                     return Ethna::raiseNotice($msg, E_FORM_MAX_INT, array($params['max']));
                 }
@@ -55,7 +55,7 @@ class Ethna_Plugin_Validator_Max extends Ethna_Plugin_Validator
                     if (isset($params['error'])) {
                         $msg = $params['error'];
                     } else {
-                        $msg = "{form}¤Ë¤Ï%f°Ê²¼¤Î¿ô»ú(¾®¿ô)¤òÆşÎÏ¤·¤Æ²¼¤µ¤¤";
+                        $msg = "{form}ã«ã¯%fä»¥ä¸‹ã®æ•°å­—(å°æ•°)ã‚’å…¥åŠ›ã—ã¦ä¸‹ã•ã„";
                     }
                     return Ethna::raiseNotice($msg, E_FORM_MAX_FLOAT, array($params['max']));
                 }
@@ -68,7 +68,7 @@ class Ethna_Plugin_Validator_Max extends Ethna_Plugin_Validator
                     if (isset($params['error'])) {
                         $msg = $params['error'];
                     } else {
-                        $msg = "{form}¤Ë¤Ï%s°ÊÁ°¤ÎÆüÉÕ¤òÆşÎÏ¤·¤Æ²¼¤µ¤¤";
+                        $msg = "{form}ã«ã¯%sä»¥å‰ã®æ—¥ä»˜ã‚’å…¥åŠ›ã—ã¦ä¸‹ã•ã„";
                     }
                     return Ethna::raiseNotice($msg, E_FORM_MAX_DATETIME, array($params['max']));
                 }
@@ -80,7 +80,7 @@ class Ethna_Plugin_Validator_Max extends Ethna_Plugin_Validator
                     if (isset($params['error'])) {
                         $msg = $params['error'];
                     } else {
-                        $msg = "{form}¤Ë¤Ï%dKB°Ê²¼¤Î¥Õ¥¡¥¤¥ë¤ò»ØÄê¤·¤Æ²¼¤µ¤¤";
+                        $msg = "{form}ã«ã¯%dKBä»¥ä¸‹ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚’æŒ‡å®šã—ã¦ä¸‹ã•ã„";
                     }
                     return Ethna::raiseNotice($msg, E_FORM_MAX_FILE, array($params['max']));
                 }
@@ -91,7 +91,7 @@ class Ethna_Plugin_Validator_Max extends Ethna_Plugin_Validator
                     if (isset($params['error'])) {
                         $msg = $params['error'];
                     } else {
-                        $msg = "{form}¤ÏÁ´³Ñ%dÊ¸»ú°Ê²¼(È¾³Ñ%dÊ¸»ú°Ê²¼)¤ÇÆşÎÏ¤·¤Æ²¼¤µ¤¤";
+                        $msg = "{form}ã¯å…¨è§’%dæ–‡å­—ä»¥ä¸‹(åŠè§’%dæ–‡å­—ä»¥ä¸‹)ã§å…¥åŠ›ã—ã¦ä¸‹ã•ã„";
                     }
                     return Ethna::raiseNotice($msg, E_FORM_MAX_STRING,
                             array(intval($params['max']/2), $params['max']));

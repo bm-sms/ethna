@@ -8,7 +8,7 @@
  */
 
 /**
- *  index¥Õ¥©¡¼¥à¤Î¼ÂÁõ
+ *  indexãƒ•ã‚©ãƒ¼ãƒ ã®å®Ÿè£…
  *
  *  @author    {$author}
  *  @access    public
@@ -17,40 +17,40 @@
 
 class {$project_id}_Form_Index extends {$project_id}_ActionForm
 {
-    /** @var    bool    ¥Ğ¥ê¥Ç¡¼¥¿¤Ë¥×¥é¥°¥¤¥ó¤ò»È¤¦¥Õ¥é¥° */
+    /** @var    bool    ãƒãƒªãƒ‡ãƒ¼ã‚¿ã«ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã‚’ä½¿ã†ãƒ•ãƒ©ã‚° */
     var $use_validator_plugin = false;
 
     /**
      *  @access   private
-     *  @var      array   ¥Õ¥©¡¼¥àÃÍÄêµÁ
+     *  @var      array   ãƒ•ã‚©ãƒ¼ãƒ å€¤å®šç¾©
      */
      var $form = array(
        /*
-        *  TODO: ¤³¤Î¥¢¥¯¥·¥ç¥ó¤¬»ÈÍÑ¤¹¤ë¥Õ¥©¡¼¥à¤òµ­½Ò¤·¤Æ¤¯¤À¤µ¤¤
+        *  TODO: ã“ã®ã‚¢ã‚¯ã‚·ãƒ§ãƒ³ãŒä½¿ç”¨ã™ã‚‹ãƒ•ã‚©ãƒ¼ãƒ ã‚’è¨˜è¿°ã—ã¦ãã ã•ã„
         *
-        *  µ­½ÒÎã(type¤ò½ü¤¯Á´¤Æ¤ÎÍ×ÁÇ¤Ï¾ÊÎ¬²ÄÇ½)¡§
+        *  è¨˜è¿°ä¾‹(typeã‚’é™¤ãå…¨ã¦ã®è¦ç´ ã¯çœç•¥å¯èƒ½)ï¼š
         *
         *  'sample' => array(
-        *  // ¥Õ¥©¡¼¥à¤ÎÄêµÁ
-        *      'type'        => VAR_TYPE_INT,        // ÆşÎÏÃÍ·¿
-        *      'form_type'   => FORM_TYPE_TEXT,      // ¥Õ¥©¡¼¥à·¿
-        *      'name'        => '¥µ¥ó¥×¥ë',          // É½¼¨Ì¾
+        *  // ãƒ•ã‚©ãƒ¼ãƒ ã®å®šç¾©
+        *      'type'        => VAR_TYPE_INT,        // å…¥åŠ›å€¤å‹
+        *      'form_type'   => FORM_TYPE_TEXT,      // ãƒ•ã‚©ãƒ¼ãƒ å‹
+        *      'name'        => 'ã‚µãƒ³ãƒ—ãƒ«',          // è¡¨ç¤ºå
         *  
-        *  // ¥Ğ¥ê¥Ç¡¼¥¿(µ­½Ò½ç¤Ë¥Ğ¥ê¥Ç¡¼¥¿¤¬¼Â¹Ô¤µ¤ì¤Ş¤¹)
-        *      'required'    => true,                        // É¬¿Ü¥ª¥×¥·¥ç¥ó(true/false)
-        *      'min'         => null,                        // ºÇ¾®ÃÍ
-        *      'max'         => null,                        // ºÇÂçÃÍ
-        *      'regexp'      => null,                        // Ê¸»ú¼ï»ØÄê(Àµµ¬É½¸½)
+        *  // ãƒãƒªãƒ‡ãƒ¼ã‚¿(è¨˜è¿°é †ã«ãƒãƒªãƒ‡ãƒ¼ã‚¿ãŒå®Ÿè¡Œã•ã‚Œã¾ã™)
+        *      'required'    => true,                        // å¿…é ˆã‚ªãƒ—ã‚·ãƒ§ãƒ³(true/false)
+        *      'min'         => null,                        // æœ€å°å€¤
+        *      'max'         => null,                        // æœ€å¤§å€¤
+        *      'regexp'      => null,                        // æ–‡å­—ç¨®æŒ‡å®š(æ­£è¦è¡¨ç¾)
         *
-        *  // ¥Õ¥£¥ë¥¿
-        *      'filter'      => null,                        // ÆşÎÏÃÍÊÑ´¹¥Õ¥£¥ë¥¿¥ª¥×¥·¥ç¥ó
+        *  // ãƒ•ã‚£ãƒ«ã‚¿
+        *      'filter'      => null,                        // å…¥åŠ›å€¤å¤‰æ›ãƒ•ã‚£ãƒ«ã‚¿ã‚ªãƒ—ã‚·ãƒ§ãƒ³
         *  ),
         */
       );
 }
 
 /**
- *  index¥¢¥¯¥·¥ç¥ó¤Î¼ÂÁõ
+ *  indexã‚¢ã‚¯ã‚·ãƒ§ãƒ³ã®å®Ÿè£…
  *
  *  @author     {$author}
  *  @access     public
@@ -59,10 +59,10 @@ class {$project_id}_Form_Index extends {$project_id}_ActionForm
 class {$project_id}_Action_Index extends {$project_id}_ActionClass
 {
         /**
-         *  index¥¢¥¯¥·¥ç¥ó¤ÎÁ°½èÍı
+         *  indexã‚¢ã‚¯ã‚·ãƒ§ãƒ³ã®å‰å‡¦ç†
          *
          *  @access    public
-         *  @return    string  ForwardÀè(Àµ¾ï½ªÎ»¤Ê¤énull)
+         *  @return    string  Forwardå…ˆ(æ­£å¸¸çµ‚äº†ãªã‚‰null)
          */
         function prepare()
         {
@@ -70,10 +70,10 @@ class {$project_id}_Action_Index extends {$project_id}_ActionClass
         }
 
         /**
-         *  index¥¢¥¯¥·¥ç¥ó¤Î¼ÂÁõ
+         *  indexã‚¢ã‚¯ã‚·ãƒ§ãƒ³ã®å®Ÿè£…
          *
          *  @access    public
-         *  @return    string  Á«°ÜÌ¾
+         *  @return    string  é·ç§»å
          */
         function perform()
         {

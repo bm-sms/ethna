@@ -10,7 +10,7 @@
 
 // {{{ {$project_id}_ActionForm
 /**
- *  ¥¢¥¯¥·¥ç¥ó¥Õ¥©¡¼¥à¥¯¥é¥¹
+ *  ã‚¢ã‚¯ã‚·ãƒ§ãƒ³ãƒ•ã‚©ãƒ¼ãƒ ã‚¯ãƒ©ã‚¹
  *
  *  @author     {$author}
  *  @package    {$project_id}
@@ -22,20 +22,20 @@ class {$project_id}_ActionForm extends Ethna_ActionForm
      *  @access private
      */
 
-    /** @var    array   ¥Õ¥©¡¼¥àÃÍÄêµÁ(¥Ç¥Õ¥©¥ë¥È) */
+    /** @var    array   ãƒ•ã‚©ãƒ¼ãƒ å€¤å®šç¾©(ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ) */
     var $form_template = array();
 
-    /** @var    bool    ¥Ğ¥ê¥Ç¡¼¥¿¤Ë¥×¥é¥°¥¤¥ó¤ò»È¤¦¥Õ¥é¥° */
+    /** @var    bool    ãƒãƒªãƒ‡ãƒ¼ã‚¿ã«ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã‚’ä½¿ã†ãƒ•ãƒ©ã‚° */
     var $use_validator_plugin = true;
 
     /**#@-*/
 
     /**
-     *  ¥Õ¥©¡¼¥àÃÍ¸¡¾Ú¤Î¥¨¥é¡¼½èÍı¤ò¹Ô¤¦
+     *  ãƒ•ã‚©ãƒ¼ãƒ å€¤æ¤œè¨¼ã®ã‚¨ãƒ©ãƒ¼å‡¦ç†ã‚’è¡Œã†
      *
      *  @access public
-     *  @param  string      $name   ¥Õ¥©¡¼¥à¹àÌÜÌ¾
-     *  @param  int         $code   ¥¨¥é¡¼¥³¡¼¥É
+     *  @param  string      $name   ãƒ•ã‚©ãƒ¼ãƒ é …ç›®å
+     *  @param  int         $code   ã‚¨ãƒ©ãƒ¼ã‚³ãƒ¼ãƒ‰
      */
     function handleError($name, $code)
     {
@@ -43,11 +43,11 @@ class {$project_id}_ActionForm extends Ethna_ActionForm
     }
 
     /**
-     *  ¥Õ¥©¡¼¥àÃÍÄêµÁ¥Æ¥ó¥×¥ì¡¼¥È¤òÀßÄê¤¹¤ë
+     *  ãƒ•ã‚©ãƒ¼ãƒ å€¤å®šç¾©ãƒ†ãƒ³ãƒ—ãƒ¬ãƒ¼ãƒˆã‚’è¨­å®šã™ã‚‹
      *
      *  @access protected
-     *  @param  array   $form_template  ¥Õ¥©¡¼¥àÃÍ¥Æ¥ó¥×¥ì¡¼¥È
-     *  @return array   ¥Õ¥©¡¼¥àÃÍ¥Æ¥ó¥×¥ì¡¼¥È
+     *  @param  array   $form_template  ãƒ•ã‚©ãƒ¼ãƒ å€¤ãƒ†ãƒ³ãƒ—ãƒ¬ãƒ¼ãƒˆ
+     *  @return array   ãƒ•ã‚©ãƒ¼ãƒ å€¤ãƒ†ãƒ³ãƒ—ãƒ¬ãƒ¼ãƒˆ
      */
     function _setFormTemplate($form_template)
     {
@@ -55,7 +55,7 @@ class {$project_id}_ActionForm extends Ethna_ActionForm
     }
 
     /**
-     *  ¥Õ¥©¡¼¥àÃÍÄêµÁ¤òÀßÄê¤¹¤ë
+     *  ãƒ•ã‚©ãƒ¼ãƒ å€¤å®šç¾©ã‚’è¨­å®šã™ã‚‹
      *
      *  @access protected
      */

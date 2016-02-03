@@ -10,7 +10,7 @@
 
 // {{{ {$project_id}_ViewClass
 /**
- *  view¥¯¥é¥¹
+ *  viewã‚¯ãƒ©ã‚¹
  *
  *  @author     {$author}
  *  @package    {$project_id}
@@ -19,10 +19,10 @@
 class {$project_id}_ViewClass extends Ethna_ViewClass
 {
     /**
-     *  ¶¦ÄÌÃÍ¤òÀßÄê¤¹¤ë
+     *  å…±é€šå€¤ã‚’è¨­å®šã™ã‚‹
      *
      *  @access protected
-     *  @param  object  {$project_id}_Renderer  ¥ì¥ó¥À¥é¥ª¥Ö¥¸¥§¥¯¥È
+     *  @param  object  {$project_id}_Renderer  ãƒ¬ãƒ³ãƒ€ãƒ©ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
      */
     function _setDefault(&$renderer)
     {

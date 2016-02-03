@@ -8,7 +8,7 @@
  */
 
 /**
- *  {$action_name}¥Õ¥©¡¼¥à¤Î¥Æ¥¹¥È¥±¡¼¥¹
+ *  {$action_name}ãƒ•ã‚©ãƒ¼ãƒ ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹
  *
  *  @author     {$author}
  *  @access     public
@@ -18,22 +18,22 @@ class {$action_form}_TestCase extends Ethna_UnitTestCase
 {
     /**
      *  @access private
-     *  @var    string  ¥¢¥¯¥·¥ç¥óÌ¾
+     *  @var    string  ã‚¢ã‚¯ã‚·ãƒ§ãƒ³å
      */
     var $action_name = '{$action_name}';
 
     /**
-     *    ¥Æ¥¹¥È¤Î½é´ü²½
+     *    ãƒ†ã‚¹ãƒˆã®åˆæœŸåŒ–
      *
      *    @access public
      */
     function setUp()
     {
-        $this->createActionForm();  // ¥¢¥¯¥·¥ç¥ó¥Õ¥©¡¼¥à¤ÎºîÀ®
+        $this->createActionForm();  // ã‚¢ã‚¯ã‚·ãƒ§ãƒ³ãƒ•ã‚©ãƒ¼ãƒ ã®ä½œæˆ
     }
 
     /**
-     *    ¥Æ¥¹¥È¤Î¸å»ÏËö
+     *    ãƒ†ã‚¹ãƒˆã®å¾Œå§‹æœ«
      *
      *    @access public
      */
@@ -42,24 +42,24 @@ class {$action_form}_TestCase extends Ethna_UnitTestCase
     }
 
     /**
-     *  {$action_name}¥¢¥¯¥·¥ç¥ó¥Õ¥©¡¼¥à¤Î¥µ¥ó¥×¥ë¥Æ¥¹¥È¥±¡¼¥¹
+     *  {$action_name}ã‚¢ã‚¯ã‚·ãƒ§ãƒ³ãƒ•ã‚©ãƒ¼ãƒ ã®ã‚µãƒ³ãƒ—ãƒ«ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹
      *
      *  @access public
      */
     /*
     function test_formSample()
     {
-        // ¥Õ¥©¡¼¥à¤ÎÀßÄê
+        // ãƒ•ã‚©ãƒ¼ãƒ ã®è¨­å®š
         $this->af->set('id', 1);
 
-        // {$action_name}¥¢¥¯¥·¥ç¥ó¥Õ¥©¡¼¥àÃÍ¸¡¾Ú
+        // {$action_name}ã‚¢ã‚¯ã‚·ãƒ§ãƒ³ãƒ•ã‚©ãƒ¼ãƒ å€¤æ¤œè¨¼
         $this->assertEqual($this->af->validate(), 0);
     }
     */
 }
 
 /**
- *  {$action_name}¥¢¥¯¥·¥ç¥ó¤Î¥Æ¥¹¥È¥±¡¼¥¹
+ *  {$action_name}ã‚¢ã‚¯ã‚·ãƒ§ãƒ³ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹
  *
  *  @author     {$author}
  *  @access     public
@@ -69,53 +69,53 @@ class {$action_class}_TestCase extends Ethna_UnitTestCase
 {
     /**
      *  @access private
-     *  @var    string  ¥¢¥¯¥·¥ç¥óÌ¾
+     *  @var    string  ã‚¢ã‚¯ã‚·ãƒ§ãƒ³å
      */
     var $action_name = '{$action_name}';
 
     /**
-     *    ¥Æ¥¹¥È¤Î½é´ü²½
+     *    ãƒ†ã‚¹ãƒˆã®åˆæœŸåŒ–
      *
      *    @access public
      */
     function setUp()
     {
-        $this->createActionForm();  // ¥¢¥¯¥·¥ç¥ó¥Õ¥©¡¼¥à¤ÎºîÀ®
-        $this->createActionClass(); // ¥¢¥¯¥·¥ç¥ó¥¯¥é¥¹¤ÎºîÀ®
+        $this->createActionForm();  // ã‚¢ã‚¯ã‚·ãƒ§ãƒ³ãƒ•ã‚©ãƒ¼ãƒ ã®ä½œæˆ
+        $this->createActionClass(); // ã‚¢ã‚¯ã‚·ãƒ§ãƒ³ã‚¯ãƒ©ã‚¹ã®ä½œæˆ
 
-        $this->session->start();            // ¥»¥Ã¥·¥ç¥ó¤Î³«»Ï
+        $this->session->start();            // ã‚»ãƒƒã‚·ãƒ§ãƒ³ã®é–‹å§‹
     }
 
     /**
-     *    ¥Æ¥¹¥È¤Î¸å»ÏËö
+     *    ãƒ†ã‚¹ãƒˆã®å¾Œå§‹æœ«
      *
      *    @access public
      */
     function tearDown()
     {
-        $this->session->destroy();      // ¥»¥Ã¥·¥ç¥ó¤ÎÇË´þ
+        $this->session->destroy();      // ã‚»ãƒƒã‚·ãƒ§ãƒ³ã®ç ´æ£„
     }
 
     /**
-     *  {$action_name}¥¢¥¯¥·¥ç¥ó¥¯¥é¥¹¤Î¥µ¥ó¥×¥ë¥Æ¥¹¥È¥±¡¼¥¹
+     *  {$action_name}ã‚¢ã‚¯ã‚·ãƒ§ãƒ³ã‚¯ãƒ©ã‚¹ã®ã‚µãƒ³ãƒ—ãƒ«ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹
      *
      *  @access public
      */
     /*
     function test_actionSample()
     {
-        // ¥Õ¥©¡¼¥à¤ÎÀßÄê
+        // ãƒ•ã‚©ãƒ¼ãƒ ã®è¨­å®š
         $this->af->set('id', 1);
 
-        // {$action_name}¥¢¥¯¥·¥ç¥ó¼Â¹ÔÁ°¤ÎÇ§¾Ú½èÍý
+        // {$action_name}ã‚¢ã‚¯ã‚·ãƒ§ãƒ³å®Ÿè¡Œå‰ã®èªè¨¼å‡¦ç†
         $forward_name = $this->ac->authenticate();
         $this->assertNull($forward_name);
 
-        // {$action_name}¥¢¥¯¥·¥ç¥ó¤ÎÁ°½èÍý
+        // {$action_name}ã‚¢ã‚¯ã‚·ãƒ§ãƒ³ã®å‰å‡¦ç†
         $forward_name = $this->ac->prepare();
         $this->assertNull($forward_name);
 
-        // {$action_name}¥¢¥¯¥·¥ç¥ó¤Î¼ÂÁõ
+        // {$action_name}ã‚¢ã‚¯ã‚·ãƒ§ãƒ³ã®å®Ÿè£…
         $forward_name = $this->ac->perform();
         $this->assertEqual($forward_name, '{$action_name}');
     }

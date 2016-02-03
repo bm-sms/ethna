@@ -11,7 +11,7 @@
 
 // {{{ Ethna_InfoManager
 /**
- *  Ethna¥Ş¥Í¡¼¥¸¥ã¥¯¥é¥¹
+ *  Ethnaãƒãƒãƒ¼ã‚¸ãƒ£ã‚¯ãƒ©ã‚¹
  *
  *  @author     Masaki Fujimoto <fujimoto@php.net>
  *  @access     public
@@ -23,54 +23,54 @@ class Ethna_InfoManager extends Ethna_AppManager
      *  @access private
      */
     
-    /** @var    object  Ethna_Controller    ¥³¥ó¥È¥í¡¼¥é¥ª¥Ö¥¸¥§¥¯¥È */
+    /** @var    object  Ethna_Controller    ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ©ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ */
     var $ctl;
 
-    /** @var    object  Ethna_ClassFactory  ¥¯¥é¥¹¥Õ¥¡¥¯¥È¥ê¥ª¥Ö¥¸¥§¥¯¥È */
+    /** @var    object  Ethna_ClassFactory  ã‚¯ãƒ©ã‚¹ãƒ•ã‚¡ã‚¯ãƒˆãƒªã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ */
     var $class_factory;
 
-    /** @var    array   ¥¢¥¯¥·¥ç¥ó¥¹¥¯¥ê¥×¥È²òÀÏ·ë²Ì¥­¥ã¥Ã¥·¥å¥Õ¥¡¥¤¥ë */
+    /** @var    array   ã‚¢ã‚¯ã‚·ãƒ§ãƒ³ã‚¹ã‚¯ãƒªãƒ—ãƒˆè§£æçµæœã‚­ãƒ£ãƒƒã‚·ãƒ¥ãƒ•ã‚¡ã‚¤ãƒ« */
     var $cache_class_list_file;
 
-    /** @var    array   ¥¢¥¯¥·¥ç¥ó¥¹¥¯¥ê¥×¥È²òÀÏ·ë²Ì¥­¥ã¥Ã¥·¥å */
+    /** @var    array   ã‚¢ã‚¯ã‚·ãƒ§ãƒ³ã‚¹ã‚¯ãƒªãƒ—ãƒˆè§£æçµæœã‚­ãƒ£ãƒƒã‚·ãƒ¥ */
     var $cache_class_list;
 
-    /** @var    array   [Â°À­]DB¥¿¥¤¥×°ìÍ÷ */
+    /** @var    array   [å±æ€§]DBã‚¿ã‚¤ãƒ—ä¸€è¦§ */
     var $db_type_list = array(
         DB_TYPE_RW      => array('name' => 'DB_TYPE_RW'),
         DB_TYPE_RO      => array('name' => 'DB_TYPE_RO'),
         DB_TYPE_MISC    => array('name' => 'DB_TYPE_MISC'),
     );
 
-    /** @var    array   [Â°À­]¥Õ¥©¡¼¥à·¿°ìÍ÷ */
+    /** @var    array   [å±æ€§]ãƒ•ã‚©ãƒ¼ãƒ å‹ä¸€è¦§ */
     var $form_type_list = array(
-        FORM_TYPE_TEXT      => array('name' => '¥Æ¥­¥¹¥È¥Ü¥Ã¥¯¥¹'),
-        FORM_TYPE_PASSWORD  => array('name' => '¥Ñ¥¹¥ï¡¼¥É'),
-        FORM_TYPE_TEXTAREA  => array('name' => '¥Æ¥­¥¹¥È¥¨¥ê¥¢'),
-        FORM_TYPE_SELECT    => array('name' => '¥»¥ì¥¯¥È¥Ü¥Ã¥¯¥¹'),
-        FORM_TYPE_RADIO     => array('name' => '¥é¥¸¥ª¥Ü¥¿¥ó'),
-        FORM_TYPE_CHECKBOX  => array('name' => '¥Á¥§¥Ã¥¯¥Ü¥Ã¥¯¥¹'),
-        FORM_TYPE_SUBMIT    => array('name' => '¥Õ¥©¡¼¥àÁ÷¿®¥Ü¥¿¥ó'),
-        FORM_TYPE_FILE      => array('name' => '¥Õ¥¡¥¤¥ë'),
+        FORM_TYPE_TEXT      => array('name' => 'ãƒ†ã‚­ã‚¹ãƒˆãƒœãƒƒã‚¯ã‚¹'),
+        FORM_TYPE_PASSWORD  => array('name' => 'ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰'),
+        FORM_TYPE_TEXTAREA  => array('name' => 'ãƒ†ã‚­ã‚¹ãƒˆã‚¨ãƒªã‚¢'),
+        FORM_TYPE_SELECT    => array('name' => 'ã‚»ãƒ¬ã‚¯ãƒˆãƒœãƒƒã‚¯ã‚¹'),
+        FORM_TYPE_RADIO     => array('name' => 'ãƒ©ã‚¸ã‚ªãƒœã‚¿ãƒ³'),
+        FORM_TYPE_CHECKBOX  => array('name' => 'ãƒã‚§ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹'),
+        FORM_TYPE_SUBMIT    => array('name' => 'ãƒ•ã‚©ãƒ¼ãƒ é€ä¿¡ãƒœã‚¿ãƒ³'),
+        FORM_TYPE_FILE      => array('name' => 'ãƒ•ã‚¡ã‚¤ãƒ«'),
     );
 
-    /** @var    array   [Â°À­]ÊÑ¿ô·¿°ìÍ÷ */
+    /** @var    array   [å±æ€§]å¤‰æ•°å‹ä¸€è¦§ */
     var $var_type_list = array(
-        VAR_TYPE_INT        => array('name' => 'À°¿ô'),
-        VAR_TYPE_FLOAT      => array('name' => 'ÉâÆ°¾®¿ôÅÀ¿ô'),
-        VAR_TYPE_STRING     => array('name' => 'Ê¸»úÎó'),
-        VAR_TYPE_DATETIME   => array('name' => 'ÆüÉÕ'),
-        VAR_TYPE_BOOLEAN    => array('name' => '¿¿µ¶ÃÍ'),
-        VAR_TYPE_FILE       => array('name' => '¥Õ¥¡¥¤¥ë'),
+        VAR_TYPE_INT        => array('name' => 'æ•´æ•°'),
+        VAR_TYPE_FLOAT      => array('name' => 'æµ®å‹•å°æ•°ç‚¹æ•°'),
+        VAR_TYPE_STRING     => array('name' => 'æ–‡å­—åˆ—'),
+        VAR_TYPE_DATETIME   => array('name' => 'æ—¥ä»˜'),
+        VAR_TYPE_BOOLEAN    => array('name' => 'çœŸå½å€¤'),
+        VAR_TYPE_FILE       => array('name' => 'ãƒ•ã‚¡ã‚¤ãƒ«'),
     );
 
     /**#@-*/
 
     /**
-     *  Ethna_InfoManager¤Î¥³¥ó¥¹¥È¥é¥¯¥¿
+     *  Ethna_InfoManagerã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
      *
      *  @access public
-     *  @param  object  Ethna_Backend   &$backend   Ethna_Backend¥ª¥Ö¥¸¥§¥¯¥È
+     *  @param  object  Ethna_Backend   &$backend   Ethna_Backendã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
      */
     function Ethna_InfoManager(&$backend)
     {
@@ -78,7 +78,7 @@ class Ethna_InfoManager extends Ethna_AppManager
         $this->ctl =& Ethna_Controller::getInstance();
         $this->class_factory =& $this->ctl->getClassFactory();
 
-        // ¥¢¥¯¥·¥ç¥ó¥¹¥¯¥ê¥×¥È²òÀÏ·ë²Ì¥­¥ã¥Ã¥·¥å¼èÆÀ
+        // ã‚¢ã‚¯ã‚·ãƒ§ãƒ³ã‚¹ã‚¯ãƒªãƒ—ãƒˆè§£æçµæœã‚­ãƒ£ãƒƒã‚·ãƒ¥å–å¾—
         $this->cache_class_list_file = sprintf('%s/ethna_info_class_list', $this->ctl->getDirectory('tmp'));
         if (file_exists($this->cache_class_list_file) && filesize($this->cache_class_list_file) > 0) {
             $fp = fopen($this->cache_class_list_file, 'r');
@@ -89,50 +89,50 @@ class Ethna_InfoManager extends Ethna_AppManager
     }
 
     /**
-     *  ÄêµÁºÑ¤ß¥¢¥¯¥·¥ç¥ó°ìÍ÷¤ò¼èÆÀ¤¹¤ë
+     *  å®šç¾©æ¸ˆã¿ã‚¢ã‚¯ã‚·ãƒ§ãƒ³ä¸€è¦§ã‚’å–å¾—ã™ã‚‹
      *
      *  @access public
-     *  @return array   ¥¢¥¯¥·¥ç¥ó°ìÍ÷
+     *  @return array   ã‚¢ã‚¯ã‚·ãƒ§ãƒ³ä¸€è¦§
      */
     function getActionList()
     {
         $r = array();
 
-        // ¥¢¥¯¥·¥ç¥ó¥¹¥¯¥ê¥×¥È¤ò²òÀÏ¤¹¤ë
+        // ã‚¢ã‚¯ã‚·ãƒ§ãƒ³ã‚¹ã‚¯ãƒªãƒ—ãƒˆã‚’è§£æã™ã‚‹
         $class_list = $this->_analyzeActionList();
 
-        // ¥¢¥¯¥·¥ç¥óÄêµÁ¥¨¥ó¥È¥ê°ìÍ÷
+        // ã‚¢ã‚¯ã‚·ãƒ§ãƒ³å®šç¾©ã‚¨ãƒ³ãƒˆãƒªä¸€è¦§
         list($manifest_action_list, $manifest_class_list) = $this->_getActionList_Manifest($class_list);
 
-        // ¥¢¥¯¥·¥ç¥óÄêµÁ¾ÊÎ¬¥¨¥ó¥È¥ê°ìÍ÷
+        // ã‚¢ã‚¯ã‚·ãƒ§ãƒ³å®šç¾©çœç•¥ã‚¨ãƒ³ãƒˆãƒªä¸€è¦§
         $implicit_action_list = $this->_getActionList_Implicit($class_list, $manifest_action_list, $manifest_class_list);
 
         $r = array_merge($manifest_action_list, $implicit_action_list);
         ksort($r);
 
-        // ¥¢¥¯¥·¥ç¥óÄêµÁ¾ğÊóÊä´°
+        // ã‚¢ã‚¯ã‚·ãƒ§ãƒ³å®šç¾©æƒ…å ±è£œå®Œ
         $r = $this->_addActionList($r);
 
         return $r;
     }
 
     /**
-     *  ÄêµÁºÑ¤ßÁ«°ÜÀè°ìÍ÷¤ò¼èÆÀ¤¹¤ë
+     *  å®šç¾©æ¸ˆã¿é·ç§»å…ˆä¸€è¦§ã‚’å–å¾—ã™ã‚‹
      *
      *  @access public
-     *  @return array   Á«°ÜÀè°ìÍ÷
+     *  @return array   é·ç§»å…ˆä¸€è¦§
      */
     function getForwardList()
     {
         $r = array();
 
-        // ¥Æ¥ó¥×¥ì¡¼¥È/¥Ó¥å¡¼¥¹¥¯¥ê¥×¥È¤ò²òÀÏ¤¹¤ë
+        // ãƒ†ãƒ³ãƒ—ãƒ¬ãƒ¼ãƒˆ/ãƒ“ãƒ¥ãƒ¼ã‚¹ã‚¯ãƒªãƒ—ãƒˆã‚’è§£æã™ã‚‹
         $forward_list = $this->_analyzeForwardList();
 
-        // ¥Ó¥å¡¼ÄêµÁ¥¨¥ó¥È¥ê°ìÍ÷
+        // ãƒ“ãƒ¥ãƒ¼å®šç¾©ã‚¨ãƒ³ãƒˆãƒªä¸€è¦§
         $manifest_forward_list = $this->_getForwardList_Manifest();
 
-        // ¥Ó¥å¡¼ÄêµÁ¾ÊÎ¬¥¨¥ó¥È¥ê°ìÍ÷
+        // ãƒ“ãƒ¥ãƒ¼å®šç¾©çœç•¥ã‚¨ãƒ³ãƒˆãƒªä¸€è¦§
         $implicit_forward_list = $this->_getForwardList_Implicit($forward_list, $manifest_forward_list);
 
         $r = array_merge($manifest_forward_list, $implicit_forward_list);
@@ -142,11 +142,11 @@ class Ethna_InfoManager extends Ethna_AppManager
     }
 
     /**
-     *  ¥Ç¥£¥ì¥¯¥È¥ê°Ê²¼¤Î¥¢¥¯¥·¥ç¥ó¥¹¥¯¥ê¥×¥È¤ò²òÀÏ¤¹¤ë
+     *  ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªä»¥ä¸‹ã®ã‚¢ã‚¯ã‚·ãƒ§ãƒ³ã‚¹ã‚¯ãƒªãƒ—ãƒˆã‚’è§£æã™ã‚‹
      *
      *  @access private
-     *  @param  string  $action_dir     ²òÀÏÂĞ¾İ¤Î¥Ç¥£¥ì¥¯¥È¥ê
-     *  @return array   ¥¢¥¯¥·¥ç¥ó¥¯¥é¥¹ÄêµÁ°ìÍ÷
+     *  @param  string  $action_dir     è§£æå¯¾è±¡ã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª
+     *  @return array   ã‚¢ã‚¯ã‚·ãƒ§ãƒ³ã‚¯ãƒ©ã‚¹å®šç¾©ä¸€è¦§
      */
     function _analyzeActionList($action_dir = null)
     {
@@ -184,7 +184,7 @@ class Ethna_InfoManager extends Ethna_AppManager
 
             $key = substr($file, $prefix_len);
             
-            // ¥­¥ã¥Ã¥·¥å¥Á¥§¥Ã¥¯
+            // ã‚­ãƒ£ãƒƒã‚·ãƒ¥ãƒã‚§ãƒƒã‚¯
             include_once $file;
             if ($this->cache_class_list[$key]['.mtime'] >= filemtime($file)) {
                 $class_list = $this->cache_class_list[$key];
@@ -204,7 +204,7 @@ class Ethna_InfoManager extends Ethna_AppManager
         }
 
         if ($cache_update) {
-            // ¥­¥ã¥Ã¥·¥å¥Õ¥¡¥¤¥ë¹¹¿·
+            // ã‚­ãƒ£ãƒƒã‚·ãƒ¥ãƒ•ã‚¡ã‚¤ãƒ«æ›´æ–°
             $fp = fopen($this->cache_class_list_file, 'w');
             fwrite($fp, serialize($r));
             fclose($fp);
@@ -214,11 +214,11 @@ class Ethna_InfoManager extends Ethna_AppManager
     }
 
     /**
-     *  ¥¢¥¯¥·¥ç¥ó¥¹¥¯¥ê¥×¥È¤ò²òÀÏ¤¹¤ë
+     *  ã‚¢ã‚¯ã‚·ãƒ§ãƒ³ã‚¹ã‚¯ãƒªãƒ—ãƒˆã‚’è§£æã™ã‚‹
      *
      *  @access private
-     *  @param  string  $script ¥Õ¥¡¥¤¥ëÌ¾
-     *  @return array   ¥¢¥¯¥·¥ç¥ó¥¯¥é¥¹ÄêµÁ°ìÍ÷
+     *  @param  string  $script ãƒ•ã‚¡ã‚¤ãƒ«å
+     *  @return array   ã‚¢ã‚¯ã‚·ãƒ§ãƒ³ã‚¯ãƒ©ã‚¹å®šç¾©ä¸€è¦§
      */
     function _analyzeActionScript($script)
     {
@@ -235,7 +235,7 @@ class Ethna_InfoManager extends Ethna_AppManager
         }
         fclose($fp);
 
-        // ¥È¡¼¥¯¥ó¤ËÊ¬³ä¤·¤Æ¥¯¥é¥¹ÄêµÁ¾ğÊó¤ò¼èÆÀ
+        // ãƒˆãƒ¼ã‚¯ãƒ³ã«åˆ†å‰²ã—ã¦ã‚¯ãƒ©ã‚¹å®šç¾©æƒ…å ±ã‚’å–å¾—
         $token_list = token_get_all($source);
         $state = 'T_OUT';
         $nest = 0;
@@ -260,7 +260,7 @@ class Ethna_InfoManager extends Ethna_AppManager
             }
 
             if ($token[0] == T_CLASS) {
-                // ¥¯¥é¥¹ÄêµÁ³«»Ï
+                // ã‚¯ãƒ©ã‚¹å®šç¾©é–‹å§‹
                 $i += 2;
                 $class_name = $token_list[$i][1];       // should be T_STRING
                 if ($this->_isSubclassOf($class_name, 'Ethna_ActionClass')) {
@@ -304,12 +304,12 @@ class Ethna_InfoManager extends Ethna_AppManager
     }
 
     /**
-     *  »ØÄê¤µ¤ì¤¿¥¯¥é¥¹Ì¾¤ò·Ñ¾µ¤·¤Æ¤¤¤ë¤«¤É¤¦¤«¤òÊÖ¤¹
+     *  æŒ‡å®šã•ã‚ŒãŸã‚¯ãƒ©ã‚¹åã‚’ç¶™æ‰¿ã—ã¦ã„ã‚‹ã‹ã©ã†ã‹ã‚’è¿”ã™
      *
      *  @access private
-     *  @param  string  $class_name     ¥Á¥§¥Ã¥¯ÂĞ¾İ¤Î¥¯¥é¥¹Ì¾
-     *  @param  string  $parent_name    ¿Æ¥¯¥é¥¹Ì¾
-     *  @return bool    true:·Ñ¾µ¤·¤Æ¤¤¤ë false:¤¤¤Ê¤¤
+     *  @param  string  $class_name     ãƒã‚§ãƒƒã‚¯å¯¾è±¡ã®ã‚¯ãƒ©ã‚¹å
+     *  @param  string  $parent_name    è¦ªã‚¯ãƒ©ã‚¹å
+     *  @return bool    true:ç¶™æ‰¿ã—ã¦ã„ã‚‹ false:ã„ãªã„
      */
     function _isSubclassOf($class_name, $parent_name)
     {
@@ -323,11 +323,11 @@ class Ethna_InfoManager extends Ethna_AppManager
     }
 
     /**
-     *  ¥³¥ó¥È¥í¡¼¥é¤ËÌÀ¼¨Åª¤ËÄêµÁ¤µ¤ì¤Æ¤¤¤ë¥¢¥¯¥·¥ç¥ó°ìÍ÷¤ò¼èÆÀ¤¹¤ë
+     *  ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ©ã«æ˜ç¤ºçš„ã«å®šç¾©ã•ã‚Œã¦ã„ã‚‹ã‚¢ã‚¯ã‚·ãƒ§ãƒ³ä¸€è¦§ã‚’å–å¾—ã™ã‚‹
      *
      *  @access private
-     *  @param  array   ÄêµÁ¤µ¤ì¤Æ¤¤¤ë¥¯¥é¥¹°ìÍ÷
-     *  @return array   array(¥¢¥¯¥·¥ç¥ó°ìÍ÷, ¥¯¥é¥¹°ìÍ÷)
+     *  @param  array   å®šç¾©ã•ã‚Œã¦ã„ã‚‹ã‚¯ãƒ©ã‚¹ä¸€è¦§
+     *  @return array   array(ã‚¢ã‚¯ã‚·ãƒ§ãƒ³ä¸€è¦§, ã‚¯ãƒ©ã‚¹ä¸€è¦§)
      */
     function _getActionList_Manifest($class_list)
     {
@@ -340,7 +340,7 @@ class Ethna_InfoManager extends Ethna_AppManager
             $action = $this->ctl->_getAction($action_name);
 
             $elt = array();
-            // _analyzeActionList()¤Ç¼èÆÀ¤·¤¿¥¯¥é¥¹ÄêµÁ¥Ç¡¼¥¿¤«¤éÂĞ±ş´Ø·¸¤ò¼èÆÀ
+            // _analyzeActionList()ã§å–å¾—ã—ãŸã‚¯ãƒ©ã‚¹å®šç¾©ãƒ‡ãƒ¼ã‚¿ã‹ã‚‰å¯¾å¿œé–¢ä¿‚ã‚’å–å¾—
             foreach ($class_list as $file => $elts) {
                 foreach ($elts as $class_name => $def) {
                     if ($def['type'] == 'action_class' && strcasecmp($class_name, $action['class_name']) == 0) {
@@ -355,7 +355,7 @@ class Ethna_InfoManager extends Ethna_AppManager
                 }
             }
 
-            // Ì¤ÄêµÁ¥Á¥§¥Ã¥¯
+            // æœªå®šç¾©ãƒã‚§ãƒƒã‚¯
             if (isset($elt['action_class']) == false) {
                 $elt['action_class'] = $action['class_name'];
                 if (class_exists($action['class_name']) == false) {
@@ -376,13 +376,13 @@ class Ethna_InfoManager extends Ethna_AppManager
     }
 
     /**
-     *  °ÅÌÛ¤ËÄêµÁ¤µ¤ì¤Æ¤¤¤ë¥¢¥¯¥·¥ç¥ó°ìÍ÷¤ò¼èÆÀ¤¹¤ë
+     *  æš—é»™ã«å®šç¾©ã•ã‚Œã¦ã„ã‚‹ã‚¢ã‚¯ã‚·ãƒ§ãƒ³ä¸€è¦§ã‚’å–å¾—ã™ã‚‹
      *
      *  @access private
-     *  @param  array   $class_list             ÄêµÁ¤µ¤ì¤Æ¤¤¤ë¥¯¥é¥¹°ìÍ÷
-     *  @param  array   $manifest_action_list   ÌÀ¼¨Åª¤ËÄêµÁºÑ¤ß¤Î¥¢¥¯¥·¥ç¥ó°ìÍ÷
-     *  @param  array   $manifest_class_list    ÌÀ¼¨Åª¤ËÄêµÁºÑ¤ß¤Î¥¯¥é¥¹°ìÍ÷
-     *  @return array   array:¥¢¥¯¥·¥ç¥ó°ìÍ÷
+     *  @param  array   $class_list             å®šç¾©ã•ã‚Œã¦ã„ã‚‹ã‚¯ãƒ©ã‚¹ä¸€è¦§
+     *  @param  array   $manifest_action_list   æ˜ç¤ºçš„ã«å®šç¾©æ¸ˆã¿ã®ã‚¢ã‚¯ã‚·ãƒ§ãƒ³ä¸€è¦§
+     *  @param  array   $manifest_class_list    æ˜ç¤ºçš„ã«å®šç¾©æ¸ˆã¿ã®ã‚¯ãƒ©ã‚¹ä¸€è¦§
+     *  @return array   array:ã‚¢ã‚¯ã‚·ãƒ§ãƒ³ä¸€è¦§
      */
     function _getActionList_Implicit($class_list, $manifest_action_list, $manifest_class_list)
     {
@@ -394,7 +394,7 @@ class Ethna_InfoManager extends Ethna_AppManager
                     continue;
                 }
 
-                // ¥¯¥é¥¹Ì¾¤«¤é¥¢¥¯¥·¥ç¥óÌ¾¤ò¼èÆÀ
+                // ã‚¯ãƒ©ã‚¹åã‹ã‚‰ã‚¢ã‚¯ã‚·ãƒ§ãƒ³åã‚’å–å¾—
                 if ($def['type'] == 'action_class') {
                     $action_name = $this->ctl->actionClassToName($class_name);
                     if (array_key_exists($action_name, $manifest_action_list)) {
@@ -421,16 +421,16 @@ class Ethna_InfoManager extends Ethna_AppManager
     }
     
     /**
-     *  ¥¢¥¯¥·¥ç¥óÄêµÁ°ìÍ÷¤òÊä´°¤¹¤ë
+     *  ã‚¢ã‚¯ã‚·ãƒ§ãƒ³å®šç¾©ä¸€è¦§ã‚’è£œå®Œã™ã‚‹
      *
      *  @access private
-     *  @param  array   $action_list    ¼èÆÀ¤·¤¿¥¢¥¯¥·¥ç¥ó°ìÍ÷
-     *  @return array   ½¤Àµ¸å¤Î¥¢¥¯¥·¥ç¥ó°ìÍ÷
+     *  @param  array   $action_list    å–å¾—ã—ãŸã‚¢ã‚¯ã‚·ãƒ§ãƒ³ä¸€è¦§
+     *  @return array   ä¿®æ­£å¾Œã®ã‚¢ã‚¯ã‚·ãƒ§ãƒ³ä¸€è¦§
      */
     function _addActionList($action_list)
     {
         foreach ($action_list as $action_name => $action) {
-            // ¥¢¥¯¥·¥ç¥ó¥Õ¥©¡¼¥à¤Ë¥Õ¥©¡¼¥àÄêµÁ¾ğÊó¤òÄÉ²Ã
+            // ã‚¢ã‚¯ã‚·ãƒ§ãƒ³ãƒ•ã‚©ãƒ¼ãƒ ã«ãƒ•ã‚©ãƒ¼ãƒ å®šç¾©æƒ…å ±ã‚’è¿½åŠ 
             $form_name = $action['action_form'];
             if (class_exists($form_name) == false) {
                 continue;
@@ -456,11 +456,11 @@ class Ethna_InfoManager extends Ethna_AppManager
     }
 
     /**
-     *  ¥Ç¥£¥ì¥¯¥È¥ê°Ê²¼¤Î¥Æ¥ó¥×¥ì¡¼¥È¤ò²òÀÏ¤¹¤ë
+     *  ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªä»¥ä¸‹ã®ãƒ†ãƒ³ãƒ—ãƒ¬ãƒ¼ãƒˆã‚’è§£æã™ã‚‹
      *
      *  @access private
-     *  @param  string  $action_dir     ²òÀÏÂĞ¾İ¤Î¥Ç¥£¥ì¥¯¥È¥ê
-     *  @return array   Á«°ÜÄêµÁ°ìÍ÷
+     *  @param  string  $action_dir     è§£æå¯¾è±¡ã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª
+     *  @return array   é·ç§»å®šç¾©ä¸€è¦§
      */
     function _analyzeForwardList($template_dir = null)
     {
@@ -509,10 +509,10 @@ class Ethna_InfoManager extends Ethna_AppManager
     }
 
     /**
-     *  ¥³¥ó¥È¥í¡¼¥é¤ËÌÀ¼¨Åª¤ËÄêµÁ¤µ¤ì¤Æ¤¤¤ëÁ«°ÜÀè°ìÍ÷¤ò¼èÆÀ¤¹¤ë
+     *  ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ©ã«æ˜ç¤ºçš„ã«å®šç¾©ã•ã‚Œã¦ã„ã‚‹é·ç§»å…ˆä¸€è¦§ã‚’å–å¾—ã™ã‚‹
      *
      *  @access private
-     *  @return array   ¥Ó¥å¡¼°ìÍ÷
+     *  @return array   ãƒ“ãƒ¥ãƒ¼ä¸€è¦§
      */
     function _getForwardList_Manifest()
     {
@@ -557,12 +557,12 @@ class Ethna_InfoManager extends Ethna_AppManager
     }
 
     /**
-     *  °ÅÌÛ¤ËÄêµÁ¤µ¤ì¤Æ¤¤¤ë¥Ó¥å¡¼°ìÍ÷¤ò¼èÆÀ¤¹¤ë
+     *  æš—é»™ã«å®šç¾©ã•ã‚Œã¦ã„ã‚‹ãƒ“ãƒ¥ãƒ¼ä¸€è¦§ã‚’å–å¾—ã™ã‚‹
      *
      *  @access private
-     *  @param  array   $forward_list           ÄêµÁ¤µ¤ì¤Æ¤¤¤ëÁ«°ÜÌ¾°ìÍ÷
-     *  @param  array   $manifest_forward_list  ÌÀ¼¨Åª¤ËÄêµÁºÑ¤ß¤Î¥Ó¥å¡¼°ìÍ÷
-     *  @return array   array:¥Ó¥å¡¼°ìÍ÷
+     *  @param  array   $forward_list           å®šç¾©ã•ã‚Œã¦ã„ã‚‹é·ç§»åä¸€è¦§
+     *  @param  array   $manifest_forward_list  æ˜ç¤ºçš„ã«å®šç¾©æ¸ˆã¿ã®ãƒ“ãƒ¥ãƒ¼ä¸€è¦§
+     *  @return array   array:ãƒ“ãƒ¥ãƒ¼ä¸€è¦§
      */
     function _getForwardList_Implicit($forward_list, $manifest_forward_list)
     {
@@ -592,10 +592,10 @@ class Ethna_InfoManager extends Ethna_AppManager
     }
 
     /**
-     *  Ethna¤ÎÀßÄê°ìÍ÷¤ò¼èÆÀ¤¹¤ë
+     *  Ethnaã®è¨­å®šä¸€è¦§ã‚’å–å¾—ã™ã‚‹
      *
      *  @access public
-     *  @return array   ÀßÄê°ìÍ÷¤ò³ÊÇ¼¤·¤¿ÇÛÎó
+     *  @return array   è¨­å®šä¸€è¦§ã‚’æ ¼ç´ã—ãŸé…åˆ—
      *  @todo   respect access controll
      */
     function getConfiguration()
@@ -604,27 +604,27 @@ class Ethna_InfoManager extends Ethna_AppManager
 
         // core
         $elts = array();
-        $elts['¥¢¥×¥ê¥±¡¼¥·¥ç¥óID'] = $this->ctl->getAppId();
-        $elts['¥¢¥×¥ê¥±¡¼¥·¥ç¥óURL'] = $this->ctl->getURL();
-        $elts['Ethna¥Ğ¡¼¥¸¥ç¥ó'] = ETHNA_VERSION;
-        $elts['Ethna¥Ù¡¼¥¹¥Ç¥£¥ì¥¯¥È¥ê'] = ETHNA_BASE;
+        $elts['ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ID'] = $this->ctl->getAppId();
+        $elts['ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³URL'] = $this->ctl->getURL();
+        $elts['Ethnaãƒãƒ¼ã‚¸ãƒ§ãƒ³'] = ETHNA_VERSION;
+        $elts['Ethnaãƒ™ãƒ¼ã‚¹ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª'] = ETHNA_BASE;
         $r['Core'] = $elts;
 
         // class
         $elts = array();
-        $elts['¥Ğ¥Ã¥¯¥¨¥ó¥É'] = $this->class_factory->getObjectName('backend');
-        $elts['¥¯¥é¥¹¥Õ¥¡¥¯¥È¥ê'] = $this->class_factory->getObjectName('class');
-        $elts['ÀßÄê'] = $this->class_factory->getObjectName('config');
+        $elts['ãƒãƒƒã‚¯ã‚¨ãƒ³ãƒ‰'] = $this->class_factory->getObjectName('backend');
+        $elts['ã‚¯ãƒ©ã‚¹ãƒ•ã‚¡ã‚¯ãƒˆãƒª'] = $this->class_factory->getObjectName('class');
+        $elts['è¨­å®š'] = $this->class_factory->getObjectName('config');
         $elts['DB'] = $this->class_factory->getObjectName('db');
-        $elts['¥¨¥é¡¼'] = $this->class_factory->getObjectName('error');
-        $elts['¥Õ¥©¡¼¥à'] = $this->class_factory->getObjectName('form');
-        $elts['¥í¥°'] = $this->class_factory->getObjectName('logger');
+        $elts['ã‚¨ãƒ©ãƒ¼'] = $this->class_factory->getObjectName('error');
+        $elts['ãƒ•ã‚©ãƒ¼ãƒ '] = $this->class_factory->getObjectName('form');
+        $elts['ãƒ­ã‚°'] = $this->class_factory->getObjectName('logger');
         $elts['i18n'] = $this->class_factory->getObjectName('i18n');
-        $elts['¥×¥é¥°¥¤¥ó'] = $this->class_factory->getObjectName('plugin');
-        $elts['¥»¥Ã¥·¥ç¥ó'] = $this->class_factory->getObjectName('session');
+        $elts['ãƒ—ãƒ©ã‚°ã‚¤ãƒ³'] = $this->class_factory->getObjectName('plugin');
+        $elts['ã‚»ãƒƒã‚·ãƒ§ãƒ³'] = $this->class_factory->getObjectName('session');
         $elts['SQL'] = $this->class_factory->getObjectName('sql');
-        $elts['¥Ó¥å¡¼'] = $this->class_factory->getObjectName('view');
-        $r['¥¯¥é¥¹'] = $elts;
+        $elts['ãƒ“ãƒ¥ãƒ¼'] = $this->class_factory->getObjectName('view');
+        $r['ã‚¯ãƒ©ã‚¹'] = $elts;
 
         // DB
         $elts = array();
@@ -638,7 +638,7 @@ class Ethna_InfoManager extends Ethna_AppManager
             $elts[$tmp] = $this->getAttrName('db_type', $db);
             $db_list[$key] = $tmp;
         }
-        $r['DB¥¿¥¤¥×'] = $elts;
+        $r['DBã‚¿ã‚¤ãƒ—'] = $elts;
 
         // DSN
         $elts = array();
@@ -656,37 +656,37 @@ class Ethna_InfoManager extends Ethna_AppManager
 
         // directory
         $elts = array();
-        $elts['¥¢¥×¥ê¥±¡¼¥·¥ç¥ó'] = $this->ctl->getBasedir();
-        $elts['¥¢¥¯¥·¥ç¥ó'] = $this->ctl->getActiondir();
-        $elts['¥Ó¥å¡¼'] = $this->ctl->getViewdir();
-        $elts['¥Õ¥£¥ë¥¿'] = $this->ctl->getDirectory('filter');
-        $elts['¥×¥é¥°¥¤¥ó'] = $this->ctl->getDirectory('plugin');
-        $elts['¥Æ¥ó¥×¥ì¡¼¥È'] = $this->ctl->getTemplatedir();
-        $elts['¥Æ¥ó¥×¥ì¡¼¥È¥­¥ã¥Ã¥·¥å'] = $this->ctl->getDirectory('template_c');
-        $elts['Smarty¥×¥é¥°¥¤¥ó'] = implode(',', $this->ctl->getDirectory('plugins'));
-        $elts['ÀßÄê¥Õ¥¡¥¤¥ë'] = $this->ctl->getDirectory('etc');
-        $elts['¥í¥±¡¼¥ë'] = $this->ctl->getDirectory('locale');
-        $elts['¥í¥°'] = $this->ctl->getDirectory('log');
-        $elts['°ì»ş¥Õ¥¡¥¤¥ë'] = $this->ctl->getDirectory('tmp');
-        $r['¥Ç¥£¥ì¥¯¥È¥ê'] = $elts;
+        $elts['ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³'] = $this->ctl->getBasedir();
+        $elts['ã‚¢ã‚¯ã‚·ãƒ§ãƒ³'] = $this->ctl->getActiondir();
+        $elts['ãƒ“ãƒ¥ãƒ¼'] = $this->ctl->getViewdir();
+        $elts['ãƒ•ã‚£ãƒ«ã‚¿'] = $this->ctl->getDirectory('filter');
+        $elts['ãƒ—ãƒ©ã‚°ã‚¤ãƒ³'] = $this->ctl->getDirectory('plugin');
+        $elts['ãƒ†ãƒ³ãƒ—ãƒ¬ãƒ¼ãƒˆ'] = $this->ctl->getTemplatedir();
+        $elts['ãƒ†ãƒ³ãƒ—ãƒ¬ãƒ¼ãƒˆã‚­ãƒ£ãƒƒã‚·ãƒ¥'] = $this->ctl->getDirectory('template_c');
+        $elts['Smartyãƒ—ãƒ©ã‚°ã‚¤ãƒ³'] = implode(',', $this->ctl->getDirectory('plugins'));
+        $elts['è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«'] = $this->ctl->getDirectory('etc');
+        $elts['ãƒ­ã‚±ãƒ¼ãƒ«'] = $this->ctl->getDirectory('locale');
+        $elts['ãƒ­ã‚°'] = $this->ctl->getDirectory('log');
+        $elts['ä¸€æ™‚ãƒ•ã‚¡ã‚¤ãƒ«'] = $this->ctl->getDirectory('tmp');
+        $r['ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª'] = $elts;
 
         // ext
         $elts = array();
-        $elts['¥Æ¥ó¥×¥ì¡¼¥È'] = $this->ctl->getExt('tpl');
-        $elts['PHP¥¹¥¯¥ê¥×¥È'] = $this->ctl->getExt('php');
-        $r['³ÈÄ¥»Ò'] = $elts;
+        $elts['ãƒ†ãƒ³ãƒ—ãƒ¬ãƒ¼ãƒˆ'] = $this->ctl->getExt('tpl');
+        $elts['PHPã‚¹ã‚¯ãƒªãƒ—ãƒˆ'] = $this->ctl->getExt('php');
+        $r['æ‹¡å¼µå­'] = $elts;
 
         // filter
         $elts = array();
         $n = 1;
         foreach ($this->ctl->filter as $filter) {
-            $key = sprintf("¥Õ¥£¥ë¥¿(%d)", $n);
+            $key = sprintf("ãƒ•ã‚£ãƒ«ã‚¿(%d)", $n);
             if (class_exists($filter)) {
                 $elts[$key] = $filter;
                 $n++;
             }
         }
-        $r['¥Õ¥£¥ë¥¿'] = $elts;
+        $r['ãƒ•ã‚£ãƒ«ã‚¿'] = $elts;
 
         // manager
         $elts = array();
@@ -694,16 +694,16 @@ class Ethna_InfoManager extends Ethna_AppManager
             $name = sprintf('$%s', $key);
             $elts[$name] = $this->ctl->getManagerClassName($manager);
         }
-        $r['¥¢¥×¥ê¥±¡¼¥·¥ç¥ó¥Ş¥Í¡¼¥¸¥ã'] = $elts;
+        $r['ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ãƒãƒãƒ¼ã‚¸ãƒ£'] = $elts;
 
         return $r;
     }
 
     /**
-     *  ¥×¥é¥°¥¤¥ó¤Î°ìÍ÷¤ò¼èÆÀ¤¹¤ë
+     *  ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã®ä¸€è¦§ã‚’å–å¾—ã™ã‚‹
      *
      *  @access public
-     *  @return array   ÀßÄê°ìÍ÷¤ò³ÊÇ¼¤·¤¿ÇÛÎó
+     *  @return array   è¨­å®šä¸€è¦§ã‚’æ ¼ç´ã—ãŸé…åˆ—
      *  @todo   respect access controll
      */
     function getPluginList()

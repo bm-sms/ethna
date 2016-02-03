@@ -11,7 +11,7 @@
 
 // {{{ Ethna_I18N
 /**
- *  i18n´ØÏ¢¤Î½èÍı¤ò¹Ô¤¦¥¯¥é¥¹
+ *  i18né–¢é€£ã®å‡¦ç†ã‚’è¡Œã†ã‚¯ãƒ©ã‚¹
  *
  *  @author     Masaki Fujimoto <fujimoto@php.net>
  *  @access     public
@@ -23,29 +23,29 @@ class Ethna_I18N
      *  @access private
      */
 
-    /** @var    bool    gettext¥Õ¥é¥° */
+    /** @var    bool    gettextãƒ•ãƒ©ã‚° */
     var $have_gettext;
 
-    /** @var    string  ¥í¥±¡¼¥ë¥Ç¥£¥ì¥¯¥È¥ê */
+    /** @var    string  ãƒ­ã‚±ãƒ¼ãƒ«ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª */
     var $locale_dir;
 
-    /** @var    string  ¥¢¥×¥ê¥±¡¼¥·¥ç¥óID */
+    /** @var    string  ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ID */
     var $appid;
 
-    /** @var    string  ¥·¥¹¥Æ¥àÂ¦¥¨¥ó¥³¡¼¥Ç¥£¥ó¥° */
+    /** @var    string  ã‚·ã‚¹ãƒ†ãƒ å´ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚° */
     var $systemencoding;
 
-    /** @var    string  ¥¯¥é¥¤¥¢¥ó¥ÈÂ¦¥¨¥ó¥³¡¼¥Ç¥£¥ó¥° */
+    /** @var    string  ã‚¯ãƒ©ã‚¤ã‚¢ãƒ³ãƒˆå´ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚° */
     var $clientencoding;
 
     /**#@-*/
 
     /**
-     *  Ethna_I18N¥¯¥é¥¹¤Î¥³¥ó¥¹¥È¥é¥¯¥¿
+     *  Ethna_I18Nã‚¯ãƒ©ã‚¹ã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
      *
      *  @access public
-     *  @param  string  $locale_dir ¥í¥±¡¼¥ë¥Ç¥£¥ì¥¯¥È¥ê
-     *  @param  string  $appid      ¥¢¥×¥ê¥±¡¼¥·¥ç¥óID
+     *  @param  string  $locale_dir ãƒ­ã‚±ãƒ¼ãƒ«ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª
+     *  @param  string  $appid      ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ID
      */
     function Ethna_I18N($locale_dir, $appid)
     {
@@ -57,13 +57,13 @@ class Ethna_I18N
     }
 
     /**
-     *  ¥í¥±¡¼¥ë¤òÀßÄê¤¹¤ë
+     *  ãƒ­ã‚±ãƒ¼ãƒ«ã‚’è¨­å®šã™ã‚‹
      *
      *  @access public
-     *  @param  string  $language       ¸À¸ìÄêµÁ
-     *  @param  string  $systemencoding ¥·¥¹¥Æ¥à¥¨¥ó¥³¡¼¥Ç¥£¥ó¥°Ì¾
-     *  @param  string  $clientencoding ¥¯¥é¥¤¥¢¥ó¥È¥¨¥ó¥³¡¼¥Ç¥£¥ó¥°Ì¾
-     *  @return string  ¸À¸ì¤ËÂĞ±ş¤·¤ÆÀßÄê¤µ¤ì¤¿¥í¥±¡¼¥ëÌ¾
+     *  @param  string  $language       è¨€èªå®šç¾©
+     *  @param  string  $systemencoding ã‚·ã‚¹ãƒ†ãƒ ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°å
+     *  @param  string  $clientencoding ã‚¯ãƒ©ã‚¤ã‚¢ãƒ³ãƒˆã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°å
+     *  @return string  è¨€èªã«å¯¾å¿œã—ã¦è¨­å®šã•ã‚ŒãŸãƒ­ã‚±ãƒ¼ãƒ«å
      */
     function setLanguage($language, $systemencoding = null, $clientencoding = null)
     {
@@ -91,11 +91,11 @@ class Ethna_I18N
     }
 
     /**
-     *  ¥á¥Ã¥»¡¼¥¸¥«¥¿¥í¥°¤«¤é¥í¥±¡¼¥ë¤ËÅ¬¹ç¤¹¤ë¥á¥Ã¥»¡¼¥¸¤ò¼èÆÀ¤¹¤ë
+     *  ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚«ã‚¿ãƒ­ã‚°ã‹ã‚‰ãƒ­ã‚±ãƒ¼ãƒ«ã«é©åˆã™ã‚‹ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’å–å¾—ã™ã‚‹
      *
      *  @access public
-     *  @param  string  $message    ¥á¥Ã¥»¡¼¥¸
-     *  @return string  ¥í¥±¡¼¥ë¤ËÅ¬¹ç¤¹¤ë¥á¥Ã¥»¡¼¥¸
+     *  @param  string  $message    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
+     *  @return string  ãƒ­ã‚±ãƒ¼ãƒ«ã«é©åˆã™ã‚‹ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
      */
     function get($message)
     {

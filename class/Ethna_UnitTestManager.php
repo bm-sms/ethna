@@ -13,7 +13,7 @@ require_once('Ethna_UnitTestCase.php');
 require_once('Ethna_UnitTestReporter.php');
 
 /**
- *  Ethna¥æ¥Ë¥Ã¥È¥Æ¥¹¥È¥Ş¥Í¡¼¥¸¥ã¥¯¥é¥¹
+ *  Ethnaãƒ¦ãƒ‹ãƒƒãƒˆãƒ†ã‚¹ãƒˆãƒãƒãƒ¼ã‚¸ãƒ£ã‚¯ãƒ©ã‚¹
  *
  *  @author     Takuya Ookubo <sfio@sakura.ai.to>
  *  @access     public
@@ -21,17 +21,17 @@ require_once('Ethna_UnitTestReporter.php');
  */
 class Ethna_UnitTestManager extends Ethna_AppManager
 {
-    /** @var    object  Ethna_Controller    ¥³¥ó¥È¥í¡¼¥é¥ª¥Ö¥¸¥§¥¯¥È */
+    /** @var    object  Ethna_Controller    ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ©ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ */
     var $ctl;
 
-    /** @var    array                       °ìÈÌ¥Æ¥¹¥È¥±¡¼¥¹ÄêµÁ */
+    /** @var    array                       ä¸€èˆ¬ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹å®šç¾© */
     var $testcase = array();
 
     /**
-     *  Ethna_UnitTestManager¤Î¥³¥ó¥¹¥È¥é¥¯¥¿
+     *  Ethna_UnitTestManagerã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
      *
      *  @access public
-     *  @param  object  Ethna_Backend   &$backend   Ethna_Backend¥ª¥Ö¥¸¥§¥¯¥È
+     *  @param  object  Ethna_Backend   &$backend   Ethna_Backendã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
      */
     function Ethna_UnitTestManager(&$backend)
     {
@@ -41,10 +41,10 @@ class Ethna_UnitTestManager extends Ethna_AppManager
     }
 
     /**
-     *  ÄêµÁºÑ¤ß¥¢¥¯¥·¥ç¥ó°ìÍ÷¤ò¼èÆÀ¤¹¤ë
+     *  å®šç¾©æ¸ˆã¿ã‚¢ã‚¯ã‚·ãƒ§ãƒ³ä¸€è¦§ã‚’å–å¾—ã™ã‚‹
      *
      *  @access public
-     *  @return array   ¥¢¥¯¥·¥ç¥ó°ìÍ÷
+     *  @return array   ã‚¢ã‚¯ã‚·ãƒ§ãƒ³ä¸€è¦§
      */
     function _getActionList()
     {
@@ -53,17 +53,17 @@ class Ethna_UnitTestManager extends Ethna_AppManager
     }
 
     /**
-     *  ¥¯¥é¥¹Ì¾¤«¤é¥Ó¥å¡¼Ì¾¤ò¼èÆÀ¤¹¤ë
+     *  ã‚¯ãƒ©ã‚¹åã‹ã‚‰ãƒ“ãƒ¥ãƒ¼åã‚’å–å¾—ã™ã‚‹
      *
      *  @access public
-     *  @param  string  $class_name     ¥Ó¥å¡¼¥¯¥é¥¹Ì¾
-     *  @return string  ¥¢¥¯¥·¥ç¥óÌ¾
+     *  @param  string  $class_name     ãƒ“ãƒ¥ãƒ¼ã‚¯ãƒ©ã‚¹å
+     *  @return string  ã‚¢ã‚¯ã‚·ãƒ§ãƒ³å
      */
     function viewClassToName($class_name)
     {
         $prefix = sprintf("%s_View_", $this->ctl->getAppId());
         if (preg_match("/$prefix(.*)/", $class_name, $match) == 0) {
-            // ÉÔÌÀ¤Ê¥¯¥é¥¹Ì¾
+            // ä¸æ˜ãªã‚¯ãƒ©ã‚¹å
             return null;
         }
         $target = $match[1];
@@ -74,12 +74,12 @@ class Ethna_UnitTestManager extends Ethna_AppManager
     }
 
     /**
-     *  »ØÄê¤µ¤ì¤¿¥¯¥é¥¹Ì¾¤ò·Ñ¾µ¤·¤Æ¤¤¤ë¤«¤É¤¦¤«¤òÊÖ¤¹
+     *  æŒ‡å®šã•ã‚ŒãŸã‚¯ãƒ©ã‚¹åã‚’ç¶™æ‰¿ã—ã¦ã„ã‚‹ã‹ã©ã†ã‹ã‚’è¿”ã™
      *
      *  @access private
-     *  @param  string  $class_name     ¥Á¥§¥Ã¥¯ÂĞ¾İ¤Î¥¯¥é¥¹Ì¾
-     *  @param  string  $parent_name    ¿Æ¥¯¥é¥¹Ì¾
-     *  @return bool    true:·Ñ¾µ¤·¤Æ¤¤¤ë false:¤¤¤Ê¤¤
+     *  @param  string  $class_name     ãƒã‚§ãƒƒã‚¯å¯¾è±¡ã®ã‚¯ãƒ©ã‚¹å
+     *  @param  string  $parent_name    è¦ªã‚¯ãƒ©ã‚¹å
+     *  @return bool    true:ç¶™æ‰¿ã—ã¦ã„ã‚‹ false:ã„ãªã„
      */
     function _isSubclassOf($class_name, $parent_name)
     {
@@ -93,11 +93,11 @@ class Ethna_UnitTestManager extends Ethna_AppManager
     }
 
     /**
-     *  ¥Ó¥å¡¼¥¹¥¯¥ê¥×¥È¤ò²òÀÏ¤¹¤ë
+     *  ãƒ“ãƒ¥ãƒ¼ã‚¹ã‚¯ãƒªãƒ—ãƒˆã‚’è§£æã™ã‚‹
      *
      *  @access private
-     *  @param  string  $script ¥Õ¥¡¥¤¥ëÌ¾
-     *  @return array   ¥Ó¥å¡¼¥¯¥é¥¹ÄêµÁ°ìÍ÷
+     *  @param  string  $script ãƒ•ã‚¡ã‚¤ãƒ«å
+     *  @return array   ãƒ“ãƒ¥ãƒ¼ã‚¯ãƒ©ã‚¹å®šç¾©ä¸€è¦§
      */
     function __analyzeViewScript($script)
     {
@@ -113,13 +113,13 @@ class Ethna_UnitTestManager extends Ethna_AppManager
         }
         fclose($fp);
 
-        // ¥È¡¼¥¯¥ó¤ËÊ¬³ä¤·¤Æ¥¯¥é¥¹ÄêµÁ¾ğÊó¤ò¼èÆÀ
+        // ãƒˆãƒ¼ã‚¯ãƒ³ã«åˆ†å‰²ã—ã¦ã‚¯ãƒ©ã‚¹å®šç¾©æƒ…å ±ã‚’å–å¾—
         $token_list = token_get_all($source);
         for ($i = 0; $i < count($token_list); $i++) {
             $token = $token_list[$i];
 
             if ($token[0] == T_CLASS) {
-                // ¥¯¥é¥¹ÄêµÁ³«»Ï
+                // ã‚¯ãƒ©ã‚¹å®šç¾©é–‹å§‹
                 $i += 2;
                 $class_name = $token_list[$i][1];       // should be T_STRING
                 if ($this->_isSubclassOf($class_name, 'Ethna_ViewClass')) {
@@ -140,11 +140,11 @@ class Ethna_UnitTestManager extends Ethna_AppManager
     }
 
     /**
-     *  ¥Ç¥£¥ì¥¯¥È¥ê°Ê²¼¤Î¥Ó¥å¡¼¥¹¥¯¥ê¥×¥È¤ò²òÀÏ¤¹¤ë
+     *  ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªä»¥ä¸‹ã®ãƒ“ãƒ¥ãƒ¼ã‚¹ã‚¯ãƒªãƒ—ãƒˆã‚’è§£æã™ã‚‹
      *
      *  @access private
-     *  @param  string  $action_dir     ²òÀÏÂĞ¾İ¤Î¥Ç¥£¥ì¥¯¥È¥ê
-     *  @return array   ¥Ó¥å¡¼¥¯¥é¥¹ÄêµÁ°ìÍ÷
+     *  @param  string  $action_dir     è§£æå¯¾è±¡ã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª
+     *  @return array   ãƒ“ãƒ¥ãƒ¼ã‚¯ãƒ©ã‚¹å®šç¾©ä¸€è¦§
      */
     function __analyzeViewList($view_dir = null)
     {
@@ -184,10 +184,10 @@ class Ethna_UnitTestManager extends Ethna_AppManager
     }
 
     /**
-     *  ÄêµÁºÑ¤ß¥Ó¥å¡¼°ìÍ÷¤ò¼èÆÀ¤¹¤ë
+     *  å®šç¾©æ¸ˆã¿ãƒ“ãƒ¥ãƒ¼ä¸€è¦§ã‚’å–å¾—ã™ã‚‹
      *
      *  @access public
-     *  @return array   ¥Ó¥å¡¼°ìÍ÷
+     *  @return array   ãƒ“ãƒ¥ãƒ¼ä¸€è¦§
      */
     function _getViewList()
     {
@@ -196,14 +196,14 @@ class Ethna_UnitTestManager extends Ethna_AppManager
 
         $r = array();
 
-        // ¥Æ¥ó¥×¥ì¡¼¥È/¥Ó¥å¡¼¥¹¥¯¥ê¥×¥È¤ò²òÀÏ¤¹¤ë
+        // ãƒ†ãƒ³ãƒ—ãƒ¬ãƒ¼ãƒˆ/ãƒ“ãƒ¥ãƒ¼ã‚¹ã‚¯ãƒªãƒ—ãƒˆã‚’è§£æã™ã‚‹
         $forward_list = $im->_analyzeForwardList();
         $view_list = $this->__analyzeViewList();
 
-        // ¥Ó¥å¡¼ÄêµÁ¥¨¥ó¥È¥ê°ìÍ÷
+        // ãƒ“ãƒ¥ãƒ¼å®šç¾©ã‚¨ãƒ³ãƒˆãƒªä¸€è¦§
         $manifest_forward_list = $im->_getForwardList_Manifest($forward_list);
 
-        // ¥Ó¥å¡¼ÄêµÁ¾ÊÎ¬¥¨¥ó¥È¥ê°ìÍ÷
+        // ãƒ“ãƒ¥ãƒ¼å®šç¾©çœç•¥ã‚¨ãƒ³ãƒˆãƒªä¸€è¦§
         $implicit_forward_list = $im->_getForwardList_Implicit($forward_list, $manifest_forward_list);
 
         $r = array_merge($view_list, $manifest_forward_list, $implicit_forward_list);
@@ -213,7 +213,7 @@ class Ethna_UnitTestManager extends Ethna_AppManager
     }
 
     /**
-     *  ¥¢¥¯¥·¥ç¥ó¥Æ¥¹¥È¥¯¥é¥¹¤ò¼èÆÀ¤¹¤ë
+     *  ã‚¢ã‚¯ã‚·ãƒ§ãƒ³ãƒ†ã‚¹ãƒˆã‚¯ãƒ©ã‚¹ã‚’å–å¾—ã™ã‚‹
      *
      *  @access private
      *  @return array
@@ -222,7 +222,7 @@ class Ethna_UnitTestManager extends Ethna_AppManager
     {
         $action_class_list = array_keys($this->_getActionList());
 
-        // ¥Æ¥¹¥È¤ÎÂ¸ºß¤¹¤ë¥¢¥¯¥·¥ç¥ó
+        // ãƒ†ã‚¹ãƒˆã®å­˜åœ¨ã™ã‚‹ã‚¢ã‚¯ã‚·ãƒ§ãƒ³
         foreach ($action_class_list as $key => $action_name) {
             $action_class = $this->ctl->getDefaultActionClass($action_name, false).'_TestCase';
             if (!class_exists($action_class)) {
@@ -234,7 +234,7 @@ class Ethna_UnitTestManager extends Ethna_AppManager
     }
 
     /**
-     *  ¥Ó¥å¡¼¥Æ¥¹¥È¥¯¥é¥¹¤ò¼èÆÀ¤¹¤ë
+     *  ãƒ“ãƒ¥ãƒ¼ãƒ†ã‚¹ãƒˆã‚¯ãƒ©ã‚¹ã‚’å–å¾—ã™ã‚‹
      *
      *  @access private
      *  @return array
@@ -243,7 +243,7 @@ class Ethna_UnitTestManager extends Ethna_AppManager
     {
         $view_class_list = array_keys($this->_getViewList());
 
-        // ¥Æ¥¹¥È¤ÎÂ¸ºß¤¹¤ë¥Ó¥å¡¼
+        // ãƒ†ã‚¹ãƒˆã®å­˜åœ¨ã™ã‚‹ãƒ“ãƒ¥ãƒ¼
         foreach ($view_class_list as $key => $view_name) {
             $view_class = $this->ctl->getDefaultViewClass($view_name, false).'_TestCase';
             if (!class_exists($view_class)) {
@@ -255,10 +255,10 @@ class Ethna_UnitTestManager extends Ethna_AppManager
     }
 
     /**
-     *  ¥æ¥Ë¥Ã¥È¥Æ¥¹¥È¤ò¼Â¹Ô¤¹¤ë
+     *  ãƒ¦ãƒ‹ãƒƒãƒˆãƒ†ã‚¹ãƒˆã‚’å®Ÿè¡Œã™ã‚‹
      *
      *  @access private
-     *  @return mixed   0:Àµ¾ï½ªÎ» Ethna_Error:¥¨¥é¡¼
+     *  @return mixed   0:æ­£å¸¸çµ‚äº† Ethna_Error:ã‚¨ãƒ©ãƒ¼
      */
     function run()
     {
@@ -267,7 +267,7 @@ class Ethna_UnitTestManager extends Ethna_AppManager
 
         $test =& new GroupTest("Ethna UnitTest");
 
-        // ¥¢¥¯¥·¥ç¥ó
+        // ã‚¢ã‚¯ã‚·ãƒ§ãƒ³
         foreach ($action_class_list as $action_name) {
             $action_class = $this->ctl->getDefaultActionClass($action_name, false).'_TestCase';
             $action_form = $this->ctl->getDefaultFormClass($action_name, false).'_TestCase';
@@ -276,14 +276,14 @@ class Ethna_UnitTestManager extends Ethna_AppManager
             $test->addTestCase(new $action_form($this->ctl));
         }
 
-        // ¥Ó¥å¡¼
+        // ãƒ“ãƒ¥ãƒ¼
         foreach ($view_class_list as $view_name) {
             $view_class = $this->ctl->getDefaultViewClass($view_name, false).'_TestCase';
 
             $test->addTestCase(new $view_class($this->ctl));
         }
 
-        // °ìÈÌ
+        // ä¸€èˆ¬
         foreach ($this->testcase as $class_name => $file_name) {
             $dir = $this->ctl->getBasedir().'/';
             include_once $dir . $file_name;
@@ -291,14 +291,14 @@ class Ethna_UnitTestManager extends Ethna_AppManager
             $test->addTestCase(new $testcase_name($this->ctl));
         }
 
-        // ActionForm¤Î¥Ğ¥Ã¥¯¥¢¥Ã¥×
+        // ActionFormã®ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—
         $af =& $this->ctl->getActionForm();
 
-        //½ĞÎÏ¤·¤¿¤¤·Á¼°¤Ë¤¢¤ï¤»¤ÆÀÚ¤êÂØ¤¨¤ë
+        //å‡ºåŠ›ã—ãŸã„å½¢å¼ã«ã‚ã‚ã›ã¦åˆ‡ã‚Šæ›¿ãˆã‚‹
         $reporter = new Ethna_UnitTestReporter();
         $test->run($reporter);
 
-        // ActionForm¤Î¥ê¥¹¥È¥¢
+        // ActionFormã®ãƒªã‚¹ãƒˆã‚¢
         $this->ctl->action_form =& $af;
         $this->backend->action_form =& $af;
         $this->backend->af =& $af;

@@ -10,7 +10,7 @@
 
 // {{{ {$project_id}_ActionClass
 /**
- *  action¼Â¹Ô¥¯¥é¥¹
+ *  actionå®Ÿè¡Œã‚¯ãƒ©ã‚¹
  *
  *  @author     {$author}
  *  @package    {$project_id}
@@ -19,10 +19,10 @@
 class {$project_id}_ActionClass extends Ethna_ActionClass
 {
     /**
-     *  ¥¢¥¯¥·¥ç¥ó¼Â¹ÔÁ°¤ÎÇ§¾Ú½èÍı¤ò¹Ô¤¦
+     *  ã‚¢ã‚¯ã‚·ãƒ§ãƒ³å®Ÿè¡Œå‰ã®èªè¨¼å‡¦ç†ã‚’è¡Œã†
      *
      *  @access public
-     *  @return string  Á«°ÜÌ¾(null¤Ê¤éÀµ¾ï½ªÎ», false¤Ê¤é½èÍı½ªÎ»)
+     *  @return string  é·ç§»å(nullãªã‚‰æ­£å¸¸çµ‚äº†, falseãªã‚‰å‡¦ç†çµ‚äº†)
      */
     function authenticate()
     {
@@ -30,10 +30,10 @@ class {$project_id}_ActionClass extends Ethna_ActionClass
     }
 
     /**
-     *  ¥¢¥¯¥·¥ç¥ó¼Â¹ÔÁ°¤Î½èÍı(¥Õ¥©¡¼¥àÃÍ¥Á¥§¥Ã¥¯Åù)¤ò¹Ô¤¦
+     *  ã‚¢ã‚¯ã‚·ãƒ§ãƒ³å®Ÿè¡Œå‰ã®å‡¦ç†(ãƒ•ã‚©ãƒ¼ãƒ å€¤ãƒã‚§ãƒƒã‚¯ç­‰)ã‚’è¡Œã†
      *
      *  @access public
-     *  @return string  Á«°ÜÌ¾(null¤Ê¤éÀµ¾ï½ªÎ», false¤Ê¤é½èÍı½ªÎ»)
+     *  @return string  é·ç§»å(nullãªã‚‰æ­£å¸¸çµ‚äº†, falseãªã‚‰å‡¦ç†çµ‚äº†)
      */
     function prepare()
     {
@@ -41,10 +41,10 @@ class {$project_id}_ActionClass extends Ethna_ActionClass
     }
 
     /**
-     *  ¥¢¥¯¥·¥ç¥ó¼Â¹Ô
+     *  ã‚¢ã‚¯ã‚·ãƒ§ãƒ³å®Ÿè¡Œ
      *
      *  @access public
-     *  @return string  Á«°ÜÌ¾(null¤Ê¤éÁ«°Ü¤Ï¹Ô¤ï¤Ê¤¤)
+     *  @return string  é·ç§»å(nullãªã‚‰é·ç§»ã¯è¡Œã‚ãªã„)
      */
     function perform()
     {
