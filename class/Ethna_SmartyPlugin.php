@@ -209,7 +209,7 @@ function smarty_modifier_unique($array, $key = null)
 /**
  *  smarty modifier:文字列のwordwrap処理
  *
- *  [現在EUC-JP対応はEUC-JPのみ対応]
+ *  [現在UTF-8対応はEUC-JPのみ対応]
  *
  *  sample:
  *  <code>
@@ -242,9 +242,9 @@ function smarty_modifier_wordwrap_i18n($string, $width, $break = "\n", $indent =
             continue;
         }
 
-        $s = mb_strimwidth($tmp, 0, $width, "", "EUC-JP");
+        $s = mb_strimwidth($tmp, 0, $width, "", "UTF-8");
 
-        // EUC-JPのみ対応
+        // UTF-8のみ対応
         $n = strlen($s);
         if ($n >= $width && $tmp{$n} != "" && $tmp{$n} != " ") {
             while ((ord($s{$n-1}) & 0x80) == 0) {

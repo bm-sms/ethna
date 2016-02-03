@@ -203,7 +203,6 @@ class Ethna_MailSender
         if (strtoupper(substr(PHP_OS, 0, 3)) == 'WIN') {
             $body = str_replace("\n", "\r\n", $body);
         }
-        $header_line = str_replace("\n", "\r\n", $header_line);
 
         // 送信
         foreach (to_array($to) as $rcpt) {
@@ -252,7 +251,7 @@ class Ethna_MailSender
             $header[$i][] = preg_replace('/([^\x00-\x7f]+)/e', "Ethna_Util::encode_MIME('$1')", $value);
         }
 
-        $body = mb_convert_encoding($body, "ISO-2022-JP");
+        $body = mb_convert_encoding($body, "JIS");
 
         return array($header, $body);
     }

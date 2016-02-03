@@ -418,7 +418,9 @@ class Ethna_Util
         {
             $tmp = mb_strimwidth($string, $pos, $split, "");
             $pos += mb_strlen($tmp);
-            $_string .= (($_string)? ' ' : '') . mb_encode_mimeheader($tmp, 'ISO-2022-JP');
+            $_str = (($_string)? ' ' : '') . mb_encode_mimeheader($tmp, 'JIS');
+            $_str = str_replace("\r\n", "\n", $_str);
+            $_string .= $_str;
         }
         return $_string;
     }
@@ -551,7 +553,7 @@ class Ethna_Util
      *  決して高速ではないので乱用は避けること
      *
      *  @access public
-     *  @param  int     $length ハッシュ値の長さ(〜64)
+     *  @param  int     $length ハッシュ値の長さ(～64)
      *  @return string  ハッシュ値
      */
     function getRandom($length = 64)
@@ -780,7 +782,7 @@ class Ethna_Util
      *
      *  @access public
      *  @param  string  $prefix     ファイルのプレフィクス
-     *  @param  int     $timeout    削除対象閾値(秒−60*60*1なら1時間)
+     *  @param  int     $timeout    削除対象閾値(秒－60*60*1なら1時間)
      */
     function purgeTmp($prefix, $timeout)
     {
@@ -813,7 +815,7 @@ class Ethna_Util
      *  @access public
      *  @param  string  $file       ロックするファイル名
      *  @param  int     $mode       ロックモード('r', 'rw')
-     *  @param  int     $timeout    ロック待ちタイムアウト(秒−0なら無限)
+     *  @param  int     $timeout    ロック待ちタイムアウト(秒－0なら無限)
      *  @return int     ロックハンドル(falseならエラー)
      */
     function lockFile($file, $mode, $timeout = 0)

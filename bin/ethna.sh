@@ -11,7 +11,9 @@ if test -z "$ETHNA_HOME"
 then
     if test "@PEAR-DIR@" = '@'PEAR-DIR'@'
     then
-        ETHNA_HOME="/usr/share/php/Ethna"
+        #ETHNA_HOME="/usr/share/php/Ethna"
+        #ETHNA_HOME="/usr/local/lib/php/Ethna"
+        ETHNA_HOME="/usr/share/pear/Ethna"
     else
         ETHNA_HOME="@PEAR-DIR@/Ethna"
     fi

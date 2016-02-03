@@ -6,7 +6,7 @@
  *  @author     Masaki Fujimoto <fujimoto@php.net>
  *  @license    http://www.opensource.org/licenses/bsd-license.php The BSD License
  *  @package    Ethna
- *  @version    $Id: Ethna_Plugin_Urlhandler.php 425 2006-11-21 09:29:00Z ichii386 $
+ *  @version    $Id$
  */
 
 // {{{ Ethna_Plugin_Urlhandler
