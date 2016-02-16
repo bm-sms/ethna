@@ -25,6 +25,9 @@
         "phpunit/phpunit": "3.7.*"
     },
     "autoload": {
-        "classmap": [ "Ethna.php" ]
+        "classmap": [
+          "Ethna.php",
+          "class"
+        ]
     }
 }
