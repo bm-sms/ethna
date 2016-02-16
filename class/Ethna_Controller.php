@@ -266,7 +266,7 @@ class Ethna_Controller
      *  @return object  Ethna_Controller    コントローラのインスタンス
      *  @static
      */
-    function &getInstance()
+    public static function &getInstance()
     {
         if (isset($GLOBALS['_Ethna_controller'])) {
             return $GLOBALS['_Ethna_controller'];
@@ -295,7 +295,7 @@ class Ethna_Controller
      *  @return mixed   true:OK Ethna_Error:NG
      *  @static
      */
-    function &checkAppId($id)
+    public static function &checkAppId($id)
     {
         $true = true;
         if (strcasecmp($id, 'ethna') === 0
@@ -323,7 +323,7 @@ class Ethna_Controller
      *  @return mixed   true:OK Ethna_Error:NG
      *  @static
      */
-    function &checkActionName($action_name)
+    public static function &checkActionName($action_name)
     {
         $true = true;
         if (preg_match('/^[a-zA-Z\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*/',
@@ -341,7 +341,7 @@ class Ethna_Controller
      *  @return mixed   true:OK Ethna_Error:NG
      *  @static
      */
-    function &checkViewName($view_name)
+    public static function &checkViewName($view_name)
     {
         $true = true;
         if (preg_match('/^[a-zA-Z\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*/',
@@ -788,7 +788,7 @@ class Ethna_Controller
      *  @param  mixed   $fallback_action_name   アクションが決定できなかった場合に実行されるアクション名(省略可)
      *  @static
      */
-    function main($class_name, $action_name = "", $fallback_action_name = "")
+    public static function main($class_name, $action_name = "", $fallback_action_name = "")
     {
         $c =& new $class_name;
         $c->trigger($action_name, $fallback_action_name);
@@ -804,7 +804,7 @@ class Ethna_Controller
      *  @param  bool    $enable_filter  フィルタチェインを有効にするかどうか
      *  @static
      */
-    function main_CLI($class_name, $action_name, $enable_filter = true)
+    public static function main_CLI($class_name, $action_name, $enable_filter = true)
     {
         $c =& new $class_name(GATEWAY_CLI);
         $c->action_cli[$action_name] = array();
@@ -818,7 +818,7 @@ class Ethna_Controller
      *  @access public
      *  @static
      */
-    function main_XMLRPC($class_name)
+    public static function main_XMLRPC($class_name)
     {
         if (extension_loaded('xmlrpc') == false) {
             die("xmlrpc extension is required to enable this gateway");
@@ -838,7 +838,7 @@ class Ethna_Controller
      *  @param  mixed   $fallback_action_name   アクションが決定できなかった場合に実行されるアクション名(省略可)
      *  @static
      */
-    function main_SOAP($class_name, $action_name = "", $fallback_action_name = "")
+    public static function main_SOAP($class_name, $action_name = "", $fallback_action_name = "")
     {
         $c =& new $class_name(GATEWAY_SOAP);
         $c->trigger($action_name, $fallback_action_name);
