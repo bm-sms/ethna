@@ -100,7 +100,7 @@ class Ethna_Logger extends Ethna_AppManager
 
     /**#@-*/
     // }}}
-    
+
     // {{{ Ethna_Logger
     /**
      *  Ethna_Loggerクラスのコンストラクタ
@@ -222,7 +222,7 @@ class Ethna_Logger extends Ethna_AppManager
      *  @return array   ログレベル(LOG_NOTICE,...), エラーレベル表示名("E_NOTICE"...)
      *  @static
      */
-    function errorLevelToLogLevel($errno)
+    public static function errorLevelToLogLevel($errno)
     {
         switch ($errno) {
         case E_ERROR:           $code = "E_ERROR"; $level = LOG_ERR; break;
@@ -260,7 +260,7 @@ class Ethna_Logger extends Ethna_AppManager
         foreach (array_keys($this->writer) as $key) {
             $this->writer[$key]->begin();
         }
-        
+
         $this->is_begin = true;
 
         // begin()以前のlog()を処理
@@ -418,7 +418,7 @@ class Ethna_Logger extends Ethna_AppManager
                            $this->controller->getAppId(),
                            substr($message, 0, 12),
                            strlen($message) > 12 ? "..." : "");
-        
+
         // 本文
         $mail = sprintf("--- [log message] ---\n%s\n\n", $message);
         if (function_exists("debug_backtrace")) {
