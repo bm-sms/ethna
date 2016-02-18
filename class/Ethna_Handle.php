@@ -42,7 +42,7 @@ class Ethna_Handle
      */
     function Ethna_Handle()
     {
-        $this->controller =& new Ethna_Controller(GATEWAY_CLI);
+        $this->controller = new Ethna_Controller(GATEWAY_CLI);
         Ethna::clearErrorCallback();
         Ethna::setErrorCallback(array('Ethna_Handle', 'handleError'));
 
@@ -138,7 +138,7 @@ class Ethna_Handle
         if ($ini_file === null) {
             return Ethna::raiseError('no .ethna file found');
         }
-        
+
         $macro = parse_ini_file($ini_file);
         if (isset($macro['controller_file']) == false
             || isset($macro['controller_class']) == false) {
@@ -158,7 +158,7 @@ class Ethna_Handle
         }
 
         $global_controller =& $GLOBALS['_Ethna_controller'];
-        $app_controller[$app_dir] =& new $class(GATEWAY_CLI);
+        $app_controller[$app_dir] = new $class(GATEWAY_CLI);
         $GLOBALS['_Ethna_controller'] =& $global_controller;
         Ethna::clearErrorCallback();
         Ethna::setErrorCallback(array('Ethna_Handle', 'handleError'));

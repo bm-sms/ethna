@@ -40,7 +40,7 @@ class Ethna_Renderer_Rhaco extends Ethna_Renderer
      * @access  protected
      */
     var $engine;
-    
+
     /**
      *  Ethna_Renderer_Rhacoクラスのコンストラクタ
      *
@@ -49,13 +49,13 @@ class Ethna_Renderer_Rhaco extends Ethna_Renderer
     function Ethna_Renderer_Rhaco(&$controller)
     {
         parent::Ethna_Renderer($controller);
-        
+
         $this->template_dir = $controller->getTemplatedir() . '/';
         $this->compile_dir = $controller->getDirectory('template_c');
 
         Rhaco::constant('TEMPLATE_PATH', $this->template_dir);
-        
-        $this->engine =& new TemplateParser_Ethna();
+
+        $this->engine = new TemplateParser_Ethna();
 
         /*
         $this->setTemplateDir($template_dir);
@@ -72,7 +72,7 @@ class Ethna_Renderer_Rhaco extends Ethna_Renderer
 
         $this->_setDefaultPlugin();
     }
-    
+
     /**
      *  ビューを出力する
      *
@@ -103,10 +103,10 @@ class Ethna_Renderer_Rhaco extends Ethna_Renderer
             return Ethna::raiseWarning('template not found ' . $this->template);
         }
     }
-    
+
     /**
      * テンプレート変数を取得する
-     * 
+     *
      *  @todo fixme
      *  @access public
      *  @param string $name  変数名
@@ -125,7 +125,7 @@ class Ethna_Renderer_Rhaco extends Ethna_Renderer
 
     /**
      *  テンプレート変数を削除する
-     * 
+     *
      *  @param name    変数名
      *  @todo
      *  @access public
@@ -137,7 +137,7 @@ class Ethna_Renderer_Rhaco extends Ethna_Renderer
 
     /**
      *  テンプレート変数に配列を割り当てる
-     * 
+     *
      *  @param array $array
      *  @access public
      */
@@ -148,7 +148,7 @@ class Ethna_Renderer_Rhaco extends Ethna_Renderer
 
     /**
      *  テンプレート変数に配列を参照として割り当てる
-     * 
+     *
      *  @param array $array
      *  @todo no implement
      *  @access public
@@ -160,10 +160,10 @@ class Ethna_Renderer_Rhaco extends Ethna_Renderer
 
     /**
      *  テンプレート変数を割り当てる
-     * 
+     *
      *  @param string $name 変数名
      *  @param mixed $value 値
-     * 
+     *
      *  @access public
      */
     function setProp($name, $value)
@@ -173,7 +173,7 @@ class Ethna_Renderer_Rhaco extends Ethna_Renderer
 
     /**
      *  テンプレート変数に参照を割り当てる
-     * 
+     *
      *  @access public
      *  @todo fixme
      *  @param string $name 変数名
@@ -249,7 +249,7 @@ class Ethna_Renderer_Rhaco extends Ethna_Renderer
         $this->setPlugin('csrfid','function','smarty_function_csrfid');
 
         // default blocks
-        $this->setPlugin('form','block','smarty_block_form');       
+        $this->setPlugin('form','block','smarty_block_form');
 
         $this->engine->setSmartyPluginList($this->getPluginList());
     }
@@ -268,7 +268,7 @@ class TemplateParser_Ethna extends TemplateParser
      * @access  protected
      */
     var $smarty_plugin_list = array();
-    
+
     /**
      * fake property for Smaty
      *
@@ -310,7 +310,7 @@ class TemplateParser_Ethna extends TemplateParser
         $smarty_plugin_list = $this->getSmartyPluginList();
 
         foreach($smarty_plugin_list as $name => $plugin_config) {
-            
+
             while ($tag->set($src, $this->_getTagName($name))) {
 
                 if ($plugin_config['type'] == 'function') {
@@ -323,7 +323,7 @@ class TemplateParser_Ethna extends TemplateParser
                     );
 
                 } else if ($plugin_config['type'] == 'block') {
-                    
+
                     $repeat_before = true;
                     $repeat_after = false;
                     $param_list = $tag->getParameter();

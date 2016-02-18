@@ -13,7 +13,7 @@
 // {{{ Ethna_Plugin
 /**
  *  プラグインクラス
- *  
+ *
  *  @author     ICHII Takashi <ichii386@schweetheart.jp>
  *  @author     Kazuhiro Hosoi <hosoi@gree.co.jp>
  *  @access     public
@@ -182,7 +182,7 @@ class Ethna_Plugin
         }
 
         // プラグイン作成
-        $instance =& new $plugin_class($this->controller, $type, $name);
+        $instance = new $plugin_class($this->controller, $type, $name);
         if (is_object($instance) == false
             || strcasecmp(get_class($instance), $plugin_class) != 0) {
             $this->logger->log(LOG_WARNING, 'plugin [%s::%s] instantiation failed', $type, $name);

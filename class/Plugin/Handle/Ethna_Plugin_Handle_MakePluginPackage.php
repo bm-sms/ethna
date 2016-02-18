@@ -136,7 +136,7 @@ class Ethna_Plugin_Handle_MakePluginPackage extends Ethna_Plugin_Handle
 
 
         // パッケージ作成
-        $this->pear =& new Ethna_PearWrapper();
+        $this->pear = new Ethna_PearWrapper();
         $this->pear->init('master');
         foreach ($targets as $target) {
             $this->_makePackage($skelfile, $setting[$target], "$workdir/$target");
@@ -188,7 +188,7 @@ class Ethna_Plugin_Handle_MakePluginPackage extends Ethna_Plugin_Handle
             'changelogoldtonew' => false,
             );
 
-        $packagexml =& new PEAR_PackageFileManager2();
+        $packagexml = new PEAR_PackageFileManager2();
 
         $pkgconfig = array_merge($pkgconfig, $setting['config']);
         $packagexml->setOptions($pkgconfig);

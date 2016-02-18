@@ -137,7 +137,7 @@ class Ethna_PearWrapper
      *  config for master.
      *
      *  @return true|Ethna_Error
-     *  @access private 
+     *  @access private
      */
     function &_setMasterConfig()
     {
@@ -162,7 +162,7 @@ class Ethna_PearWrapper
      *  config for local.
      *
      *  @return true|Ethna_Error
-     *  @access private 
+     *  @access private
      */
     function &_setLocalConfig()
     {
@@ -297,7 +297,7 @@ class Ethna_PearWrapper
      *  @param  string  $command    'install' or 'upgrade'
      *  @param  string  $package    package string
      *  @return true|Ethna_Error
-     *  @access private 
+     *  @access private
      */
     function &_doInstallOrUpgrade($command, $package)
     {
@@ -309,7 +309,7 @@ class Ethna_PearWrapper
         return $true;
     }
     // }}}
-        
+
     // {{{ doInstall
     /**
      *  do install
@@ -324,7 +324,7 @@ class Ethna_PearWrapper
         if ($state !== null) {
             $pkg = "{$pkg}-{$state}";
         }
-        $r =& $this->_doInstallOrUpgrade('install', $pkg); 
+        $r =& $this->_doInstallOrUpgrade('install', $pkg);
         return $r;
     }
     // }}}
@@ -338,7 +338,7 @@ class Ethna_PearWrapper
      */
     function &doInstallFromTgz($pkg_file)
     {
-        $r =& $this->_doInstallOrUpgrade('install', $pkg_file); 
+        $r =& $this->_doInstallOrUpgrade('install', $pkg_file);
         return $r;
     }
     // }}}
@@ -371,7 +371,7 @@ class Ethna_PearWrapper
      */
     function &doUpgradeFromTgz($pkg_file)
     {
-        $r =& $this->_doInstallOrUpgrade('upgrade', $pkg_file); 
+        $r =& $this->_doInstallOrUpgrade('upgrade', $pkg_file);
         return $r;
     }
     // }}}
@@ -452,7 +452,7 @@ class Ethna_PearWrapper
     function &getPackageNameFromTgz($filename)
     {
         $config =& PEAR_Config::singleton();
-        $packagefile =& new PEAR_PackageFile($config);
+        $packagefile = new PEAR_PackageFile($config);
         $info =& $packagefile->fromTgzFile($filename, PEAR_VALIDATE_NORMAL);
         if (PEAR::isError($info)) {
             return $info;
@@ -568,7 +568,7 @@ class Ethna_PearWrapper
      *  @param  array   $options    options
      *  @param  array   $params     parameters
      *  @return true|Ethna_Error
-     *  @access private 
+     *  @access private
      *  @see PEAR_Command_Common::run, etc.
      */
     function &_run($command, $options, $params)
@@ -668,7 +668,7 @@ class Ethna_PearWrapper
         }
         return $opts;
     }
-                
+
 
     // }}}
 }

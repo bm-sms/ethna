@@ -38,7 +38,7 @@ class Ethna_UnitTestManager extends Ethna_AppManager
         parent::Ethna_AppManager($backend);
         $this->ctl =& Ethna_Controller::getInstance();
         $this->class_factory =& $this->ctl->getClassFactory();
-        $this->testcase = array_merge($this->testcase, $this->_getTestCaseList()); 
+        $this->testcase = array_merge($this->testcase, $this->_getTestCaseList());
     }
 
     /**
@@ -112,7 +112,7 @@ class Ethna_UnitTestManager extends Ethna_AppManager
      */
     function _getActionList()
     {
-        $im =& new Ethna_InfoManager($this->backend);
+        $im = new Ethna_InfoManager($this->backend);
         return $im->getActionList();
     }
 
@@ -255,7 +255,7 @@ class Ethna_UnitTestManager extends Ethna_AppManager
      */
     function _getViewList()
     {
-        $im =& new Ethna_InfoManager($this->backend);
+        $im = new Ethna_InfoManager($this->backend);
         //$view_class_list = array_keys($im->getForwardList());
 
         $r = array();
@@ -329,7 +329,7 @@ class Ethna_UnitTestManager extends Ethna_AppManager
         $action_class_list = $this->_getTestAction();
         $view_class_list = $this->_getTestView();
 
-        $test =& new GroupTest("Ethna UnitTest");
+        $test = new GroupTest("Ethna UnitTest");
 
         // アクション
         foreach ($action_class_list as $action_name) {

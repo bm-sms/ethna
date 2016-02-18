@@ -343,7 +343,7 @@ class Ethna_Backend
         $forward_name = null;
 
         $action_class_name = $this->controller->getActionClassName($action_name);
-        $this->action_class =& new $action_class_name($this);
+        $this->action_class = new $action_class_name($this);
         $this->ac =& $this->action_class;
 
         // アクションの実行
@@ -398,7 +398,7 @@ class Ethna_Backend
 
         $class_factory =& $this->controller->getClassFactory();
         $db_class_name = $class_factory->getObjectName('db');
-        
+
         // BC: Ethna_DB -> Ethna_DB_PEAR
         if ($db_class_name == 'Ethna_DB') {
             $db_class_name = 'Ethna_DB_PEAR';
@@ -407,7 +407,7 @@ class Ethna_Backend
             $class_factory->_include($db_class_name);
         }
 
-        $this->db_list[$db_varname] =& new $db_class_name($this->controller, $dsn, $dsn_persistent);
+        $this->db_list[$db_varname] = new $db_class_name($this->controller, $dsn, $dsn_persistent);
         $r = $this->db_list[$db_varname]->connect();
         if (Ethna::isError($r)) {
             $this->db_list[$db_varname] = null;

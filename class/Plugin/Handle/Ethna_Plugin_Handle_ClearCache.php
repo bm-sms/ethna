@@ -31,7 +31,7 @@ class Ethna_Plugin_Handle_ClearCache extends Ethna_Plugin_Handle
      */
     function perform()
     {
-        $r =& $this->_getopt(array('basedir=', 
+        $r =& $this->_getopt(array('basedir=',
                                    'any-tmp-files', 'smarty', 'pear', 'cachemanager'));
         if (Ethna::isError($r)) {
             return $r;
@@ -65,8 +65,8 @@ class Ethna_Plugin_Handle_ClearCache extends Ethna_Plugin_Handle
         if (isset($args['pear']) || isset($args['any-tmp-files'])) {
             echo "cleaning pear caches...";
             ob_start();
-            $pear =& new Ethna_PearWrapper();
-            $r =& $pear->init('local', $basedir); 
+            $pear = new Ethna_PearWrapper();
+            $r =& $pear->init('local', $basedir);
             if (Ethna::isError($r)) {
                 echo ob_get_clean();
                 return $r;

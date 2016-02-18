@@ -21,15 +21,15 @@ require_once ETHNA_BASE . '/class/Ethna_PearWrapper.php';
  *  @access     private
  *  @package    Ethna
  */
-class Ethna_PearConfig_Local extends Ethna_PearWrapper 
+class Ethna_PearConfig_Local extends Ethna_PearWrapper
 {
 
-    // {{{ _setLocalConfig 
+    // {{{ _setLocalConfig
     /**
      *  config for local.
      *
      *  @return true|Ethna_Error
-     *  @access private 
+     *  @access private
      */
     function &_setLocalConfig()
     {
@@ -105,7 +105,7 @@ class Ethna_PearConfig_Local extends Ethna_PearWrapper
     }
     // }}}
 
-    // {{{ getConfFile 
+    // {{{ getConfFile
     /**
      *    return local config filename.
      */
@@ -128,7 +128,7 @@ class Ethna_PearConfig_Local extends Ethna_PearWrapper
  */
 class Ethna_Plugin_Handle_PearLocal extends Ethna_Plugin_Handle
 {
-    // {{{ _parseArgList() 
+    // {{{ _parseArgList()
     /**
      * @access private
      */
@@ -178,7 +178,7 @@ class Ethna_Plugin_Handle_PearLocal extends Ethna_Plugin_Handle
         $basedir = isset($args['basedir']) ? realpath($args['basedir']) : getcwd();
         $channel = isset($args['channel']) ? $args['channel'] : 'dummy';
 
-        $pear_local =& new Ethna_PearConfig_Local();
+        $pear_local = new Ethna_PearConfig_Local();
         $r =& $pear_local->init('local', $basedir, $channel);
         if (Ethna::isError($r)) {
             return $r;

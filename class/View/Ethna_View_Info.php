@@ -33,7 +33,7 @@ class Ethna_View_Info extends Ethna_ViewClass
     function preforward()
     {
         $ctl =& Ethna_Controller::getInstance();
-        $em =& new Ethna_InfoManager($this->backend);
+        $em = new Ethna_InfoManager($this->backend);
 
         // cores
         $this->af->setApp('app_id', $ctl->getAppId());
@@ -42,7 +42,7 @@ class Ethna_View_Info extends Ethna_ViewClass
         // actions
         $this->af->setApp('action_list', $em->getActionList());
 
-        // views 
+        // views
         $this->af->setApp('forward_list', $em->getForwardList());
 
         // configuration

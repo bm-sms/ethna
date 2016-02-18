@@ -54,9 +54,9 @@ class Ethna_View_UnitTest extends Ethna_ViewClass
 
         // run
         $r = sprintf("%s_UnitTestManager", $ctl->getAppId());
-        $ut =& new $r($this->backend);
+        $ut = new $r($this->backend);
         list($report, $result) = $ut->run();
-        
+
         // result
         $this->af->setApp('report', $report);
         $this->af->setApp('result', $result);

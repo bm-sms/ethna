@@ -74,7 +74,7 @@ class Ethna_Plugin_Handle_InstallPlugin extends Ethna_Plugin_Handle
             return $args;
         }
 
-        $pear =& new Ethna_PearWrapper();
+        $pear = new Ethna_PearWrapper();
         if (isset($args['pearopt'])) {
             $pear->setPearOpt($args['pearopt']);
         }

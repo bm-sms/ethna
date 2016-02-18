@@ -41,7 +41,7 @@ class Ethna_Plugin_Handle_ListPlugin extends Ethna_Plugin_Handle
         $type = isset($args['type']) ? end($args['type']) : null;
 
         // prepare PearWrapper object.
-        $pear =& new Ethna_PearWrapper();
+        $pear = new Ethna_PearWrapper();
         $r =& $pear->init($target, $basedir, $channel);
         if (Ethna::isError($r)) {
             return $r;

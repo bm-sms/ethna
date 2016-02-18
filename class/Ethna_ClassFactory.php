@@ -32,7 +32,7 @@ class Ethna_ClassFactory
 
     /** @var    object  Ethna_Controller    controllerオブジェクト(省略形) */
     var $ctl;
-    
+
     /** @var    array   クラス定義 */
     var $class = array();
 
@@ -94,7 +94,7 @@ class Ethna_ClassFactory
             return $obj;  //  include 失敗。戻り値はNULL。
         }
 
-        //  メソッド情報を集める 
+        //  メソッド情報を集める
         if (isset($this->method_list[$class_name]) == false) {
             $this->method_list[$class_name] = get_class_methods($class_name);
             for ($i = 0; $i < count($this->method_list[$class_name]); $i++) {
@@ -113,7 +113,7 @@ class Ethna_ClassFactory
         //  1. メソッドに getInstance があればキャッシュを利用可能と判断する
         //     この場合、シングルトンかどうかは getInstance 次第
         //  2. weak が true であれば、キャッシュは利用不能と判断してオブジェクトを再生成
-        //  3. weak が false であれば、キャッシュは利用可能と判断する(デフォルト) 
+        //  3. weak が false であれば、キャッシュは利用可能と判断する(デフォルト)
         if ($this->_isCacheAvailable($class_name, $this->method_list[$class_name], $weak)) {
             if (isset($this->manager[$type]) && is_object($this->manager[$type])) {
                 return $this->manager[$type];
@@ -125,7 +125,7 @@ class Ethna_ClassFactory
             $obj = call_user_func(array($class_name, 'getInstance'));
         } else {
             $backend =& $this->controller->getBackend();
-            $obj =& new $class_name($backend);
+            $obj = new $class_name($backend);
         }
 
         //  生成したオブジェクトはとりあえずキャッシュする
@@ -142,7 +142,7 @@ class Ethna_ClassFactory
      *
      *  @access public
      *  @param  string  $key    [Appid]_Controller#class に定められたクラスキー
-     *                          このキーは大文字小文字を区別する 
+     *                          このキーは大文字小文字を区別する
      *                          (配列のキーとして使われているため)
      *  @param  bool    $ext    オブジェクトが未生成の場合の強制生成フラグ(default: false)
      *  @return object  生成されたオブジェクト(エラーならnull)
@@ -171,16 +171,16 @@ class Ethna_ClassFactory
             }
         }
 
-        //  AppObject をはじめに扱う 
+        //  AppObject をはじめに扱う
         //  AppObject はキャッシュされないことに注意
         if (isset($this->class[$key]) == false) {
             $backend =& $this->controller->getBackend();
-            $object =& new $class_name($backend, $key_type, $key_value, $prop);
+            $object = new $class_name($backend, $key_type, $key_value, $prop);
             return $object;
         }
 
         //  Ethna_Controllerで定義されたクラスキーの場合
-        //  はメソッド情報を集める 
+        //  はメソッド情報を集める
         if (isset($this->method_list[$class_name]) == false) {
             $this->method_list[$class_name] = get_class_methods($class_name);
             for ($i = 0; $i < count($this->method_list[$class_name]); $i++) {
@@ -194,7 +194,7 @@ class Ethna_ClassFactory
         //  1. メソッドに getInstance があればキャッシュを利用可能と判断する
         //     この場合、シングルトンかどうかは getInstance 次第
         //  2. weak が true であれば、キャッシュは利用不能と判断してオブジェクトを再生成
-        //  3. weak が false であれば、キャッシュは利用可能と判断する(デフォルト) 
+        //  3. weak が false であれば、キャッシュは利用可能と判断する(デフォルト)
         if ($this->_isCacheAvailable($class_name, $this->method_list[$class_name], $weak)) {
             if (isset($this->object[$key]) && is_object($this->object[$key])) {
                 return $this->object[$key];
@@ -208,7 +208,7 @@ class Ethna_ClassFactory
         } else if (in_array("getinstance", $this->method_list[$class_name])) {
             $object = call_user_func(array($class_name, 'getInstance'));
         } else {
-            $object =& new $class_name();
+            $object = new $class_name();
         }
 
         //  クラスキーに定められたクラスのインスタンスは
@@ -245,7 +245,7 @@ class Ethna_ClassFactory
      */
     function &_getObject_Backend($class_name)
     {
-        $_ret_object =& new $class_name($this->ctl);
+        $_ret_object = new $class_name($this->ctl);
         return $_ret_object;
     }
 
@@ -258,7 +258,7 @@ class Ethna_ClassFactory
      */
     function &_getObject_Config($class_name)
     {
-        $_ret_object =& new $class_name($this->ctl);
+        $_ret_object = new $class_name($this->ctl);
         return $_ret_object;
     }
 
@@ -271,7 +271,7 @@ class Ethna_ClassFactory
      */
     function &_getObject_I18n($class_name)
     {
-        $_ret_object =& new $class_name($this->ctl->getDirectory('locale'), $this->ctl->getAppId());
+        $_ret_object = new $class_name($this->ctl->getDirectory('locale'), $this->ctl->getAppId());
         return $_ret_object;
     }
 
@@ -284,7 +284,7 @@ class Ethna_ClassFactory
      */
     function &_getObject_Logger($class_name)
     {
-        $_ret_object =& new $class_name($this->ctl);
+        $_ret_object = new $class_name($this->ctl);
         return $_ret_object;
     }
 
@@ -297,7 +297,7 @@ class Ethna_ClassFactory
      */
     function &_getObject_Plugin($class_name)
     {
-        $_ret_object =& new $class_name($this->ctl);
+        $_ret_object = new $class_name($this->ctl);
         return $_ret_object;
     }
 
@@ -310,7 +310,7 @@ class Ethna_ClassFactory
      */
     function &_getObject_Renderer($class_name)
     {
-        $_ret_object =& new $class_name($this->ctl);
+        $_ret_object = new $class_name($this->ctl);
         return $_ret_object;
     }
 
@@ -323,7 +323,7 @@ class Ethna_ClassFactory
      */
     function &_getObject_Session($class_name)
     {
-        $_ret_object =& new $class_name($this->ctl->getAppId(), $this->ctl->getDirectory('tmp'), $this->ctl->getLogger());
+        $_ret_object = new $class_name($this->ctl->getAppId(), $this->ctl->getDirectory('tmp'), $this->ctl->getLogger());
         return $_ret_object;
     }
 
@@ -336,7 +336,7 @@ class Ethna_ClassFactory
      */
     function &_getObject_Sql($class_name)
     {
-        $_ret_object =& new $class_name($this->ctl);
+        $_ret_object = new $class_name($this->ctl);
         return $_ret_object;
     }
 

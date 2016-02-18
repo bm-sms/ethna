@@ -171,7 +171,7 @@ class Ethna_ViewClass
                     'action form for the action [%s] not found.', $action);
                 return;
             }
-            $this->helper_action_form[$action] =& new $form_name($ctl);
+            $this->helper_action_form[$action] = new $form_name($ctl);
         }
 
         //   動的フォームを設定するためのヘルパメソッドを呼ぶ
@@ -424,7 +424,7 @@ class Ethna_ViewClass
         } else if (is_array($source)) {
             return $source;
         }
-        
+
         // 選択肢を取得
         $options = null;
         $split = array_map("trim", explode(',', $source));
@@ -467,7 +467,7 @@ class Ethna_ViewClass
     function _getFormInput_Button($name, $def, $params)
     {
         $params['type'] = 'button';
-        
+
         if (isset($def['type'])) {
             $params['name'] = is_array($def['type']) ? $name . '[]' : $name;
         } else {

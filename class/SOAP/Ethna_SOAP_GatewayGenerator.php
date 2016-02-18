@@ -15,7 +15,7 @@
  *
  *  @author     Masaki Fujimoto <fujimoto@php.net>
  *  @access     public
- *  @package    Ethna   
+ *  @package    Ethna
  */
 class Ethna_SOAP_GatewayGenerator
 {
@@ -117,7 +117,7 @@ class Ethna_SOAP_GatewayGenerator
         $entry = "";
         foreach ($this->controller->soap_action as $k => $v) {
             $action_form_name = $this->controller->getActionFormName($k);
-            $form =& new $action_form_name($this->controller);
+            $form = new $action_form_name($this->controller);
             $arg_list = array_keys($form->form);
 
             $entry .= "  function $k(";
@@ -134,7 +134,7 @@ class Ethna_SOAP_GatewayGenerator
             foreach ($arg_list as $arg) {
                 $entry .= "    \$_POST['$arg'] = \$$arg;\n";
             }
-            
+
             $entry .= "    \$this->dispatch();\n";
 
             $entry .= "    \$app =& \$this->getApp();\n";
