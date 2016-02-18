@@ -1,5 +1,5 @@
 <?php
-// vim: foldmethod=marker
+
 /**
  *  Ethna_View_Info.php
  *

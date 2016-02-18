@@ -1,5 +1,5 @@
 <?php
-// vim: foldmethod=marker tabstop=4 shiftwidth=4 autoindent
+
 /**
  *  Ethna_Plugin_Urlhandler.php
  *

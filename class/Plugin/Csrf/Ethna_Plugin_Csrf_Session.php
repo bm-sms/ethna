@@ -1,5 +1,5 @@
 <?php
-// vim: foldmethod=marker
+
 /**
  *  Ethna_Plugin_Csrf_Session.php
  *
