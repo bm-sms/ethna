@@ -339,7 +339,7 @@ class Ethna
      *                を含む場合のみ TRUEを返します。
      *  @static
      */
-    function isError($data, $msgcode = NULL)
+    public static function isError($data, $msgcode = NULL)
     {
         if (!is_object($data)) {
             return false;

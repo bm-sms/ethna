@@ -195,11 +195,11 @@ class Ethna_Util
     {
         $c =& Ethna_Controller::getInstance();
         $name = $c->config->get('csrf');
-        
+
         if (is_null($name)) {
             $name = 'Session';
         }
-        
+
         $plugin =& $c->getPlugin('Csrf', $name);
         $csrf =& $plugin->getPlugin('Csrf', $name);
         return $csrf->isValid();
@@ -217,11 +217,11 @@ class Ethna_Util
     {
         $c =& Ethna_Controller::getInstance();
         $name = $c->config->get('csrf');
-        
+
         if (is_null($name)) {
             $name = 'Session';
         }
-        
+
         $plugin =& $c->getPlugin('Csrf', $name);
         $csrf =& $plugin->getPlugin('Csrf', $name);
         return $csrf->set();
@@ -570,7 +570,7 @@ class Ethna_Util
         // open_basedir が空なら許可されていると看做す
         $devfile = '/proc/net/dev';
         $open_basedir_conf = ini_get('open_basedir');
-        $devfile_enabled = (empty($open_basedir_conf) 
+        $devfile_enabled = (empty($open_basedir_conf)
                         || (preg_match('#:/proc#', $open_basedir_conf) > 0
                         ||  preg_match('#^/proc#', $open_basedir_conf) > 0));
 
@@ -625,7 +625,7 @@ class Ethna_Util
     function get2dArray($array, $m, $order)
     {
         $r = array();
-        
+
         $n = intval(count($array) / $m);
         if ((count($array) % $m) > 0) {
             $n++;
@@ -826,7 +826,7 @@ class Ethna_Util
      *  @param  int     $timeout    ロック待ちタイムアウト(秒−0なら無限)
      *  @return int     ロックハンドル(falseならエラー)
      */
-    function lockFile($file, $mode, $timeout = 0)
+    public static function lockFile($file, $mode, $timeout = 0)
     {
         if (file_exists($file) === false) {
             touch($file);
@@ -861,7 +861,7 @@ class Ethna_Util
      *  @access public
      *  @param  int     $lh     ロックハンドル
      */
-    function unlockFile($lh)
+    public static function unlockFile($lh)
     {
         fclose($lh);
     }
@@ -875,7 +875,7 @@ class Ethna_Util
      *  @param  array   $bt     debug_backtrace()関数で取得したバックトレース
      *  @return string  文字列にフォーマットされたバックトレース
      */
-    function formatBacktrace($bt) 
+    function formatBacktrace($bt)
     {
         $r = "";
         $i = 0;
