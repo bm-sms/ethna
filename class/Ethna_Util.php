@@ -662,7 +662,7 @@ class Ethna_Util
      *  @param  string  $path
      *  @return bool    true:絶対パス false:相対パス
      */
-    function isAbsolute($path)
+    public static function isAbsolute($path)
     {
         if (preg_match("/\.\./", $path)) {
             return false;
