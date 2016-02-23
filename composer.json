@@ -25,7 +25,8 @@
         "phpunit/phpunit": "3.7.*"
     },
     "autoload": {
-        "files": ["Ethna.php"]
+        "files": ["Ethna.php"],
+        "classmap": ["class"]
     },
     "extra": {
         "branch-alias": {
