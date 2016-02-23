@@ -1,6 +1,6 @@
 {
     "name": "bm-sms/ethna",
-    "version": "2.5.1",
+    "version": "2.5.1-dev",
     "description": "web application framework.",
     "type": "library",
     "keywords": [ "framework", "ethna" ],
@@ -26,5 +26,10 @@
     },
     "autoload": {
         "files": ["Ethna.php"]
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-2.5": "2.5.x-dev"
+        }
     }
 }
