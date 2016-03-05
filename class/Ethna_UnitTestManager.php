@@ -132,7 +132,7 @@ class Ethna_UnitTestManager extends Ethna_AppManager
         }
         $target = $match[1];
 
-        $action_name = substr(preg_replace('/([A-Z])/e', "'_' . strtolower('\$1')", $target), 1);
+        $action_name = substr(preg_replace_callback('/([A-Z])/', function ($m) { return '_' . strtolower($m[1]); }, $target), 1);
 
         return $action_name;
     }

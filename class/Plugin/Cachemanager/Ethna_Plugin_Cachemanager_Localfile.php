@@ -246,7 +246,7 @@ class Ethna_Plugin_Cachemanager_Localfile extends Ethna_Plugin_Cachemanager
                 }
             }
         }
-        
+
         return sprintf("%s/cache/%s/cache_%s/%s/%s", $this->backend->getTmpdir(), $dir, $this->_escape($namespace), $this->_escape($dir1), $this->_escape($dir2));
     }
 
@@ -267,7 +267,7 @@ class Ethna_Plugin_Cachemanager_Localfile extends Ethna_Plugin_Cachemanager
      */
     function _escape($string)
     {
-        return preg_replace('/([^0-9A-Za-z_])/e', "sprintf('%%%02X', ord('\$1'))", $string);
+        return preg_replace_callback('/([^0-9A-Za-z_])/', function ($m) { return sprintf('%%%02X', ord($m[1])); }, $string);
     }
 }
 ?>

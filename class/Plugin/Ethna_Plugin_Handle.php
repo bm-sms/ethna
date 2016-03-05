@@ -14,7 +14,7 @@ require_once ETHNA_BASE . '/class/Ethna_Getopt.php';
 // {{{ Ethna_Plugin_Handle
 /**
  *  コマンドラインハンドラプラグインの基底クラス
- *  
+ *
  *  @author     Masaki Fujimoto <fujimoto@php.net>
  *  @access     public
  *  @package    Ethna
@@ -35,8 +35,8 @@ class Ethna_Plugin_Handle
     function Ethna_Plugin_Handle(&$controller, $type, $name)
     {
         $id = $name;
-        $id = preg_replace('/^([A-Z])/e', "strtolower('\$1')", $id);
-        $id = preg_replace('/([A-Z])/e', "'-' . strtolower('\$1')", $id);
+        $id = preg_replace_callback('/^([A-Z])/', function ($m) { return strtolower($m[1]); }, $id);
+        $id = preg_replace_callback('/([A-Z])/', function ($m) { return '-' . strtolower($m[1]); }, $id);
         $this->id = $id;
     }
 

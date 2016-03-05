@@ -134,7 +134,7 @@ class Ethna_MailSender
         // 添付ファイル (multipart)
         if ($attach !== null) {
             $attach = isset($attach[0]) ? $attach : array($attach);
-            $boundary = Ethna_Util::getRandom(); 
+            $boundary = Ethna_Util::getRandom();
             $body = "This is a multi-part message in MIME format.\n\n" .
                 "--$boundary\n" .
                 "Content-Type: text/plain; charset=iso-2022-jp\n" .
@@ -158,16 +158,14 @@ class Ethna_MailSender
                 if (isset($part['filename']) === false) {
                     $part['filename'] = $part['name'];
                 }
-                $part['name'] = preg_replace('/([^\x00-\x7f]+)/e',
-                    "Ethna_Util::encode_MIME('$1')", $part['name']); // XXX: rfc2231
-                $part['filename'] = preg_replace('/([^\x00-\x7f]+)/e',
-                    "Ethna_Util::encode_MIME('$1')", $part['filename']);
+                $part['name'] = preg_replace_callback('/([^\x00-\x7f]+)/', function ($m) { return Ethna_Util::encode_MIME($m[1]); }, $part['name']); // XXX: rfc2231
+                $part['filename'] = preg_replace_callback('/([^\x00-\x7f]+)/', function ($m) { return Ethna_Util::encode_MIME($m[1]); }, $part['filename']);
 
                 $body .=
                     "--$boundary\n" .
                     "Content-Type: " . $part['content-type'] . ";\n" .
                         "\tname=\"" . $part['name'] . "\"\n" .
-                    "Content-Transfer-Encoding: base64\n" . 
+                    "Content-Transfer-Encoding: base64\n" .
                     "Content-Disposition: attachment;\n" .
                         "\tfilename=\"" . $part['filename'] . "\"\n\n";
                 $body .= chunk_split(base64_encode($part['content']));
@@ -256,7 +254,7 @@ class Ethna_MailSender
             $i = strtolower($key);
             $header[$i] = array();
             $header[$i][] = $key;
-            $header[$i][] = preg_replace('/([^\x00-\x7f]+)/e', "Ethna_Util::encode_MIME('$1')", $value);
+            $header[$i][] = preg_replace_callback('/([^\x00-\x7f]+)/', function ($m) { return Ethna_Util::encode_MIME($m[1]); }, $value);
         }
 
         $body = mb_convert_encoding($body, "ISO-2022-JP");
