@@ -343,7 +343,7 @@ class Ethna_Backend
         $forward_name = null;
 
         $action_class_name = $this->controller->getActionClassName($action_name);
-        $this->action_class = new $action_class_name($this);
+        $this->action_class = $this->createAction($action_class_name);
         $this->ac =& $this->action_class;
 
         // アクションの実行
@@ -364,6 +364,11 @@ class Ethna_Backend
         $forward_name = $this->ac->perform();
 
         return $forward_name;
+    }
+
+    protected function createAction($action_class_name)
+    {
+        return new $action_class_name($this);
     }
 
     /**

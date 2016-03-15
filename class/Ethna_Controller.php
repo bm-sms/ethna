@@ -971,12 +971,17 @@ class Ethna_Controller
 
         if ($forward_name != null) {
             $view_class_name = $this->getViewClassName($forward_name);
-            $this->view = new $view_class_name($backend, $forward_name, $this->_getForwardPath($forward_name));
+            $this->view = $this->createView($view_class_name, $backend, $forward_name, $this->_getForwardPath($forward_name));
             $this->view->preforward();
             $this->view->forward();
         }
 
         return 0;
+    }
+
+    protected function createView($view_class_name, $backend, $forward_name, $forward_path)
+    {
+        return new $view_class_name($backend, $forward_name, $forward_path);
     }
 
     /**

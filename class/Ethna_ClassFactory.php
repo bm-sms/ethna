@@ -125,7 +125,7 @@ class Ethna_ClassFactory
             $obj = call_user_func(array($class_name, 'getInstance'));
         } else {
             $backend =& $this->controller->getBackend();
-            $obj = new $class_name($backend);
+            $obj = $this->createManager($class_name, $backend);
         }
 
         //  生成したオブジェクトはとりあえずキャッシュする
@@ -134,6 +134,11 @@ class Ethna_ClassFactory
         }
 
         return $obj;
+    }
+
+    protected function createManager($class_name, $backend)
+    {
+        return new $class_name($backend);
     }
 
     /**
