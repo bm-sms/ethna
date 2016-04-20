@@ -366,7 +366,7 @@ class Ethna
      *  @param  int     $code               エラーコード
      *  @static
      */
-    function &raiseError($message, $code = E_GENERAL)
+    public static function &raiseError($message, $code = E_GENERAL)
     {
         $userinfo = null;
         if (func_num_args() > 2) {
