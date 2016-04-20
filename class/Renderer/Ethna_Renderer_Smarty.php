@@ -8,7 +8,6 @@
  *  @package    Ethna
  *  @version    $Id$
  */
-require_once 'Smarty/Smarty.class.php';
 
 // {{{ Ethna_Renderer_Smarty
 /**
